@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block title %} Separation {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Separation </h3>
+
+
+    <table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> SEPARATION DATE </th>
+         <th> JOINING DATE</th>
+          <th> NAME & CODE </th>
+        <th> DESIGNATION</th>
+         <th> SEPARATION TYPE </th>
+          <th> VINTAGE  </th>
+          <th> ACTIONS </th>
+		 
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in separation %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.separation_date}} </td> 
+<td> {{ e.joining_date }} </td>
+<td> {{ e.firstname }} {{ e.lastname }} {{ e.employeno }}</td> 
+<td> {{ e. }} </td>
+<td> {{ e. </td> 
+<td> {{ e. }} </td> 
+
+
+<td> <a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp;
+
+
+		<a href="#">
+          <i class="fa fa-print"></i>
+        </a>  &nbsp; &nbsp;
+		<a href="" target="_blank" title="" class="btn btn-success btn-small"></a>
+
+
+		</td>
+
+
+          
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

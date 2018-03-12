@@ -1,0 +1,16 @@
+{% extends "base2.html" %}
+
+{% block title %} Biodata {% endblock %}
+
+{% block body_block %}
+{{ form.media }}
+<form action="." method="POST">
+    {% for field in form %}
+        {{ field.label_tag }}
+        {{ field }}
+    {% endfor %}
+    <input type="submit" value="Save"/>
+    {% csrf_token %}
+</form>
+{% endblock %}
+

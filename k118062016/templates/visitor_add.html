@@ -1,0 +1,124 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Visitor Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/visitor_management/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="visitor_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{visitor_form.errors}}
+
+								
+                                    <table class="table table-bordered table-responsive">
+                                        <tr>
+											<td>Visit Date</td>
+											<td>
+											<div class="col-md-5">
+											
+													<input type="text" class="form-control" name="date">
+												
+											</div>	
+											<div class="col-md-6">
+												<input type="text" name="time">
+												</div>
+												
+											</td>
+										</tr>
+										<tr>
+                                        	<td width='30%'>Name of the Visitor</td>
+                                            <td><input type="text" name="visitor_name" id="visitor_name" class="form-control" ></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>From (Company)</td>
+                                            <td><input type="text" name="from_company" id="from_company" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>From (Address)</td>
+                                            <td><textarea name="from_address" id="from_address" class="form-control"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>Contact Number</td>
+                                            <td><input type="text" name="contact_number" class="form-control" id="contact_number" maxlength="10"></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>Email ID</td>
+                                            <td><input type="text" name="emailid" id="emailid" class="form-control"></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>Whom To Meet</td>
+                                            <td>
+                                            
+                                            <select class="chosen-select" name="staff_guid" id="staff_guid" >
+                                            		<option value="">Select Employee</option>
+	{% for e in emp %}
+
+ <option value={{e.id}}>  {{ e.firstname}} {{ e.lastname}}</option>
+
+
+       {% endfor %}
+                                            </select></td>
+                                        </tr>
+										<tr>
+										<td>Status</td>
+										<td>
+										<select name="avaliability" id="avaliability" onChange="return changeavailable(this.value);" >
+										<option value="">Select Avaliability</option>
+										<option value="No">Not Available</option>
+										<option value="Yes">Available</option>
+										</select>
+										</td>
+										</tr>
+										<tr id="cheque" style="display:none;">
+                                        	<td>Alternate Person</td>
+                                            <td>
+                                            
+                                            <select class="chosen-select" name="alternate_person" id="alternate_person" >
+                                            		<option value="">Select Employee</option>
+                                                	
+
+
+                                            </select></td>
+                                        </tr>
+                                        <tr>
+                                        	<td>Purpose</td>
+                                            <td><textarea name="purpose" class="form-control" id="purpose"></textarea></td>
+                                        </tr>
+										
+										
+                                        <tr>
+                                        	
+                                            <td colspan="2" align="center">
+											<input type="submit" name="submit" value="Submit" class="btn btn-success" onClick="Submit();"></td>
+                                        </tr>
+                                        
+                                    </table>
+</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

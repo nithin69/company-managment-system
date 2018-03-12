@@ -1,0 +1,62 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Support Ticket Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/support/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="ticket_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{ticket_form.errors}}						<div class="row-fluid " >
+						
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label class="form-label">Subject</label>
+									<div class="controls">
+									<input type="hidden" name="id">
+										<input type="text" class="form-control" name="subject" id="subject"  required>
+									</div>
+								</div>
+							</div>	
+														
+							<div class="row">
+								<div class="form-group col-md-12">
+								<label class="form-label">Message</label>
+									<textarea id="message" name="message" style="margin-top: 30px;" ></textarea>								
+								</div>							
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-12">
+							 <input type="submit" name="updateapprove" value="Approve" class="btn btn-danger btn-cons btn-add">
+							</div></div>
+						</div>
+									</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

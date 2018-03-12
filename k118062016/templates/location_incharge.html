@@ -1,0 +1,72 @@
+{% extends "base2.html" %}
+
+{% block title %} Location Incharge {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Location Incharge </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> EMPLOYEE </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in location_incharge %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.employeno }} {{ e.firstname }} {{ e.lastname }} </td> 
+      
+<td>
+										<table class="table table-bordered">
+										<tbody><tr><th>Client Name</th>
+										   <th></th>
+										  										</tr><tr>
+										<td> </td>
+										<td>
+										<table class="table table-bordered">
+										<tbody><tr><th>Locations</th>
+										   <th>Date</th>
+										   <th>Actions</th>
+										 										</tr><tr>
+										<td> </td>
+										<td> </td>
+										<td>
+										
+										<a title="Delete" href="" onclick="return delete1();"><i class="fa fa-trash-o"></i></a>
+										</td>
+										</tr>
+																				</tbody></table>
+										
+										
+										</td>
+										</tr>
+										
+										
+										
+																				
+																				</tbody></table>
+										
+										
+										
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

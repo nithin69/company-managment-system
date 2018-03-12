@@ -1,0 +1,74 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add Loyality Bonus {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/loyality_bonus/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="task_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{loyality_form.errors}}
+					<table class="table table-bordered table-responsive">
+						<tr>
+						<td>Date</td>
+						<td>
+							<div class="input-append success date col-md-10 col-lg-6 no-padding">
+							<input type="text" class="form-control" name="date">
+							</div>
+						</td>
+						</tr>
+						<tr>
+							<td>Loyality Bonus</td>
+							<td><input type="text" name="loyality_bonous" id="loyality_bonous" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>Loyality Period</td>
+							<td>
+							<select class="chosen-select" name="loyality_period">
+							<option value="">Select Period</option>
+							<option value="6">6 months</option>
+							<option value="12">1 year</option>
+							<option value="24">2 Years</option>
+							<option value="36">3 Years</option>
+							<option value="48">4 Years</option>
+							<option value="60">5 Years</option>
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Descrption</td>
+							<td><input type="text" name="description" id="description" class="form-control"></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+						</tr>
+					</table>
+																			</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

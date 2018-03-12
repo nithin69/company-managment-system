@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Location Attendance Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+      {% if attendance %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                        <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Employee Details</th>
+                        <th>Month</th>
+			<th>Year</th>
+                        <th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th>7</th>
+                        <th>8</th>
+			
+			<th>9</th>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th>13</th>
+			<th>14</th>
+			<th>15</th>
+			<th>16</th>
+			<th>17</th>
+			<th>18</th>
+			<th>19</th>
+  			<th>20</th>
+			<th>21</th>
+			<th>22</th>
+			<th>23</th>
+			<th>24</th>
+			<th>25</th>
+			<th>26</th>
+			<th>27</th>
+			<th>28</th>
+			<th>29</th>
+			<th>30</th>
+			<th>31</th>
+                        <th>total_hours</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			{% for n in attendance %}
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.employee_id }}</td>
+                        <td>{{ n.month }}</td>
+			<td>{{ n.year }}</td>
+			<td>{{ n.one }}</td>
+			<td>{{ n.two }}</td>
+			<td>{{ n.three }}</td>
+        		
+			<td>{{ n.four }}</td>
+                        <td>{{ n.five }}</td>
+			<td>{{ n.six }}</td>			
+			<td>{{ n.seven }}</td>
+			<td>{{ n.eight}}</td>
+			<td>{{ n.nine }}</td>
+			<td>{{ n.ten }}</td>
+			<td>{{n.eleven}}</td>
+			<td>{{ n.twelve }}</td>
+			<td>{{ n.thirteen }}</td>
+			<td>{{ n.fourteen }}</td>
+    			<td>{{ n.fifteen }}</td>
+			<td>{{n.sixteen}}</td>
+			<td>{{ n.seventeen }}</td>
+			<td>{{ n.eightteen }}</td>
+			<td>{{ n.nineteen }}</td>
+                        <td>{{ n.twenty }}</td>
+			<td>{{ n.twentyone }}</td>			
+			<td>{{ n.twentytwo }}</td>
+			<td>{{ n.twentythree}}</td>
+			<td>{{ n.twentyfour }}</td>
+			<td>{{ n.twentyfive }}</td>
+			<td>{{n.twentysix}}</td>
+			<td>{{ n.twentyseven }}</td>
+			<td>{{ n.twentyeight }}</td>
+			<td>{{ n.twentynine }}</td>
+    			<td>{{ n.thirty }}</td>
+			<td>{{n.thirtyone}}</td>
+			<td>{{ n.total_hours }}</td>
+					</tr>
+			{% endfor %}
+			</tbody>
+			
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

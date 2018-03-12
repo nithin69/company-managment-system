@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Police Verification {% endblock %}
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+<div id="printId">
+
+				<div class="grid simple ">
+					<div class="grid-title no-border">
+  					
+						<h4>Police Verification :  {{ police_verification_id.firstname }} {{ police_verification_id.lastname }}</h4>
+						<div style="float:right"><a href="javascript:void(0);" onclick="javascript:printDiv('printId')" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</a></div>
+						
+				
+					</div>
+                    <div class="grid-body">
+					<div id="printIdpolice">
+					<div style='width:20%;float:left;'>&nbsp;</div>
+	<div style="width:58%;float:left; text-align:center;"><h3>APPLICATION-CUM-PERSONAL PARTICULARS FORM FOR POLICE VERIFICATION</h3></div>
+	<div style="width:20%;float:right;"><img style=" border: 5px double ; float:right; width:130px; height:140px;" src="/home/thiru/k1groups/media/{{police_verification_id.photo}}/" /></div>
+	<div style="clear:both;"></div>
+    <table class="table table-bordered" >
+        <tr>
+            <td> 1.</td>
+               
+            <td colspan="2">
+                Name of the Applicant
+                in full (Block Letters)</td>
+            <td colspan="8">{{ police_verification_id.firstname }} {{ police_verification_id.lastname }} &nbsp;</td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td colspan="2">Father/Husband Name</td>
+            <td colspan="8">
+			{{ police_verification_id.father_name }}
+            &nbsp;</td>
+        </tr>
+        <tr>
+            <td> 3.</td>
+            <td colspan="2"> Present Address in Full</td>
+            <td colspan="8">{{ police_verification_id.pre_village }}, {{ police_verification_id.pre_post }}, {{ police_verification_id.pre_dist }}, {{ police_verification_id.pre_state }}, {{ police_verification_id.pre_pincode }}</td>
+        </tr>
+        <tr>
+            <td>4.</td>
+            <td colspan="2"> Permanent Address in Full</td>
+            <td colspan="8">{{ police_verification_id.perm_village }}, {{ police_verification_id.perm_post }}, {{ police_verification_id.perm_dist }}, {{ police_verification_id.perm_state }}, {{ police_verification_id.perm_pincode }}</td>
+        </tr>
+        <tr>
+            <td rowspan="3">5.</td>
+            <td colspan="2" rowspan="3">Contact Nos.</td>
+            <td width="120px">(i)</td>
+            <td>Residence</td>
+            <td colspan="6">{{ police_verification_id.home_phone }}&nbsp;</td>
+        </tr>
+        <tr>
+            <td>(ii)</td>
+            <td>Office</td>
+            <td colspan="6">{{ police_verification_id.work_phone }}&nbsp;</td>
+        </tr>
+        <tr>
+            <td>(iii)</td>
+            <td>Mobile</td>
+            <td colspan="6">{{ police_verification_id.mobile }}&nbsp;</td>
+        </tr>
+        <tr>
+            <td>6.</td>
+            <td colspan="2">Date of Birth</td>
+            <td>{{ police_verification_id.dob }} &nbsp;</td>
+            <td> 7.</td>
+            <td colspan="3"> Place of Birth</td>
+            <td colspan="3">{{ police_verification_id.birthplace }}&nbsp;</td>
+        </tr>
+        <tr>
+            <td> 8.</td>
+            <td colspan="10">Family Particulars</td>
+        </tr>
+        <tr>
+            <td rowspan="6"> &nbsp;</td>
+            <td colspan="2">&nbsp;</td>
+            <td colspan="3"> Name</td>
+            <td colspan="5"> Present Address</td>
+        </tr>
+        <tr>
+            <td>(i)</td>
+            <td> Father</td>
+            <td colspan="3">{{ police_verification_id.father_name }}&nbsp;</td>
+            <td colspan="5">{{ police_verification_id.pre_village }}</td>
+        </tr>
+        <tr>
+            <td> (ii)</td>
+               
+            <td> Mother</td>
+               
+            <td colspan="3">{{ police_verification_id.mother_name }}
+                &nbsp;</td>
+            <td colspan="5">{{ police_verification_id.pre_post }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                (iii)</td>
+            <td>
+                Husband/Wife</td>
+            <td colspan="3">{{ police_verification_id.husband_wife }}
+                &nbsp;</td>
+            <td colspan="5">{{ police_verification_id.pre_policestation }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                (iv)</td>
+            <td>
+                Brother (s)</td>
+            <td colspan="3">{{ police_verification_id.brother }}
+                &nbsp;</td>
+            <td colspan="5">{{ police_verification_id.pre_state }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                (v)</td>
+            <td>
+                Sister (s)</td>
+            <td colspan="3">{{ police_verification_id.sister }}
+                &nbsp;</td>
+            <td colspan="5">{{ police_verification_id.pre_dist }}
+                &nbsp;</td>
+        </tr>
+		<!----education start--->
+        <tr>
+            <td>
+                9.</td>
+            <td colspan="10">
+                Educational paticulars of the applicant</td>
+        </tr>
+        <tr>
+            <td >
+                </td>
+            <td width="5%">
+                Sl No.</td>
+            <td colspan="3" width="35%">
+                School/College/University name and
+              
+                address (from High School or 10th
+               
+                Standard onwards)</td>
+            <td colspan="2" width="20%">
+                Date of
+                
+                Joining</td>
+            <td colspan="2" width="20%">
+                Date of Leaving</td>
+            <td colspan="2" width="20%">
+                Examination Passed</td>
+        </tr>
+		<?php
+			$yearval = $police['year'];
+			$school=$police['school_college'];
+			$exam=$police['exam_passed'];
+			$subject=$police['subjects'];
+			$division=$police['division'];
+$dateofjoining=$police['dateofjoining'];
+$dateofleaving=$police['dateofleaving'];
+			
+			$yearval1=rtrim($yearval,",");
+			
+			$year=explode(",",$yearval1);
+			$schoolval=explode(",",$school);
+			$examval=explode(",",$exam);
+			$subjectval=explode(",",$subject);
+			$divisionval=explode(",",$division);
+$dateofjoiningval=explode(",",$dateofjoining);
+$dateofleavingval=explode(",",$dateofleaving);
+			$i=1;
+			for($s = 0; $s < 4; $s++)
+			{								
+			?>
+				<tr>
+				<td>&nbsp;</td>
+                <td></td>               
+				<td colspan="3">{{police_verification_id.school_college }}</td>
+				<td colspan="2">{{police_verification_id.dateofjoining}}</td>
+				<td colspan="2">{{police_verification_id.dateofleaving}}</td>
+				<td colspan="2">{{police_verification_id.exam_passed}}</td>
+				<!--<td><input type="text" name="division<?php //echo ($s+1)?>" class="form-control" value="<?php// echo $divisionval[$s]?>"></td>-->
+				</tr>
+			<?php	
+			$i++;			
+			}
+			?>
+     
+       </table>
+<table class="table table-bordered" >
+        <tr>
+            <td width="4%"> 10.</td>
+            <td colspan="2" width="36%"> Present Occupation</td>
+            <td colspan="8" width="60%">{{ police_verification_id.parent_occupation }}&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                11.</td>
+            <td colspan="2">
+                Full Name &amp; Address of the<br />
+                Employer or Contact Nos.</td>
+            <td colspan="8" style="height:100px"><!--<?php // echo $details['company_name']?><br/>
+							<p><?php // echo $details['address']?><br/>
+							Phone:<?php // echo $details['phone']?> | 
+							Fax:<?php // echo $details['fax']?><br/>
+							Email:<?php // echo $details['email']?></p> --></td>
+        </tr>
+        <tr>
+            <td>
+                12.</td>
+            <td colspan="2">
+                Identification Mark<br />
+                (Visible)</td>
+            <td colspan="8">{{ police_verification_id.identification_marks }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                13.</td>
+            <td colspan="2">
+                Have you ever been arrested/<br />
+                prosecuted/convicted/detained?<br />
+                if so give details</td>
+            <td colspan="8">{{ police_verification_id.arrested_details }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                14.</td>
+            <td colspan="2">
+                Purpose for requiring the<br />
+                verification certificate</td>
+            <td colspan="8">{{ police_verification_id.requiring_certificate }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                15.</td>
+            <td colspan="2">
+                Period of verification required<br />
+                (Specify D/M/Y)</td>
+            <td colspan="8">{{ police_verification_id.verification_period }}
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                16.</td>
+            <td colspan="2">
+                Place of stay during the
+                above period</td>
+            <td colspan="8">
+                {{ police_verification_id.staying_place }}</td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                17.</td>
+            <td colspan="2" rowspan="2">
+                Name and address of two
+               
+                eminent persons of your
+                locality (place of verification)
+                who know you</td>
+            <td colspan="8">
+                (i) {{ police_verification_id.eminent_persons }}</td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                (ii) {{ police_verification_id.eminent_persons2 }}</td>
+        </tr>
+    </table>
+
+    <p>
+ 
+        I hereby&nbsp; certify that the aforementioned information is correct and 
+        completer to the best of my knowledge and belief</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        Place :
+	</p>
+	 <p style="float:right;">
+<span class="printhide">{{ police_verification_id.emp_sign }} <img src="/media/{{police_verification_id.emp_sign}}" style="width:200px;height:70px;margin-top:10px;" title="Signature" /></span><br/>
+        Full Signature of the applicant
+		</p>
+    <p>
+        Date :</p>
+    <p>
+        Note :</p>
+    <p>
+        &nbsp;</p>
+   <div> APPLICATION SHOULD ATTACH THE FOLLOWING WITH THIS APPLICATION</div>
+
+   <div>1. DD/IPO of Rs 50/-(Fifty) payable to Addl.DCP(D.DO.).O/o the Commissioner of Police. Bhubaneswar-Cuttack,Bhubaneswar/Treasury Challan of Rs. 50/- Under Head of Account &nbsp;&nbsp;&nbsp;"0055-Police-103-Fees.fines and forefeitures-0014-Collection of fees and fines 02024-Collection of receipts towards fees,fines & forfeitures". </div>
+   <div>2. Color Passport size photograph to be passed on the front page space specified.</div>
+   <div>3. Attested Xerox copy of Residential Proof(Electricity Bill/Telephone Bill)</div>
+   <div>4. Attested Xerox copy of Identity Proof (Voter I-Card/Ration Card/ Passport/Driving Licence/ PanCard etc. </div>
+   <div>5. One Complete from Xerox set.</div>
+   </div>
+   </div>
+   </div>
+   </div>
+</div>
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html moznomarginboxes mozdisallowselectionprint ><head><title>K1-Security Invoice</title></head><body>" + divElements + "</body></html>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+           document.body.innerHTML = oldPage;
+			
+			
+        }
+</script>
+{% endblock %}

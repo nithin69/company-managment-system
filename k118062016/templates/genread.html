@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+
+{% block title %} Entry Objects {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+<a href="/genobj/{{ modelname }}/edit/{{ genid }}" role="button" class="btn btn-warning">Click To Edit</a>
+
+
+<a href="/genobj/{{ modelname }}/edit/{{ genid }}" role="button" class="btn btn-warning">Delete </a>
+
+
+
+<h2> {{ page_title|capfirst }}  </h2>
+          <table id = "mytable" class="table table-hover table-bordered table-striped table-condensed">
+
+
+ <h3>  ID : {{ genid }}  </h3>
+
+{% for field in objfields %}
+      <tr>
+        <th> {{ field.label }}  </th>
+        <td>  {{ field.data }}</td>
+        </tr>
+
+
+
+
+{% endfor %}
+
+
+
+      
+          </table>
+
+</div>
+{% endblock %}

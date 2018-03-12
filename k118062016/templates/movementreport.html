@@ -1,0 +1,102 @@
+{% extends "base2.html" %}
+ {% load static %}
+
+  
+{% block title %}Employee Movement Report{% endblock %}
+
+
+{% block body_block %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/movementreport/">
+<select method="get" name="q" class="form-control">
+<option value="" selected="selected">Select job Status</option>
+<option value="Permanent">Permanent</option>
+<option value="Temporary">Temporary</option>
+</select>
+<input type="submit" value="search" class="tfbutton">
+<!--<form id="tfnewsearch" method="get" action="/movementreport/">
+<select class="chosen-select" name="name" id="emp_name_id" method="get" required="">
+<option value="">Select Employee</option>
+{% for e in emp %}
+<option value="{{ e.id}}">  {{ e.firstname}} {{ e.lastname}}</option>
+{% endfor %}							
+								
+							
+									  							</select>
+
+<input type="submit" value="search" class="tfbutton">-->
+</form>
+    
+      {% if movement %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                         <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Employee</th>
+			<th>Designation</th>
+			<th>Client</th>
+			<th>Location Name</th>
+			<th>Location Address</th>
+                        <th>Status</th>
+			<th>Job Status</th>
+			<th>Order Date</th>
+			<th>Order Time</th>
+			<th>From Date</th>
+			<th>To Date</th>
+			<th>Location Incharge</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			{% for n in movement %}
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.emp_name }}</td>
+			<td>{{ n.designation }}</td>
+			<td>{{ n.client_id }}</td>
+                        <td>{{ n.work_order }}</td>
+			<td>{{ n.work_order }}</td>			
+			<td>{{ n.emp_status }}</td>
+			<td>{{ n.job_status }}</td>
+			<td>{{ n.order_date }}</td>
+			<td>{{ n.order_time }}</td>
+			<td>{{ n.from_date }}</td>
+			<td>{{ n.to_date }}</td>
+			<td>{{ n.to_date }}</td>
+			
+			
+			
+			</tr>
+			{% endfor %}
+			</tbody>
+			
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

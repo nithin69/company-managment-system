@@ -1,0 +1,159 @@
+      {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Client Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/manage_clients/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="client_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{client_form.errors}}                     
+						<table class="table" >
+						<tr>
+							<td>Entry Date</td>
+							<td>	
+								<div class="input-append success date">
+								<input type="text" class="form-control" id="entry_date" name="entry_date">
+								
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Client Name</td>
+							<td><input type="text" name="client_name" id="client_name" class="form-control" required></td>
+						</tr>
+						
+						<tr>
+							<td>Username</td>
+							<td>
+								<input type="text" class="form-control" id="username" name="username" required>
+							</td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td>
+								<input type="password" class="form-control" id="password" name="password" required>
+							</td>
+						</tr>
+						<tr>
+							<td>Deployment Date</td>
+							<td>	
+								<div class="input-append success date">
+								<input type="text" class="form-control" id="guard_deployement" name="guard_deployement" required>
+								
+								</div>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Agreement Period</td>
+							<td>	
+								 <div class="input-append success date col-md-4">
+								<input type="text" class="form-control" id="from_date" name="from_date" placeholder="From Date" required>
+								
+								</div>
+								<div class="col-md-1"></div>
+								 <div class="input-append success date col-md-4">
+								<input type="text" class="form-control" id="to_date" name="to_date" placeholder="To Date" required>
+								
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>Managing Director</td>
+							<td><input type="text" class="form-control" name="propreitor" required></td>
+						</tr>
+						<tr>
+							<td>Authorised Person</td>
+							<td><input type="text" class="form-control" name="authorised_person" required></td>
+						</tr>
+						<tr>
+							<td>Designation</td>
+							<td><input type="text" class="form-control" name="auth_designation" required></td>
+						</tr>
+						<tr>
+							<td>Pan No</td>
+							<td><input type="text" class="form-control" name="panno" required></td>
+						</tr>
+						<tr>
+							<td>Tan No</td>
+							<td><input type="text" class="form-control" name="tanno" required></td>
+						</tr>
+													
+						
+						<tr>
+							<td>Email</td>
+							<td><input type="text" class="form-control" name="email" required></td>
+						</tr>
+						<tr>
+							<td>Telephone No.</td>
+							<td><input type="text" class="form-control" name="telephone" required></td>
+						</tr>
+						<tr>
+							<td>Mobile No.</td>
+							<td><input type="text" class="form-control" name="mobile" required></td>
+						</tr>
+						<tr>
+							<td>Address</td>
+							<td><textarea type="text" name="address" class="form-control" required></textarea></td>
+						</tr>
+						<tr>
+							<td>City</td>
+							<td><input type="text" class="form-control" name="city" required></td>
+						</tr>
+						<tr>
+							<td>State</td>
+							<td><input type="text" class="form-control" name="state" required></td>
+						</tr>
+						<tr>
+							<td>Zip Code</td>
+							<td><input type="text" class="form-control" name="zipcode" required>	</td>
+						</tr>
+						<tr>
+							<td>ServiceTax</td>
+					<td>
+					<select name="stax" id="stax" class="chosen-select" required>
+					<option value="">Select Tax</option>
+					<option value="Tax Applicable">Tax Applicable</option>
+					<option value="Tax Not Applicable">Tax Not Applicable</option>
+					</select>
+					</td>
+						</tr>
+						
+						
+						
+						</table>
+						
+                     
+						<input type="submit" name="SubmitSub" value="Submit" class="btn btn-success">
+                          
+						</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

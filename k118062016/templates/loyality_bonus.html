@@ -1,0 +1,52 @@
+{% extends "base2.html" %}
+
+{% block title %} Loyality Bonus {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/loyality_bonus_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Loyality Bonus </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE</th>
+         <th> LOYALITY BONUS </th>
+          	  <th> LOYALITY PERIOD </th>
+		<th> DESCRIPTION </th>
+		<th> ACTIONS </th>
+			
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in loyality %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.loyality_bonous }} </td>
+<td> {{ e.loyality_period }} </td>
+<td> {{ e.description }} </td> 
+<td> <a href="/loyality_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/loyality_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Payment Field Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+      {% if payment %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                        <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Employee Details</th>
+                        <th>From Date</th>
+			<th>Month</th>
+			<th>Year</th>
+			<th>Days Work</th>
+			<th>Total Hours</th>
+			<th>Gross Salary</th>
+			<th>Basic</th>
+                        <th>HRA</th>
+			
+			<th>Washing</th>
+			<th>Conv</th>
+			<th>Incentive</th>
+			<th>Total</th>
+			<th>EPF</th>
+			<th>ESI</th>
+			<th>Other REcovery</th>
+			<th>Others</th>
+			<th>Total</th>
+			<th>Net Pay</th>
+			<th>Location</th>
+			</tr>
+			</thead>
+			
+			<tbody>
+			{% for n in payment %}
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.pome_emloyees_id }}</td>
+			<td>{{ n.from_date }}</td>
+			<td>{{ n.month }}</td>
+			<td>{{ n.year }}</td>
+			<td>{{ n.work_days }}</td>
+        		
+			<td>{{ n.total_hours }}</td>
+                        <td>{{ n.cal_basic }}</td>
+			<td>{{ n.basic }}</td>			
+			<td>{{ n.hra }}</td>
+			<td>{{ n.washing}}</td>
+			<td>{{ n.conveyance }}</td>
+			<td>{{ n.bonus }}</td>
+			<td>{{n.annual_bonus}}</td>
+			<td>{{ n.epf }}</td>
+			<td>{{ n.esi }}</td>
+			<td>{{ n.fines }}</td>
+    			<td>{{ n.other_deductions }}</td>
+			<td>{{n.total_deductions}}</td>
+			<td>{{ n.net_pay }}</td>
+			<td>{{ n.work_order }}</td>                         
+			
+			
+			
+			</tr>
+			{% endfor %}
+			</tbody>
+			
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

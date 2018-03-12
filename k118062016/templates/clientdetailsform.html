@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Client Details Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/clientdetailsreport/">
+
+<select class="chosen-select" name="q" id="client_name_id" required="">
+								<option value="">Select Client</option>
+	{% for e in client %}
+
+ <option value="{{ e.client_name}}">{{ e.client_name}}</option>
+
+
+       {% endfor %}							
+								
+							
+</select>
+
+<input type="submit" value="search" class="tfbutton">
+
+</div>
+    
+{% endblock %}

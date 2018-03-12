@@ -1,0 +1,109 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add Task {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/task_management/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="task_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{task_form.errors}}
+								<table class="table table-bordered table-responsive">
+									<tr>
+										<td width="180px">Date & Time</td>
+										<td>
+										<div class="col-md-5">
+											<div class="input-append success date">
+												<input type="text" class="form-control" name="assigned_on">
+					 
+											</div>
+										</div>	
+										<div class="col-md-6">
+											<input class="timepicker" type="text" name="assigned_time">
+											</div>
+											
+										</td>
+									</tr>
+									<tr>
+										<td>Task Name</td>
+										<td><input type="text" name="name" id="name" class="form-control">
+										<font size="2">(Maximum characters: 35)<br>
+										
+										<span name="countdown"></span>
+										</font>
+										</td>
+									</tr>
+									<tr>
+										<td>Description</td>
+										<td><textarea name="descpt" id="descpt" class="form-control"></textarea></td>
+									</tr>
+									<tr>
+										<td>Assign To</td>
+										<td>
+										<select name="assignto" id="assignto" class="chosen-select" multiple="multiple" style="width:100%">
+										<option value="">Select Employee</option>
+{% for e in emp %}
+
+ <option value={{e.id}}>  {{ e.firstname}} {{ e.lastname}}</option>
+
+
+    {% endfor%}																				</select>
+										</td>
+									</tr>
+									<tr>
+									<td>Completion Schedule</td>
+									<td><div class="col-md-5">
+											<div class="input-append success date">
+												<input type="text" class="form-control" name="start_date">
+												 
+											</div>
+										</div>	
+										<div class="col-md-6">
+											<input class="timepicker" type="text" name="starttime" >
+											</div></td>
+									</tr>
+									<tr>
+									<td>Priority</td>
+									<td>
+									<select name="priority" class="chosen-select" required>
+									<option value="">Select Priority</option>
+									<option value="Normal">Normal</option>
+									<option value="High">High</option>
+									<option value="Urgent">Urgent</option>
+									</select>
+									</td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+									</tr>
+									
+								</table>
+							</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

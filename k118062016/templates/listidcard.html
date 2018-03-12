@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+
+{% block title %}Employee Id Card {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Employee Id Card </h3>
+
+  
+  
+  	<table id = "myTable" class="table table-bordered table-responsive">
+								
+								<thead>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Emp Code</th>
+											<th>Actions</th>
+								</thead>
+									
+								{% for id in ids %}
+								
+								<tr>
+								  <td> {{id.firstname }} </td>
+								 <td> {{id.lastname }}  </td>
+								 <td> {{id.employeno }} </td>
+								
+								 <td> <a class="btn btn-success btn-small" href="/getidcard/{{id.id}}/"><i class="fa fa-eye"></i> View Id Card</a>  </td>
+								
+									
+								{% endfor %}
+								
+								
+								</table>
+		
+
+</div>
+{% endblock %}

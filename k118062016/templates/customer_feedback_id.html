@@ -1,0 +1,504 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Customer Feedback {% endblock %}
+
+{% block content_title %}
+
+<div id="printId">
+
+
+	<h2>Customer Feedback </h2>
+
+<div style="float:right"><a href="javascript:void(0);" onclick="javascript:printDiv('printId')" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</a></div>
+
+	<table class="table table-bordered table-responsive">
+		<tr>
+			<td>Customer Name</td>
+		
+			<td> {{ customer_feedback_id.customer_id }}</td>
+	
+		</tr>
+		<tr>
+			<td>Customer Address</td>
+			<td>{{ customer_feedback_id.work_order_no }}</td>
+		</tr>
+		<tr>
+			<td>Date</td>
+			<td>{{ customer_feedback_id.date}}</td>
+		</tr>
+		<tr>
+		
+			<td>How do you rate the performance of In-Charge ?</td>
+			<td>
+				
+
+					{% if customer_feedback_id.incharge_perform == '5' %}
+					
+					<input id="incharge_perform" type="radio" name="incharge_perform" checked  value = "5">5
+
+					<input id="incharge_perform" type="radio" name="incharge_perform" value="4">4
+
+					<input id="incharge_perform" type="radio" name="incharge_perform" value="3">3
+
+		
+					<input id="incharge_perform" type="radio" name="incharge_perform" value="2">2
+
+
+					<input id="incharge_perform" type="radio" name="incharge_perform" value="1">1
+				
+					{% elif customer_feedback_id.incharge_perform == '4'  %}
+				
+					<input id="incharge_perform" type="radio" name="incharge_perform"  value = "5">5
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" checked value="4">4
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="3">3
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="2">2
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="1">1
+
+					{% elif customer_feedback_id.incharge_perform == '3'  %}
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform"  value = "5">5
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="4">4
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" checked value="3">3
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="2">2
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="1">1
+				
+					{% elif customer_feedback_id.incharge_perform == '2'  %}
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform"  value = "5">5
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform"  value="4">4
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="3">3
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" checked  value="2">2
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="1">1
+
+
+					{% else %}
+			
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform"  value = "5">5
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" checked value="4">4
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="3">3
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="2">2
+
+
+                                        <input id="incharge_perform" type="radio" name="incharge_perform" value="1">1
+
+
+					{% endif %}
+			</td>
+		</tr>
+		<tr>
+
+					<td>How do you rate the performance of Guard ?</td>
+			<td>
+
+				{% if customer_feedback_id.guard_perform == '5' %}
+				<input id="guard_perform" type="radio" name="guard_perform" checked  value="5" >5
+				<input id="guard_perform" type="radio" name="guard_perform" value="4" >4
+				<input id="guard_perform" type="radio" name="guard_perform" value="3" >3
+				<input id="guard_perform" type="radio" name="guard_perform" value="2" >2
+				<input id="guard_perform" type="radio" name="guard_perform" value="1">1
+
+				{% elif customer_feedback_id.guard_perform == '4' %}
+                                <input id="guard_perform" type="radio" name="guard_perform" value="5" >5
+                                <input id="guard_perform" type="radio" name="guard_perform" checked value="4" >4
+                                <input id="guard_perform" type="radio" name="guard_perform" value="3" >3
+                                <input id="guard_perform" type="radio" name="guard_perform" value="2" >2
+                                <input id="guard_perform" type="radio" name="guard_perform" value="1">1
+
+				{% elif customer_feedback_id.guard_perform == '3' %}
+                                <input id="guard_perform" type="radio" name="guard_perform" value="5" >5
+                                <input id="guard_perform" type="radio" name="guard_perform" value="4" >4
+                                <input id="guard_perform" type="radio" name="guard_perform" checked value="3" >3
+                                <input id="guard_perform" type="radio" name="guard_perform" value="2" >2
+                                <input id="guard_perform" type="radio" name="guard_perform" value="1">1
+		
+				{% elif customer_feedback_id.guard_perform == '2' %}
+                                <input id="guard_perform" type="radio" name="guard_perform" value="5" >5
+                                <input id="guard_perform" type="radio" name="guard_perform" value="4" >4
+                                <input id="guard_perform" type="radio" name="guard_perform" value="3" >3
+                                <input id="guard_perform" type="radio" name="guard_perform" checked value="2" >2
+                                <input id="guard_perform" type="radio" name="guard_perform"  value="1">1
+
+				{% else %}
+                                <input id="guard_perform" type="radio" name="guard_perform" value="5" >5
+                                <input id="guard_perform" type="radio" name="guard_perform" checked value="4" >4
+                                <input id="guard_perform" type="radio" name="guard_perform" value="3" >3
+                                <input id="guard_perform" type="radio" name="guard_perform" value="2" >2
+                                <input id="guard_perform" type="radio" name="guard_perform" checked  value="1">1
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>How do you rate the dress up ?</td>
+			<td>
+
+				 {% if customer_feedback_id.dressup_rate == '5' %}
+				<input id="dressup_rate" type="radio" name="dressup_rate" checked  value="5">5
+				<input id="dressup_rate" type="radio" name="dressup_rate"  value="4">4
+				<input id="dressup_rate" type="radio" name="dressup_rate"  value="3">3
+				<input id="dressup_rate" type="radio" name="dressup_rate" value="2">2
+				<input id="dressup_rate" type="radio" name="dressup_rate"  value="1">1
+			
+				 {% elif customer_feedback_id.dressup_rate == '4' %}
+				 <input id="dressup_rate" type="radio" name="dressup_rate" value="5">5
+                                <input id="dressup_rate" type="radio" name="dressup_rate" checked  value="4">4
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="3">3
+                                <input id="dressup_rate" type="radio" name="dressup_rate" value="2">2
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="1">1
+				
+				{% elif customer_feedback_id.dressup_rate == '3' %}
+                                 <input id="dressup_rate" type="radio" name="dressup_rate" value="5">5
+                                <input id="dressup_rate" type="radio" name="dressup_rate"   value="4">4
+                                <input id="dressup_rate" type="radio" name="dressup_rate" checked  value="3">3
+                                <input id="dressup_rate" type="radio" name="dressup_rate" value="2">2
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="1">1
+				
+
+				{% elif customer_feedback_id.dressup_rate == '2' %}
+                                 <input id="dressup_rate" type="radio" name="dressup_rate" value="5">5
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="4">4
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="3">3
+                                <input id="dressup_rate" type="radio" name="dressup_rate" checked  value="2">2
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="1">1
+			
+				{% else %}
+                                 <input id="dressup_rate" type="radio" name="dressup_rate" value="5">5
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="4">4
+                                <input id="dressup_rate" type="radio" name="dressup_rate"  value="3">3
+                                <input id="dressup_rate" type="radio" name="dressup_rate" value="2">2
+                                <input id="dressup_rate" type="radio" name="dressup_rate" checked  value="1">1
+	
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>How do you rate the maintenance of record & communication ?</td>
+			<td>
+
+				{% if customer_feedback_id.record_communicate == '5' %}
+				<input id="record_communicate" type="radio" name="record_communicate" checked  value="5">5
+				<input id="record_communicate" type="radio" name="record_communicate" value="4">4
+				<input id="record_communicate" type="radio" name="record_communicate" value="3">3
+				<input id="record_communicate" type="radio" name="record_communicate" value="2">2
+				<input id="record_communicate" type="radio" name="record_communicate" value="1">1
+
+				 {% elif customer_feedback_id.record_communicate == '4' %}
+                                <input id="record_communicate" type="radio" name="record_communicate"  value="5">5
+                                <input id="record_communicate" type="radio" name="record_communicate" checked  value="4">4
+                                <input id="record_communicate" type="radio" name="record_communicate" value="3">3
+                                <input id="record_communicate" type="radio" name="record_communicate" value="2">2
+                                <input id="record_communicate" type="radio" name="record_communicate" value="1">1
+
+
+				 {% elif customer_feedback_id.record_communicate == '3' %}
+                                <input id="record_communicate" type="radio" name="record_communicate"  value="5">5
+                                <input id="record_communicate" type="radio" name="record_communicate" value="4">4
+                                <input id="record_communicate" type="radio" name="record_communicate" checked  value="3">3
+                                <input id="record_communicate" type="radio" name="record_communicate" value="2">2
+                                <input id="record_communicate" type="radio" name="record_communicate" value="1">1
+
+				 {% elif customer_feedback_id.record_communicate == '2' %}
+                                <input id="record_communicate" type="radio" name="record_communicate"  value="5">5
+                                <input id="record_communicate" type="radio" name="record_communicate" value="4">4
+                                <input id="record_communicate" type="radio" name="record_communicate" value="3">3
+                                <input id="record_communicate" type="radio" name="record_communicate"  checked value="2">2
+                                <input id="record_communicate" type="radio" name="record_communicate" value="1">1
+
+				 {% else %}
+                                <input id="record_communicate" type="radio" name="record_communicate" checked  value="5">5
+                                <input id="record_communicate" type="radio" name="record_communicate" value="4">4
+                                <input id="record_communicate" type="radio" name="record_communicate" value="3">3
+                                <input id="record_communicate" type="radio" name="record_communicate" value="2">2
+                                <input id="record_communicate" type="radio" name="record_communicate" value="1">1
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>What do you rate the monthly visit of Head office Staff ?</td>
+			<td>
+		
+				 {% if customer_feedback_id.record_head_office_staff == '5' %}
+
+				<input id="head_office_staff" type="radio" name="head_office_staff" checked   value="5">5
+				<input id="head_office_staff" type="radio" name="head_office_staff" value="4">4
+				<input id="head_office_staff" type="radio" name="head_office_staff"  value="3">3
+				<input id="head_office_staff" type="radio" name="head_office_staff" value="2">2
+				<input id="head_office_staff" type="radio" name="head_office_staff" value="1">1
+
+				  {% elif customer_feedback_id.record_head_office_staff == '4' %}
+
+                                <input id="head_office_staff" type="radio" name="head_office_staff"   value="5">5
+                                <input id="head_office_staff" type="radio" name="head_office_staff" checked  value="4">4
+                                <input id="head_office_staff" type="radio" name="head_office_staff"  value="3">3
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="2">2
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="1">1
+
+				{% elif customer_feedback_id.record_head_office_staff == '3' %}
+
+                                <input id="head_office_staff" type="radio" name="head_office_staff"   value="5">5
+                                <input id="head_office_staff" type="radio" name="head_office_staff"   value="4">4
+                                <input id="head_office_staff" type="radio" name="head_office_staff" checked  value="3">3
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="2">2
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="1">1
+
+				{% elif customer_feedback_id.record_head_office_staff == '2' %}
+
+                                <input id="head_office_staff" type="radio" name="head_office_staff"   value="5">5
+                                <input id="head_office_staff" type="radio" name="head_office_staff"  value="4">4
+                                <input id="head_office_staff" type="radio" name="head_office_staff"  value="3">3
+                                <input id="head_office_staff" type="radio" name="head_office_staff" checked  value="2">2
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="1">1
+
+
+				{% else %}
+
+                                <input id="head_office_staff" type="radio" name="head_office_staff"   value="5">5
+                                <input id="head_office_staff" type="radio" name="head_office_staff"  value="4">4
+                                <input id="head_office_staff" type="radio" name="head_office_staff"  value="3">3
+                                <input id="head_office_staff" type="radio" name="head_office_staff" value="2">2
+                                <input id="head_office_staff" type="radio" name="head_office_staff" checked  value="1">1
+
+
+				{% endif %}
+
+			</td>
+		</tr>
+		<tr>
+		
+			<td>Rate the Submission of Daily Report by In-Charge ?</td>
+			<td>
+
+				{% if customer_feedback_id.daily_report == '5' %}
+				<input id="daily_report" type="radio" name="daily_report" checked  value="5">5
+				<input id="daily_report" type="radio" name="daily_report" value="4">4
+				<input id="daily_report" type="radio" name="daily_report" value="3">3
+				<input id="daily_report" type="radio" name="daily_report" value="2">2
+				<input id="daily_report" type="radio" name="daily_report" value="1">1
+
+				{% elif customer_feedback_id.daily_report == '4' %}
+                                <input id="daily_report" type="radio" name="daily_report"  value="5">5
+                                <input id="daily_report" type="radio" name="daily_report" checked  value="4">4
+                                <input id="daily_report" type="radio" name="daily_report" value="3">3
+                                <input id="daily_report" type="radio" name="daily_report" value="2">2
+                                <input id="daily_report" type="radio" name="daily_report" value="1">1
+	
+				{% elif customer_feedback_id.daily_report == '3' %}
+                                <input id="daily_report" type="radio" name="daily_report" value="5">5
+                                <input id="daily_report" type="radio" name="daily_report" value="4">4
+                                <input id="daily_report" type="radio" name="daily_report" checked  value="3">3
+                                <input id="daily_report" type="radio" name="daily_report" value="2">2
+                                <input id="daily_report" type="radio" name="daily_report" value="1">1
+
+				{% elif customer_feedback_id.daily_report == '2' %}
+                                <input id="daily_report" type="radio" name="daily_report" value="5">5
+                                <input id="daily_report" type="radio" name="daily_report" value="4">4
+                                <input id="daily_report" type="radio" name="daily_report" value="3">3
+                                <input id="daily_report" type="radio" name="daily_report"  checked value="2">2
+                                <input id="daily_report" type="radio" name="daily_report" value="1">1
+
+
+				{% else %}
+                                <input id="daily_report" type="radio" name="daily_report" value="5">5
+                                <input id="daily_report" type="radio" name="daily_report" value="4">4
+                                <input id="daily_report" type="radio" name="daily_report" value="3">3
+                                <input id="daily_report" type="radio" name="daily_report" value="2">2
+                                <input id="daily_report" type="radio" name="daily_report" checked  value="1">1
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>How do you rate Night Patrolling ?</td>
+			<td>
+
+				 {% if customer_feedback_id.night_patrolling == '5' %}
+
+				<input id="night_patrolling" type="radio" name="night_patrolling" checked  value="5">5
+				<input id="night_patrolling" type="radio" name="night_patrolling" value="4">4
+				<input id="night_patrolling" type="radio" name="night_patrolling" value="3">3
+				<input id="night_patrolling" type="radio" name="night_patrolling" value="2">2
+				<input id="night_patrolling" type="radio" name="night_patrolling" value="1">1
+
+				{% elif customer_feedback_id.night_patrolling == '4' %}
+
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="5">5
+                                <input id="night_patrolling" type="radio" name="night_patrolling" checked  value="4">4
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="3">3
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="2">2
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="1">1
+
+				{% elif customer_feedback_id.night_patrolling == '3' %}
+
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="5">5
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="4">4
+                                <input id="night_patrolling" type="radio" name="night_patrolling" checked  value="3">3
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="2">2
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="1">1
+
+
+				{% elif customer_feedback_id.night_patrolling == '2' %}
+
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="5">5
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="4">4
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="3">3
+                                <input id="night_patrolling" type="radio" name="night_patrolling" checked  value="2">2
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="1">1
+
+				{% else %}
+
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="5">5
+                                <input id="night_patrolling" type="radio" name="night_patrolling"  value="4">4
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="3">3
+                                <input id="night_patrolling" type="radio" name="night_patrolling" value="2">2
+                                <input id="night_patrolling" type="radio" name="night_patrolling" checked  value="1">1
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>Do you have any complaint about our Service Quality ?</td>
+			<td>
+		
+				{% if customer_feedback_id.service_quality == 'Yes' %}		
+				<input id="service_quality" type="radio" name="service_quality" checked  value="Yes">Yes
+				<input id="service_quality" type="radio" name="service_quality"  value="No">No
+				{% else %}
+				<input id="service_quality" type="radio" name="service_quality" checked  value="Yes">Yes
+
+				<input id="service_quality" type="radio" name="service_quality"  value="No">No
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+		
+			<td>Have you lodged the complaint ?</td>
+			<td>
+
+				{% if customer_feedback_id.lodged_compt == 'Yes' %}
+				<input id="lodged_compt" type="radio" name="lodged_compt" checked  value="Yes">Yes
+				<input id="lodged_compt" type="radio" name="lodged_compt"  value="No">No
+				{% else %}
+				                                <input id="lodged_compt" type="radio" name="lodged_compt"  value="Yes">Yes
+
+				<input id="lodged_compt" type="radio" name="lodged_compt" checked  value="No">No
+
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>Please mention the complaint</td>
+			<td>{{ customer_feedback_id.complaint }}</td>
+		</tr>
+		<tr>
+			<td>Please suggest the area in which we need improvement</td>
+			<td>{{ customer_feedback_id.improvement }}</td>
+		</tr>
+		<tr>
+		
+			<td>REMARKS:</td>
+			<td>
+
+				{% if customer_feedback_id.remarks == '5' %}
+				<input id="remarks" type="radio" name="remarks" checked  value="5">Excellent
+				<input id="remarks" type="radio" name="remarks"  value="4">Very Good
+				<input id="remarks" type="radio" name="remarks"  value="3">Good
+				<input id="remarks" type="radio" name="remarks"  value="2">O.K.
+				<input id="remarks" type="radio" name="remarks"  value="1">Bad
+
+				{% elif customer_feedback_id.remarks == '4' %}
+                                <input id="remarks" type="radio" name="remarks"  value="5">Excellent
+                                <input id="remarks" type="radio" name="remarks" checked  value="4">Very Good
+                                <input id="remarks" type="radio" name="remarks"  value="3">Good
+                                <input id="remarks" type="radio" name="remarks"  value="2">O.K.
+                                <input id="remarks" type="radio" name="remarks"  value="1">Bad
+
+				{% elif customer_feedback_id.remarks == '3' %}
+                                <input id="remarks" type="radio" name="remarks"  value="5">Excellent
+                                <input id="remarks" type="radio" name="remarks"  value="4">Very Good
+                                <input id="remarks" type="radio" name="remarks" checked  value="3">Good
+                                <input id="remarks" type="radio" name="remarks"  value="2">O.K.
+                                <input id="remarks" type="radio" name="remarks"  value="1">Bad
+
+				{% elif customer_feedback_id.remarks == '2' %}
+                                <input id="remarks" type="radio" name="remarks"  value="5">Excellent
+                                <input id="remarks" type="radio" name="remarks"  value="4">Very Good
+                                <input id="remarks" type="radio" name="remarks"  value="3">Good
+                                <input id="remarks" type="radio" name="remarks" checked  value="2">O.K.
+                                <input id="remarks" type="radio" name="remarks"  value="1">Bad
+
+
+				{% else %}
+                                <input id="remarks" type="radio" name="remarks"  value="5">Excellent
+                                <input id="remarks" type="radio" name="remarks"  value="4">Very Good
+                                <input id="remarks" type="radio" name="remarks"  value="3">Good
+                                <input id="remarks" type="radio" name="remarks"  value="2">O.K.
+                                <input id="remarks" type="radio" name="remarks" checked  value="1">Bad
+		
+				{% endif %}
+			</td>
+		</tr>
+	</table>
+		
+	<p>If your complain was not comply as per your satisfaction, you are requested to call 9090209000 for immediate workout at our end.</p>
+	
+	<p>Customer Signature:</p>
+	
+	<p>Designation:</p>
+	
+	<p>Mobile :</p>
+
+</div>
+
+
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+                "<html><head><title>Customer Feedback</title><style type='text/css'>.printhide { display:none; }</style></head><body><div style='width:20%;float:left;'><img width='200px' src='/static/images/k1.png' /></div><div style='width:58%;float:left; text-align:center;'><h3>K1 SECURITY SERVICES PVT. LTD.<br/>(AN ISO: 9001:2008 COMPANY)</h3><p style='text-align:center;'>Plot No.-268/269, Sarala Nagar, Cuttack Road, Bhubaneswar-751006, Orissa, India</p><span style='display:inline_block; padding:5px 10px; border:1px solid;font-weight:bold;'></span></div><div style='height:20px;clear:both;'></div>" + divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+
+          
+        }
+    </script>				
+
+{% endblock %}

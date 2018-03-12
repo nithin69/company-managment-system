@@ -1,0 +1,53 @@
+{% extends "base2.html" %}
+
+{% block title %} Photo or Signature Upload {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Photo or Signature Upload  </h3>
+
+
+<div id="container">
+      
+				<div class="row">
+                    <div class="col-md-12">
+                    <div class="grid simple ">
+						<div class="grid-title">
+						
+						<div class="col-md-12">
+          <ul class="nav nav-tabs" id="tab-5">
+            
+            <li class="active"><a href="#photoupload">Photo Upload</a></li>
+            <li class=""><a href="#signupload">Signature Upload</a></li>
+          </ul>
+          <div class="tab-content" style="min-height:400px;">
+            <div class="tab-pane active" id="photoupload">
+              <div class="row column-seperation">
+               
+			   <form name="form1" method="post" action="" enctype="multipart/form-data">
+							<div class="col-md-12">
+								<table class="table table-bordered">
+								<tbody><tr>
+								 <td>
+                        	<select name="user_id" id="user_id" class="chosen-select" data-style="btn-warning" data-live-search="true" onchange="getbyemp(this.value)" required="" style="display: none;">
+								<option value="">Select Employee</option>
+								</select><div class="chosen-container chosen-container-single" style="width: 220px;" title="" id="user_id_chosen"><a class="chosen-single" tabindex="-1"><span>Select Employee</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+                        </td>
+						<td><select class="chosen-select" name="type" id="type" required="" style="display: none;">
+								<option value="">Select type</option>
+								
+															</select><div class="chosen-container chosen-container-single" style="width: 220px;" title="" id="type_chosen"><a class="chosen-single" tabindex="-1"><span>Select type</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+						</td>
+						<td>
+                        	<input type="file" name="photoupl" class="form-control" required="">
+                        </td>
+                      
+                        <td><input type="submit" name="Submit" value="Upload" class="btn btn-success"></td>
+                    </tr>
+                </tbody></table>
+	
+							</div>
+							</div>
+{% endblock %}

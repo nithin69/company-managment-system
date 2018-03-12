@@ -1,0 +1,48 @@
+{% extends "base2.html" %}
+
+{% block title %} Reference Incentive Settings {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/incentive_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Refernce Incentive Settings </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE</th>
+         <th> AMOUNT </th>
+          	  <th> ACTIONS </th>
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in incentive %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.amount }} </td>
+<td> <a href="/incentive_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/incentive_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

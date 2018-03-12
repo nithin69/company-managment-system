@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}User Log Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+    	 {% if log %}      
+    
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                         <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Login Type</th>
+			<th>Name</th>
+			<th>Login Time</th>
+			<th>Logout Time</th>
+			<th>System IP Address</th>
+			</tr>
+			</thead>
+			{% for n in log %}
+			<tbody>
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.login_type }}</td>
+			<td>{{ n.login_id }}</td>
+			<td>{{ n.login_time }}</td>
+                        <td>{{ n.logout_time}}</td>
+			<td>{{ n.loggedip}}</td>
+			
+			</tr>
+			</tbody>
+			{% endfor %}
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

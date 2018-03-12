@@ -1,0 +1,45 @@
+{% extends "base2.html" %}
+
+{% block title %} Location Not Applicable for Incentive {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/location_setting_incentive_not_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Location Not Applicable for Incentive </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> LOCATIONs</th>
+         	<th> ACTIONS </th>
+			          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in locnot %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.location }} </td> 
+<td> 
+<a href="/location_setting_incentive_not_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

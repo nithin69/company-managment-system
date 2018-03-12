@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Client Details Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+      {% if cdetails %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                        <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Client Code</th>
+			<th>Client Name</th>
+			<th>Contact Person</th>
+			<th>Email</th>
+			<th>Contact Number</th>
+                        <th>Address</th>
+			
+			<th>Location Code</th>
+			<th>Location Name</th>
+			<th>Contact Person</th>
+			<th>Email</th>
+			<th>Contact Number</th>
+			<th>Address</th>
+			</tr>
+			</thead>
+			{% for n in cdetails %}
+			<tbody>
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.client_code }}</td>
+			<td>{{ n.client_name }}</td>
+			<td>{{ n.authorised_person }}</td>
+                        <td>{{ n.authorised_email }}</td>
+			<td>{{ n.authorised_phone }}</td>			
+			<td>{{ n.city }}</td>
+			<td>{{ n.client_location}}</td>
+			<td>{{ n.client_location }}</td>
+			<td>{{ n.order_time }}</td>
+			<td>{{ n.email }}</td>
+			<td>{{ n.telephone }}</td>
+			<td>{{ n.address }}</td>
+			
+			
+			
+			</tr>
+			</tbody>
+			{% endfor %}
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,322 @@
+{% extends "base2.html" %}
+
+{% block title %} employee_attendance_bulk {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/employee_attendance_bulk/">Employee Attendance</a></li>
+
+</ul>
+
+
+<form action="/empbulksearch/" method="get">
+                           
+                                     
+                            
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> LOCATION  </th>
+        <th> DATE  </th>
+         
+		  </tr>
+    </thead>
+    <tbody>
+        
+
+
+<tr> 
+<td>
+<input type="text" name="loca" class="form-control" value = {{ loca}} id="loca"readonly>					
+
+ <input type="hidden" name="locacid" value= {{ locacid }} id = "locacid">
+	
+ <input type="hidden" name="locationsid" value= {{ locationsid }} id = "locationsid">
+								 
+ <input type="hidden" name="start_date" value= {{ start_date }} id = "start_date">
+
+ <input type="hidden" name="tops_date" value= {{ tops_date }} id = "tops_date">
+ 							</select>
+</td>
+<td>
+                        	<input type="text" name="to_date" class="form-control" value = {{ to_date}} id="dpd2">
+                        </td>
+						
+<td><input type="submit" name="Submit" value="Search" class="btn btn-success"></td>
+
+
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+</table>
+
+</form>
+
+
+{{locperday.8}}
+
+<div class="row">
+				<div class="col-md-2 boxemployee">
+
+                            Date <b> {{ datex.0}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.0}}  </b>  <br/>
+  			Rota <b>  <span id = "rd0">	{{ rotax.0}} </span>	 </b>  <br/>
+				Balance    <b>  <span id = "bd0">	 {{ balancex.0}} </span> </b>  <br/>
+
+
+				</div>
+				 
+
+				<div class="col-md-2 boxreg">
+           			   Date <b> {{ datex.1}}  </b>  <br/>
+					Loc Per    <b> {{ locperday.1}}  </b>  <br/>
+				Rota <b>  <span id = "rd1">	 {{ rotax.1}}   </span>	  </b>  <br/>
+				Balance    <b>  <span id = "bd1">	{{ balancex.1}}  </span>	  </b>  <br/>
+
+				</div>
+
+
+
+				<div class="col-md-2 boxreg">
+        
+				   Date <b> {{ datex.2}}  </b>  <br/>				
+					Loc Per    <b>  {{ locperday.2}}  </b>  <br/>
+
+			Rota <b>  <span id = "rd2">	 {{ rotax.2}}  </span>	  </b>  <br/>
+				Balance    <b>  <span id = "bd2">	 {{ balancex.2}}  </span>	 </b>  <br/>
+				</div>
+
+
+				<div class="col-md-2 boxtrng">
+
+				
+				   Date <b> {{ datex.3}}  </b>  <br/>
+					Loc Per    <b> {{ locperday.3}}  </b>  <br/>
+
+Rota <b> <span id = "rd3">	  {{ rotax.3}}  </span>	  </b>  <br/>
+				Balance    <b>  <span id = "bd3">	 {{ balancex.3}}   </span>	  </b>  <br/>
+
+
+				</div>
+
+
+
+
+				<div class="col-md-2 boxemployed">
+        
+				   Date <b> {{ datex.4}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.4}}  </b>  <br/>
+
+Rota <b>   <span id = "rd4">	  {{ rotax.4}}  </span>	 </b>  <br/>
+				Balance    <b>   <span id = "bd4">	   {{ balancex.4}}  </span>	 </b>  <br/>
+
+
+				</div>
+			
+
+
+    				<div class="col-md-2 boxseper">
+				
+				   Date <b> {{ datex.5}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.5}}  </b>  <br/>
+
+Rota <b>  <span id = "rd5">	  {{ rotax.5}}  </span>	  </b>  <br/>
+				Balance    <b>  <span id = "bd5">	  {{ balancex.5}}  </span>	  </b>  <br/>
+				</div>
+			</div>
+
+</div>
+
+<br/>
+
+<div class="row">
+		<div class="col-md-12">
+		{% for x in emphrslist %}		
+<form>
+
+{% csrf_token %}				
+        <div class="panel panel-default">
+      <div class="panel-heading"> <b> {{ x.5 }}  {{ x.6 }}  &nbsp;&nbsp;&nbsp; {{ x.1 }}   </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b> 
+
+<span id = "desig">   {{ x.7 }}   </span> </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>   </b> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>  
+
+   <span id = "ttlhrs{{ x.0 }}">  {{ x.9 }}  </span>
+
+
+
+
+
+  Total Hours </b> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<button type="button" class="btn btn-primary attsave" id = "save{{ x.0 }}"> Save  </button>
+
+ &nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp; <span id = "savesuccess{{ x.0 }}">   </span>
+
+
+       </div>
+
+
+ <div class="panel-body"> 
+
+          
+               <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d0ate{{ x.0 }}">  {{ datex.0}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r0em{{ x.0 }}" ></select> <br/> 
+ 
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl0{{ x.0 }}">Show Details</button>
+  <div id="tgl0{{ x.0 }}" class="collapse">
+  <span id="pr0{{ x.0 }}">   
+
+ {% for y in x.10.0 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %}  
+
+   </span>    <br/> 	
+
+ </div>
+ 
+
+</div>
+
+
+
+     <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d1ate{{ x.0 }}">  {{ datex.1}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r1em{{ x.0 }}" ></select> <br/> 
+
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl1{{ x.0 }}">Show Details</button>
+  <div id="tgl1{{ x.0 }}" class="collapse">
+
+ <span id="pr1{{ x.0 }}">  
+
+
+ {% for y in x.10.1 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %}  
+
+
+  </span>     <br/> 
+</div>
+
+</div>
+     <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d2ate{{ x.0 }}">  {{ datex.2}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r2em{{ x.0 }}" ></select> <br/> 
+
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl2{{ x.0 }}">Show Details</button>
+  <div id="tgl2{{ x.0 }}" class="collapse">
+
+  <span id="pr2{{ x.0 }}">  
+
+
+ {% for y in x.10.2 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %}
+
+    </span>     <br/>   
+
+</div>
+</div>
+
+
+     <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d3ate{{ x.0 }}">  {{ datex.3}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r3em{{ x.0 }}" ></select> <br/> 
+
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl3{{ x.0 }}">Show Details</button>
+  <div id="tgl3{{ x.0 }}" class="collapse">
+
+
+ <span id="pr3{{ x.0 }}">   
+
+ {% for y in x.10.3 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %} 
+
+   </span>     <br/>  
+
+</div>
+
+</div>
+
+
+     <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d4ate{{ x.0 }}">  {{ datex.4}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r4em{{ x.0 }}" ></select> <br/> 
+
+
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl4{{ x.0 }}">Show Details</button>
+  <div id="tgl4{{ x.0 }}" class="collapse">
+
+ <span id="pr4	{{ x.0 }}">   
+
+
+ {% for y in x.10.4 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %}  
+
+   </span>       <br/> 
+
+</div>
+</div>
+
+
+
+     <div class="col-md-2 boxreg">
+     					<b>	<div class = "daterm d5ate{{ x.0 }}">  {{ datex.5}}  </div> </b> <br/>
+										
+		 &nbsp;&nbsp;  ROTA   &nbsp;&nbsp;  <select class="remhrs" id = "r5em{{ x.0 }}" ></select> <br/> 
+ <button type="button" class="btn btn-info btn-small" data-toggle="collapse" data-target="#tgl5{{ x.0 }}">Show Details</button>
+  <div id="tgl5{{ x.0 }}" class="collapse">
+
+
+<span id="pr5{{ x.0 }}">   
+
+
+ {% for y in x.10.5 %}  
+ 		 &nbsp;&nbsp;   &nbsp;&nbsp;  		{{ y.2 }} 	&nbsp;&nbsp;   {{ y.1 }}  Hrs   &nbsp;&nbsp; 	  <br/>
+  {% endfor %}  
+
+
+   </span>     <br/> 
+
+</div>
+
+</div>
+
+
+
+ </div>
+
+  </div>
+
+
+
+
+</form>
+		{% endfor %}
+
+ </div>
+
+  </div>
+
+
+{% endblock %}

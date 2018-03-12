@@ -1,0 +1,1515 @@
+{% extends "base2.html" %}
+{% load app_filters %}
+
+{% block title %} Assign User Access {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Assign User Access </h3>
+
+<br><br>
+	
+
+
+<form method="post" action="" name="form1">
+			{% csrf_token %}	
+                <div class="col-md-12">
+				<div class="grid simple ">
+				<div class="grid-title">
+				
+
+				
+					</div>
+					<div class="grid-body" id="permission_change_id">
+
+						<table class="table table-bordered table-responsive">
+	
+					
+							<tbody><tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input type="checkbox" name="main_menu[]" id="main_menu1" value="1-1-0" >
+								<label for="main_menu1"> Dashboard</label>
+								</div>
+																						
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu2"> User Management</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu17" value="17-2-17" ><label for="main_menu17">
+														 My Profile</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+                                                                                    <input type="checkbox" name="main_menu[]" id="main_menu18" value="18-2-18" >
+
+                                                                                                                    <label for="main_menu18">
+														 User Access</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu3"> Front Office</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 418 419 420 accpages %}  type="checkbox" name="main_menu[]" id="main_menu19" value=" 194 195"><label for="main_menu19">
+														 Visitor Management</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input  {% check_membership 193 194 195 accpages %} type="checkbox" name="main_menu[]" id="main_menu20" value="193 194 195"><label for="main_menu20">
+														 Inward Stock</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 193 194 195 accpages %} type="checkbox" name="main_menu[]" id="main_menu21" value="193 194 195"><label for="main_menu21">
+														 Inward Others</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 292 293 294 accpages %} type="checkbox" name="main_menu[]" id="main_menu22" value="292 293 294"><label for="main_menu22">
+														 Outward Management</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 292 293 294 accpages %} type="checkbox" name="main_menu[]" id="main_menu23" value="292 293 294"><label for="main_menu23">
+														 Outward Gatepass</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 160 161 162 accpages %} type="checkbox" name="main_menu[]" id="main_menu24" value="160 161 162"><label for="main_menu24">
+
+													
+
+														 Employee Gatepass</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 160 161 162 accpages %} type="checkbox" name="main_menu[]" id="main_menu25" value="160 161 162"><label for="main_menu25">
+														 Employee Gatepass Approve</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu4"> RPM</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 31 32 33 accpages %} type="checkbox" name="main_menu[]" id="main_menu26" value="31 32 33"><label for="main_menu26">
+														 Bio-data</label
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 403 404 405 accpages %} type="checkbox" name="main_menu[]" id="main_menu27" value="403 404 405"><label for="main_menu27">
+														 Trainee Attendance</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 148 149 150 accpages %} type="checkbox" name="main_menu[]" id="main_menu28" value="148 149 150"><label for="main_menu28">
+														 Final Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																											</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu5"> HRM</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu29" value="29-5-29"><label for="main_menu29">
+														 Profile Search</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 23 24 accpages %} type="checkbox" name="main_menu[]" id="main_menu30" value="22 23 24"><label for="main_menu30">
+														 Add | Manage Employee</label>
+														 </div>
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input type="checkbox" name="main_menu[]" id="main_menu160" value="160-0-0" onclick="return checkMainMenu(30,160)"><label for="main_menu160">Edit</label>
+																		</div>
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 325 326 327 accpages %} type="checkbox" name="main_menu[]" id="main_menu31" value="325 326 327"><label for="main_menu31">
+														 Police Verification Form</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 43 44 45 accpages %} type="checkbox" name="main_menu[]" id="main_menu32" value="43 44 45"><label for="main_menu32">
+														 Acknowledgement</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 115 116 117 accpages %} type="checkbox" name="main_menu[]" id="main_menu33" value="115 116 117"><label for="main_menu33">
+														 Employee Attendance</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 220 221 222 accpages %}  type="checkbox" name="main_menu[]" id="main_menu34" value="220 221 222"><label for="main_menu34">
+														 Employee Leaves</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 220 221 222 accpages %} type="checkbox" name="main_menu[]" id="main_menu35" value="220 221 222"><label for="main_menu35">
+														 Leaves Application</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 220 221 222 accpages %} type="checkbox" name="main_menu[]" id="main_menu36" value="220 221 222"><label for="main_menu36">
+														 Leaves Application Approval</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 100 101 102 accpages %} type="checkbox" name="main_menu[]" id="main_menu37" value="100 101 102"><label for="main_menu37">
+														 Discipline &amp; Compliance</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 442 443 444 accpages %} type="checkbox" name="main_menu[]" id="main_menu38" value="442 443 444"><label for="main_menu38">
+														 Separation</label>
+														 </div>
+																												</td>
+														
+																												<td>
+														<label for="main_menu39">
+														 Payroll Setting</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 211 212 213 accpages %} type="checkbox" name="main_menu[]" id="main_menu40" value="211 212 213">
+																		<label for="main_menu40">Designation Wise</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 211 212 213 accpages %} type="checkbox" name="main_menu[]" id="main_menu41" value="211 212 213">
+																		<label for="main_menu41">Employee Wise</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 244 245 246 accpages %} type="checkbox" name="main_menu[]" id="main_menu111" value="244 245 246"><label for="main_menu111">
+														 Location Incharge</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input  {% check_membership 436 437 438 accpages %}  type="checkbox" name="main_menu[]" id="main_menu112" value="436 437 438"><label for="main_menu112">
+														 Cut Salary</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 370 371 372 accpages %} type="checkbox" name="main_menu[]" id="main_menu113" value="370 371 372"><label for="main_menu113">
+														 Send SMS</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 115 116 117 accpages %} type="checkbox" name="main_menu[]" id="main_menu125" value="115 116 117"><label for="main_menu125">
+														 Bulk Employee Attendance</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 445 446 447 accpages %} type="checkbox" name="main_menu[]" id="main_menu137" value="445 446 447"><label for="main_menu137">
+														 Staff Type</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 145 146 147 accpages %} type="checkbox" name="main_menu[]" id="main_menu140" value="145 146 147"><label for="main_menu140">
+														 Location Attendance</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 145 146 147 accpages %} type="checkbox" name="main_menu[]" id="main_menu151" value="145 146 147"><label for="main_menu151">
+														 Rota Exceeded</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 439 440 441 accpages %} type="checkbox" name="main_menu[]" id="main_menu154" value="439 440 441"><label for="main_menu154">
+														 Photo / Signature Upload</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 115 116 117 accpages %} type="checkbox" name="main_menu[]" id="main_menu159" value="115 116 117"><label for="main_menu159">
+														 Attendance H0 / SFF</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu6"> CRM</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+														<label for="main_menu42">
+														 Client</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 40 41 42 accpages %} type="checkbox" name="main_menu[]" id="main_menu44" value="40 41 42">
+																		<label for="main_menu44">Add | Manage Client</label>
+																		</div>
+																																				<table width="90%" style="float:right">
+																																							<tbody><tr>
+																					<td>
+																					<div class="checkbox check-success">
+																					<input type="checkbox" name="main_menu[]" id="main_menu119" value="119-0-0" onclick="return checkMainMenu(44,119)"><label for="main_menu119">Add</label>
+																					</div>
+																					</td>
+																				</tr>
+																																								<tr>
+																					<td>
+																					<div class="checkbox check-success">
+																					<input type="checkbox" name="main_menu[]" id="main_menu120" value="120-0-0" onclick="return checkMainMenu(44,120)"><label for="main_menu120">Edit</label>
+																					</div>
+																					</td>
+																				</tr>
+																																								<tr>
+																					<td>
+																					<div class="checkbox check-success">
+																					<input type="checkbox" name="main_menu[]" id="main_menu121" value="121-0-0" onclick="return checkMainMenu(44,121)"><label for="main_menu121">Delete</label>
+																					</div>
+																					</td>
+																				</tr>
+																																						</tbody></table>
+																		
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 271 272 273 accpages %} type="checkbox" name="main_menu[]" id="main_menu45" value="271 272 273">
+																		<label for="main_menu45">Add | Manage Quotation</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 406 407 408 accpages %} type="checkbox" name="main_menu[]" id="main_menu46" value="406 407 408">
+																		<label for="main_menu46">Work Order</label>
+																		</div>
+																																				<table width="90%" style="float:right">
+																																							<tbody><tr>
+																					<td>
+																					<div class="checkbox check-success">
+																					<input type="checkbox" name="main_menu[]" id="main_menu122" value="122-0-0" onclick="return checkMainMenu(46,122)"><label for="main_menu122">Add</label>
+																					</div>
+																					</td>
+																				</tr>
+																																								<tr>
+																					<td>
+																					<div class="checkbox check-success">
+																					<input type="checkbox" name="main_menu[]" id="main_menu123" value="123-0-0" onclick="return checkMainMenu(46,123)"><label for="main_menu123">Delete</label>
+																					</div>
+																					</td>
+																				</tr>
+																																						</tbody></table>
+																		
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 91 92 93 accpages %} type="checkbox" name="main_menu[]" id="main_menu47" value="91 92 93">
+																		<label for="main_menu47">Customer Feedback</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+														<label for="main_menu43">
+														 Vendors | Workshops</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 184 185 186 accpages %} type="checkbox" name="main_menu[]" id="main_menu48" value="184 185 186">
+																		<label for="main_menu48">Add | Manage</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu7"> Operations</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 124 125 126 accpages %} type="checkbox" name="main_menu[]" id="main_menu49" value="124 125 126"><label for="main_menu49">
+														 Employee Movement</label>
+														 </div>
+																												</td>
+														
+																												<td>
+														<label for="main_menu50">
+														 Monitoring Process</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 304 305 306 accpages %} type="checkbox" name="main_menu[]" id="main_menu55" value="304 305 306">
+																		<label for="main_menu55">Patrolling(Day/Night)</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 277 278 279 accpages %} type="checkbox" name="main_menu[]" id="main_menu56" value="277 278 279">
+																		<label for="main_menu56">Mobile Patrolling</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 277 278 279 accpages %}  type="checkbox" name="main_menu[]" id="main_menu57" value="277 278 279">
+																		<label for="main_menu57">Reports Submission</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 214 215 216 accpages %} type="checkbox" name="main_menu[]" id="main_menu51" value="214 215 216"><label for="main_menu51">
+														 Item Requisition Individual</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 214 215 216 accpages %} type="checkbox" name="main_menu[]" id="main_menu52" value="214 215 216"><label for="main_menu52">
+														 Item Requisition Assignment</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 214 215 216 accpages %} type="checkbox" name="main_menu[]" id="main_menu53" value="214 215 216"><label for="main_menu53">
+														 Item Requisition Approve</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 109 110 111 accpages %} type="checkbox" name="main_menu[]" id="main_menu54" value="109 110 111"><label for="main_menu54">
+														 Loans for Approval</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 70 71 72  accpages %} type="checkbox" name="main_menu[]" id="main_menu124" value="70 71 72"><label for="main_menu124">
+														 Editable Attendance</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu8"> Stores</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 181 182 183 accpages %} type="checkbox" name="main_menu[]" id="main_menu58" value="181 182 183"><label for="main_menu58">
+														 Manage Store</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 37 38 39  accpages %} type="checkbox" name="main_menu[]" id="main_menu59" value="37 38 39"><label for="main_menu59">
+														 Add Items</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 331 332 333 accpages %} type="checkbox" name="main_menu[]" id="main_menu60" value="331 332 333"><label for="main_menu60">
+														 Purchase Requisition</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 328 329 330 accpages %} type="checkbox" name="main_menu[]" id="main_menu61" value="328 329 330"><label for="main_menu61">
+														 Purchase Order</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 382 383 384 accpages %} type="checkbox" name="main_menu[]" id="main_menu62" value="382 383 384"><label for="main_menu62">
+														 Stock Receipts</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 208 209 210 accpages %} type="checkbox" name="main_menu[]" id="main_menu63" value="208 209 210"><label for="main_menu63">
+														 Issuance</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+														<label for="main_menu64">
+														 Return Stock</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 340 341 342 accpages %} type="checkbox" name="main_menu[]" id="main_menu66" value="340 341 342">
+																		<label for="main_menu66">From Employee</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 340 341 342 accpages %} type="checkbox" name="main_menu[]" id="main_menu67" value="340 341 342">
+																		<label for="main_menu67">From Supervisor</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 340 341 342 accpages %} type="checkbox" name="main_menu[]" id="main_menu68" value="340 341 342">
+																		<label for="main_menu68">To Vendor</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 340 341 342 accpages %} type="checkbox" name="main_menu[]" id="main_menu69" value="340 341 342">
+																		<label for="main_menu69">Return to Store</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 382 383 384  accpages %} type="checkbox" name="main_menu[]" id="main_menu65" value="382 383 384"><label for="main_menu65">
+														 Stock Status</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 211 212 213 accpages %} type="checkbox" name="main_menu[]" id="main_menu114" value="211 212 213"><label for="main_menu114">
+														 Issue Items New Employee</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 223 24 accpages %} type="checkbox" name="main_menu[]" id="main_menu117" value="22 23 24"><label for="main_menu117">
+														 Employee Idcard</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 385 386 387 accpages %} type="checkbox" name="main_menu[]" id="main_menu127" value="385 386 387"><label for="main_menu127">
+														 Update Stock</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu9"> Accounts</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 97 98 99 accpages %} type="checkbox" name="main_menu[]" id="main_menu70" value="97 98 99"><label for="main_menu70">
+														 Default Advances</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 232 233 234 accpages %} type="checkbox" name="main_menu[]" id="main_menu71" value="232 233 234"><label for="main_menu71">
+														 Loans/Advances</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 76 77 78 accpages %} type="checkbox" name="main_menu[]" id="main_menu72" value="76 77 78"><label for="main_menu72">
+														 Client Invoice</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 151 152 153 accpages %} type="checkbox" name="main_menu[]" id="main_menu73" value="151 152 153"><label for="main_menu73">
+														 Employee Fine</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 23 24 accpages %} type="checkbox" name="main_menu[]" id="main_menu74" value="22 23 24"><label for="main_menu74">
+														 Salary Generation office</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 347 348 349 accpages %} type="checkbox" name="main_menu[]" id="main_menu75" value="347 348 349"><label for="main_menu75">
+														 Salary Assignment</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 172 173 174 accpages %} type="checkbox" name="main_menu[]" id="main_menu76" value="172 173 174"><label for="main_menu76">
+														 Incentive Generation</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 358 359 360 accpages %} type="checkbox" name="main_menu[]" id="main_menu77" value="358 359 360"><label for="main_menu77">
+														 Salary Disbursement</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 133 134 135 accpages %} type="checkbox" name="main_menu[]" id="main_menu78" value="133 134 135"><label for="main_menu78">
+														 Employee Settlement</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 23 24 accpages %} type="checkbox" name="main_menu[]" id="main_menu79" value="22 23 24"><label for="main_menu79">
+														 Payment to Vendors</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 103 104 105 accpages %} type="checkbox" name="main_menu[]" id="main_menu80" value="103 104 105"><label for="main_menu80">
+														 Donations</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 337 338 339 accpages %} type="checkbox" name="main_menu[]" id="main_menu81" value="337 338 339"><label for="main_menu81">
+														 Reference Payment</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 23 24  accpages %} type="checkbox" name="main_menu[]" id="main_menu118" value="22 23 24"><label for="main_menu118">
+														 Salary Release slip</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 22 23 24 accpages %} type="checkbox" name="main_menu[]" id="main_menu126" value="22 23 24"><label for="main_menu126">
+														 Salary Generation Field</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 172 173 174 accpages %} type="checkbox" name="main_menu[]" id="main_menu131" value="172 173 174"><label for="main_menu131">
+														 Incentive Disbursement</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 172 173 174 accpages %} type="checkbox" name="main_menu[]" id="main_menu133" value="172 173 174"><label for="main_menu133">
+														 Salary Release Approve</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 172 173 174 accpages %} type="checkbox" name="main_menu[]" id="main_menu134" value="172 173 174"><label for="main_menu134">
+														 Salary Release Update</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 172 173 174 accpages %} type="checkbox" name="main_menu[]" id="main_menu136" value="172 173 174"><label for="main_menu136">
+														 Salary Generation Special Field</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 79 80 81 accpages %} type="checkbox" name="main_menu[]" id="main_menu144" value="79 80 81"><label for="main_menu144">
+														 Client Invoice ST 14%</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input {% check_membership 400 401 402 accpages %} type="checkbox" name="main_menu[]" id="main_menu10" value="400 401 402" >
+								<label for="main_menu10"> Task management</label>
+								</div>
+																	<br>
+									<table width="90%" style="float:right">
+																					<tbody><tr>
+												<td>
+												<div class="checkbox check-success">
+												<input type="checkbox" name="main_menu[]" id="main_menu116" value="116-0-0" onclick="return checkMainMenu(10,116)"> <label for="main_menu116">Add												</label></div>
+												</td>
+											</tr>
+																				</tbody></table>
+									
+																							
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input {% check_membership 283 284 285 accpages %} type="checkbox" name="main_menu[]" id="main_menu11" value="283 284 285" >
+								<label for="main_menu11"> Notice Board</label>
+								</div>
+																						
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input {% check_membership 157 158 159 accpages %} type="checkbox" name="main_menu[]" id="main_menu12" value="157 158 159">
+								<label for="main_menu12"> Gallery</label>
+								</div>
+																						
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input {% check_membership 136 137 138 accpages %} type="checkbox" name="main_menu[]" id="main_menu13" value="136 137 138" >
+								<label for="main_menu13"> EOD Management</label>
+								</div>
+																						
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+															 <div class="checkbox check-success">
+								<input {% check_membership 397 398 399 accpages %} type="checkbox" name="main_menu[]" id="main_menu14" value="397 398 399" >
+								<label for="main_menu14"> Support ticket</label>
+								</div>
+																						
+							</td>
+							</tr>
+								<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu15"> Reports</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu82" value="82-15-82"><label for="main_menu82">
+														 Employee Reports</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu83" value="83-15-83"><label for="main_menu83">
+														 Expenditure Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu84" value="84-15-84"><label for="main_menu84">
+														 Loans &amp; Advances</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 34 35 36 accpages %} type="checkbox" name="main_menu[]" id="main_menu85" value="34 35 36"><label for="main_menu85">
+														 Training Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu86" value="86-15-86"><label for="main_menu86">
+														 Employee Attendance Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu87" value="87-15-87"><label for="main_menu87">
+														 User Log Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu88" value="88-15-88"><label for="main_menu88">
+														 Employee Payment Field</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu89" value="89-15-89"><label for="main_menu89">
+														 Invoice Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu90" value="90-15-90"><label for="main_menu90">
+														 Income &amp; Expenditure Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+														<label for="main_menu91">
+														 Payment due Report</label>
+														 
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu92" value="92-15-92"><label for="main_menu92">
+														 Settlement due Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu93" value="93-15-93"><label for="main_menu93">
+														 Stock Status Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 208 209 210 accpages %} type="checkbox" name="main_menu[]" id="main_menu115" value="208 209 210"><label for="main_menu115">
+														 Issuance Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu128" value="128-15-128"><label for="main_menu128">
+														 Incentive Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu129" value="129-15-129"><label for="main_menu129">
+														 Location Wise Payment</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu130" value="130-15-130"><label for="main_menu130">
+														 Location Total Salary</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu132" value="132-15-132"><label for="main_menu132">
+														 Employee Payment Office</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu135" value="135-15-135"><label for="main_menu135">
+														 Employee Movement Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu138" value="138-15-138"><label for="main_menu138">
+														 EPF &amp; ESI Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu139" value="139-15-139"><label for="main_menu139">
+														 Attendance Locationwise</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu142" value="142-15-142"><label for="main_menu142">
+														 Reference Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu143" value="143-15-143"><label for="main_menu143">
+														 Attendance Location Datewise</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu145" value="145-15-145"><label for="main_menu145">
+														 Hour Analysis Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu146" value="146-15-146"><label for="main_menu146">
+														 Work Order Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu147" value="147-15-147"><label for="main_menu147">
+														 Authorized Strength Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu148" value="148-15-148"><label for="main_menu148">
+														 Advance Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu149" value="149-15-149"><label for="main_menu149">
+														 Outstanding Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu150" value="150-15-150"><label for="main_menu150">
+														 Client Details Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu152" value="152-15-152"><label for="main_menu152">
+														 Employee Attendance Shortlist</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu153" value="153-15-153"><label for="main_menu153">
+														 Client Outstanding Report</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu155" value="155-15-155"><label for="main_menu155">
+														 Chargable Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu156" value="156-15-156"><label for="main_menu156">
+														 Itemwise Issue Report</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu157" value="157-15-157"><label for="main_menu157">
+														 Salary Not Generated</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu158" value="158-15-158"><label for="main_menu158">
+														 Advance DeductionType</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu161" value="161-15-161"><label for="main_menu161">
+														 Client Shortlist</label>
+														 </div>
+																												</td>
+														
+																										</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu16"> Masters</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 16 17 18 accpages %} type="checkbox" name="main_menu[]" id="main_menu94" value="16 17 18"><label for="main_menu94">
+														 Masters Type</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 19 20 21 accpages %} type="checkbox" name="main_menu[]" id="main_menu95" value="19 20 21"><label for="main_menu95">
+														 Manage Masters</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 211 212 213 accpages %} type="checkbox" name="main_menu[]" id="main_menu96" value="211 212 213"><label for="main_menu96">
+														 Item According To Designation</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input  type="checkbox" name="main_menu[]" id="main_menu97" value="97-16-97"><label for="main_menu97">
+														 Designation Incentive Setting</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input  type="checkbox" name="main_menu[]" id="main_menu98" value="98-16-98"><label for="main_menu98">
+														 Location Not Incentive</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 334 335 336 accpages %} type="checkbox" name="main_menu[]" id="main_menu99" value="334 335 336"><label for="main_menu99">
+														 Reference Incentive Setting</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 61 62 63 accpages %} type="checkbox" name="main_menu[]" id="main_menu100" value="61 62 63"><label for="main_menu100">
+														 Billing &amp; Tax Settings</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 265 266 267 accpages %} type="checkbox" name="main_menu[]" id="main_menu101" value="265 266 267"><label for="main_menu101">
+														 Loyality Bonus</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 28 29 30 accpages %} type="checkbox" name="main_menu[]" id="main_menu102" value="28 29 30"><label for="main_menu102">
+														 Trainer Settings</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input  type="checkbox" name="main_menu[]" id="main_menu103" value="103-16-103"><label for="main_menu103">
+														 Loan/Advance Limit Setting</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 88 89 90 accpages %} type="checkbox" name="main_menu[]" id="main_menu104" value="88 89 90"><label for="main_menu104">
+														 Manage Consultancies</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 229 230 231 accpages %} type="checkbox" name="main_menu[]" id="main_menu105" value="229 230 231"><label for="main_menu105">
+														 Loan Types</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 52 53 54 accpages %} type="checkbox" name="main_menu[]" id="main_menu106" value="52 53 54"><label for="main_menu106">
+														 Advance Types</label>
+														 </div>
+																												</td>
+														
+																												<td>
+														<label for="main_menu107">
+														 Leave Management</label>
+														 
+																													<br>
+															<table width="90%" style="float:right">
+																																	<tbody><tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 223 224 225 accpages %} type="checkbox" name="main_menu[]" id="main_menu108" value="223 224 225">
+																		<label for="main_menu108">Leave Period</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input {% check_membership 169 170 171 accpages %} type="checkbox" name="main_menu[]" id="main_menu109" value="169 170 171">
+																		<label for="main_menu109">Holidays</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																		<tr>
+																		<td>
+																		<div class="checkbox check-success">
+																		<input type="checkbox" name="main_menu[]" id="main_menu110" value="110-16-107">
+																		<label for="main_menu110">Leave Types</label>
+																		</div>
+																																				
+																		</td>
+																	</tr>
+																																</tbody></table>
+															
+																													</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu141" value="141-16-141"><label for="main_menu141">
+														 Locationwise Incentive</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																											</tr>
+											</tbody></table>
+										</td>
+									</tr>
+										<tr>
+							<td colspan="2">
+							
+                   
+							<label for="main_menu162"> Locationwise Settings</label>
+								
+																						
+							</td>
+							</tr>
+																
+									<tr>
+										<td colspan="2">
+											<table width="90%" style="float:right">
+												<tbody><tr>
+																											<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu163" value="163-162-163"><label for="main_menu163">
+														 Location Desg Payroll </label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu164" value="164-162-164"><label for="main_menu164">
+														 Locations Set Salary</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu165" value="165-162-165"><label for="main_menu165">
+														 Locationwise Payment</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																													<td>
+																												 <div class="checkbox check-success">
+														<input {% check_membership 169 170 171 accpages %} type="checkbox" name="main_menu[]" id="main_menu166" value="169 170 171"><label for="main_menu166">
+														 Locationwise Incentive</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu167" value="167-162-167"><label for="main_menu167">
+														 Location Salary Details</label>
+														 </div>
+																												</td>
+														
+																												<td>
+																												 <div class="checkbox check-success">
+														<input type="checkbox" name="main_menu[]" id="main_menu168" value="168-162-168"><label for="main_menu168">
+														 Location Incentive Setting</label>
+														 </div>
+																												</td>
+														
+																													</tr>
+															<tr>
+																											</tr>
+											</tbody></table>
+										</td>
+									</tr>
+															
+					
+	
+	<tr>
+<td colspan="10"> 
+
+<input type="submit" name="Submit" value="Submit" class="btn btn-success" style="float:right">
+</td></tr>
+</tbody></table></div>
+                    </div>
+                </div>
+			</form>
+
+
+
+
+
+
+</div>
+{% endblock %}

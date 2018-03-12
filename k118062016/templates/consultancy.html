@@ -1,0 +1,58 @@
+{% extends "base2.html" %}
+
+{% block title %} Manage Consultancies {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/consultancy_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Manage Consultancies </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> CONSULTANCY NAME</th>
+         <th> ADDRESS </th>
+          	  <th> PHONE ON </th>
+		<th> EMAIL ID </th>
+		<th> CONTACT PERSON </th>
+		<th> PHONE </th>
+		<th> EMAIL </th>
+		<th> ACTIONS </th>
+			
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in consultancy %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.consultancy_name }} </td> 
+<td> {{ e.consultancy_address }} </td>
+<td> {{ e.consultancy_phoneno }} </td>
+<td> {{ e.consultancy_emailid }} </td> 
+<td> {{ e.contactperson_name }} </td>
+<td> {{ e.contactperson_phoneno }} </td>
+<td> {{ e.contactperson_emailid }} </td>
+<td> <a href="/consultancy_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/consultancy_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

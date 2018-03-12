@@ -1,0 +1,55 @@
+{% extends "base2.html" %}
+
+{% block title %} employee_attendance_bulk {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+
+
+</ul>
+
+
+
+                    
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> Serial #  </th>
+        <th> User ID  </th>
+        <th> IpAddress  </th>
+         <th> Session Start  </th>
+        <th>  Session Last Update </th>
+         
+		  </tr>
+    </thead>
+    <tbody>
+        
+
+{% for i in ldata %}
+<tr>   <td> {{ i.0 }}  </td>  
+ <td>              {{ i.3 }}           </td> 
+						
+<td> {{ i.2 }}   </td>   
+
+
+
+
+  <td>  {{ i.8 }}   </td>  
+ <td>            {{ i.9}}             </td> 
+						
+
+
+</tr>
+
+{% endfor %}
+</tbody>
+
+</table>
+
+
+{% endblock %}

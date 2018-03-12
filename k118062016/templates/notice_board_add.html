@@ -1,0 +1,122 @@
+      {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Notice Board Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/notice_board/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="client_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{notice_form.errors}}
+
+					<table class="table table-bordered table-responsive">
+					<tr>
+						<td>Post Date</td>
+						<td>
+							<div class="input-append success date col-md-4 no-padding">
+							<input type="text" class="form-control" name="date">
+							</div>
+							<div class="col-md-1"></div>
+							<div class="col-md-6">
+							<input class="timepicker" type="text" name="time">
+							</div>
+						</td>
+					</tr> 
+						<tr>
+							<td>Subject</td>
+							<td><input type="text" name="subject" id="subject" class="form-control"></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							<textarea type="text" name="message" id="message" placeholder="Enter text ..." class="form-control" rows="10" name="text-editor"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>Post Option</td>
+							<td>
+							<select name="post_to" id="post_to" class="chosen-select" onchange="getposttype(this.value)">
+								<option value="">Select</option>
+								<option value="Employees">Employees</option>
+								<option value="Vendors">Vendors</option>
+								<option value="Clients">Clients </option>
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td><div id="ajaxhead_div"></div></td>
+							<td><div id="ajax_div"></div></td>
+						</tr>
+						<tr>
+							<td>Post Priority</td>
+							<td>
+								<select name="priority" class="chosen-select">
+								<option value="">Select Priority</option>
+								<option value="Normal">Normal</option>
+								<option value="Urgent">Urgent</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Date</td>
+							<td>
+								<div class="input-append success date col-md-4 no-padding">
+									<input type="text" class="form-control" name="from_date" placeholder="From Date">
+									
+								</div>
+								<div class="col-md-1"></div>
+								<div class="input-append success date col-md-4 no-padding">
+									<input type="text" class="form-control" name="to_date" placeholder="To Date">
+									
+								</div>
+							</td>
+						</tr> 
+						<tr>
+							<td>Post Via</td>
+							<td>
+							<select name="notice_type" id="notice_type" class="form-control">
+								<option value="">Select</option>
+								<option value="Notice Board">Notice Board</option>
+								<option value="SMS">SMS</option>
+								<option value="Email">Email</option>
+								
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<input type="submit" name="Submit" value="Submit" class="btn btn-success">
+							</td>
+						</tr>
+					</table>
+				</form>
+
+
+				</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

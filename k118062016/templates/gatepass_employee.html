@@ -1,0 +1,59 @@
+{% extends 'base2.html' %}
+
+{% block title %} Gate Passes {% endblock %}
+
+
+{% block body_block %}
+<div class="hero-unit">
+        <h3>  Employee Gatepass
+ </h3>
+
+
+<a href="/gatepass_add/" role="button" class="btn btn-warning">Add</a>
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.No </th>
+        <th> NAME & CODE </th>
+         <th> OUT DATE & TIME</th>
+         <th> IN DATE &TIME</th>
+	<th> GATE NO.</th>
+        <th> GATEPASS NO</th>
+         <th> DEPARTMENT</th>
+         <th> PURPOSE</th>
+        <th> ISSUED BY</th>
+         <th> CANCEL REMARKS </th>
+           <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for pass in passes %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ pass.emp_name_id }} </td> 
+
+<td> {{ pass.out_date }}{{ pass.out_time }} </td>
+<td> {{ pass.in_date }}{{pass.in_time}} </td> 
+<td> {{ pass.gateno }} </td>
+<td> {{ pass.gatepass_no }} </td> 
+
+<td> {{pass.department}} </td> 
+<td> {{ pass.purpose }} </td> 
+
+
+<td> {{ pass.issedby }} </td>
+<td></td>
+<td> <a href="#"> <a class="btn btn-success btn-small" href="/gatepass_edit/{{pass.id}}/" title="Edit"><i class="fa fa-edit"></i> Edit</a> &nbsp; &nbsp; <a href="#"> <p class="btn btn-danger btn-small">Not Updated</p> </a> &nbsp; &nbsp; <a href="/employee_gatepass_delete/{{pass.id}}/"> <button class="printhide btn btn-small btn-warning" data-toggle="modal" data-target="#Cancel1739"><i class="fa fa-times"></i> Cancel</button> </a> </td>
+</tr> 
+
+
+{% endfor %}
+
+</table>
+</div>
+{% endblock %}

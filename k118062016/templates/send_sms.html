@@ -1,0 +1,51 @@
+{% extends "base2.html" %}
+
+{% block title %}Send SMS {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Send SMS</h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+         <th>DATE</th>
+          <th> SEND TO </th>
+          <th> MESSAGE </th>
+       
+	   </tr>
+    </thead>
+    <tbody>
+        
+{% for e in send_sms %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td>
+<td> {{ e.send_to}} </td>
+<td> {{ e.message }} </td>
+
+
+<td> 		</td>
+
+
+       
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

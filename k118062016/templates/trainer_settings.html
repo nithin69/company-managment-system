@@ -1,0 +1,51 @@
+{% extends "base2.html" %}
+
+{% block title %} Trainer Settings {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/trainer_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Trainer Settings   </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> TRAINER NAME</th>
+         <th> CONTACT </th>
+          <th> LOCATION </th>
+        	  <th> ACTIONS </th>
+        
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in trainer_settings %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.trainer_name }} </td> 
+<td> {{ e.phone }} </td>
+<td> {{ e.location }} </td>
+<td>
+<a href="/trainer_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/trainer_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a>
+</td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

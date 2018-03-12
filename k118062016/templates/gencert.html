@@ -1,0 +1,70 @@
+{% extends "base2.html" %}
+
+{% block title %} Generate Training Certificate {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Generate Training Certificate </h3>
+
+<form action="/gencert/" method="get">
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+    
+        <th> SELECT EMPLOYEE </th>
+
+         
+          
+        
+         
+    
+    </thead>
+    <tbody>
+        
+
+
+<tr> <td>  
+
+
+<select name = "empid" data-name="employeno" class="auto-width search-filter" style="max-width: 200px">
+
+
+
+
+
+{%  for e in emps %}
+
+
+      <option value={{ e.employeno }} > {{e.employeno}}  - {{ e.firstname }} {{ e.lastname  }} </option>
+
+
+
+
+
+{%  endfor %}
+
+
+
+
+
+</select>
+
+
+</td></tr> 
+
+<td> <input type="submit" name="Submit" value="Generate" class="btn btn-success"> </td>
+
+
+</tr> 
+
+
+</table>
+
+</form>
+
+
+</div>
+{% endblock %}

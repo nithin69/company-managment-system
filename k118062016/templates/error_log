@@ -1,0 +1,86 @@
+[15-Apr-2015 11:02:55 UTC] PHP Parse error:  syntax error, unexpected ''%0aTask+'' (T_CONSTANT_ENCAPSED_STRING) in /home/k1groups/public_html/task_management.php on line 29
+[16-Apr-2015 06:46:13 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/k1groups/public_html/support_ticket.php:2) in /home/k1groups/public_html/support_ticket.php on line 3
+[16-Apr-2015 06:46:27 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/k1groups/public_html/support_ticket.php:2) in /home/k1groups/public_html/support_ticket.php on line 3
+[16-Apr-2015 06:47:27 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/k1groups/public_html/support_ticket.php:2) in /home/k1groups/public_html/support_ticket.php on line 3
+[16-Apr-2015 07:09:29 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/k1groups/public_html/support_ticket.php:2) in /home/k1groups/public_html/support_ticket.php on line 3
+[16-Apr-2015 07:22:59 UTC] PHP Parse error:  syntax error, unexpected '$name' (T_VARIABLE) in /home/k1groups/public_html/support_ticket.php on line 24
+[16-Apr-2015 07:23:39 UTC] PHP Parse error:  syntax error, unexpected '$name' (T_VARIABLE) in /home/k1groups/public_html/support_ticket.php on line 24
+[17-Apr-2015 12:06:47 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/individual_issuance.php on line 683
+[17-Apr-2015 12:06:59 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/individual_issuance.php on line 683
+[17-Apr-2015 12:07:40 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/individual_issuance.php on line 683
+[17-Apr-2015 13:32:14 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/manage_employee.php on line 3081
+[17-Apr-2015 13:32:26 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/manage_employee.php on line 3081
+[18-Apr-2015 19:14:20 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:23:48 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:23:54 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:24:46 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:24:49 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:24:56 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/k1groups/public_html/client_invoice.php on line 1046
+[18-Apr-2015 19:38:00 UTC] PHP Parse error:  syntax error, unexpected '$invqry' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1095
+[18-Apr-2015 19:39:50 UTC] PHP Parse error:  syntax error, unexpected '$invqry' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1095
+[18-Apr-2015 19:41:46 UTC] PHP Parse error:  syntax error, unexpected '$id' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1027
+[18-Apr-2015 19:43:21 UTC] PHP Parse error:  syntax error, unexpected '$id' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1027
+[18-Apr-2015 19:43:49 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/k1groups/public_html/client_invoice.php on line 1034
+[18-Apr-2015 19:44:18 UTC] PHP Parse error:  syntax error, unexpected '$row1' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1099
+[18-Apr-2015 19:45:02 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/k1groups/public_html/client_invoice.php on line 1099
+[18-Apr-2015 19:45:58 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/k1groups/public_html/client_invoice.php on line 1099
+[18-Apr-2015 19:46:20 UTC] PHP Parse error:  syntax error, unexpected '$cn' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1095
+[18-Apr-2015 19:50:14 UTC] PHP Parse error:  syntax error, unexpected '$cn' (T_VARIABLE) in /home/k1groups/public_html/client_invoice.php on line 1095
+[20-Apr-2015 08:14:49 UTC] PHP Warning:  mysql_connect(): Access denied for user 'admin'@'localhost' (using password: YES) in /home/k1groups/public_html/db.php on line 2
+[29-Apr-2015 11:34:13 UTC] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[02-May-2015 11:24:53 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[02-May-2015 11:35:06 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[03-May-2015 19:03:57 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:57 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:57 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:57 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:57 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:58 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:59 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:59 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 19:03:59 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/k1groups/public_html/get_employee_home.php on line 34
+[03-May-2015 20:25:17 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/get_employee_home.php on line 21
+[03-May-2015 20:25:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/get_employee_home.php on line 21
+[03-May-2015 20:25:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/get_employee_home.php on line 21
+[03-May-2015 20:25:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/get_employee_home.php on line 21
+[03-May-2015 20:25:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/get_employee_home.php on line 21
+[04-May-2015 07:56:16 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[04-May-2015 09:50:03 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[04-May-2015 10:14:31 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[04-May-2015 10:38:31 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 46
+[04-May-2015 10:38:31 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 46
+[04-May-2015 10:38:31 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 46
+[04-May-2015 10:38:31 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 46
+[04-May-2015 11:14:20 UTC] PHP Parse error:  syntax error, unexpected 'date_default_timezone_set' (T_STRING), expecting ',' or ';' in /home/k1groups/public_html/birthdaysms.php on line 15
+[04-May-2015 16:15:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/home-old.php on line 1640
+[05-May-2015 11:09:32 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[05-May-2015 19:45:57 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:57 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:58 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:58 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:59 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:59 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[05-May-2015 19:45:59 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/k1groups/public_html/get_employee_home.php on line 70
+[06-May-2015 06:30:45 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[07-May-2015 10:05:25 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[07-May-2015 10:07:44 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[07-May-2015 11:05:03 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[07-May-2015 11:21:11 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[08-May-2015 06:32:33 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[08-May-2015 11:55:02 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/presents.php on line 14
+[08-May-2015 12:05:49 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/k1groups/public_html/presents.php on line 14
+[08-May-2015 13:57:07 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/home.php on line 736
+[08-May-2015 13:57:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/home.php on line 736
+[08-May-2015 13:57:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/k1groups/public_html/home.php on line 736
+[11-May-2015 11:53:09 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[11-May-2015 12:41:21 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[12-May-2015 08:23:59 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[12-May-2015 10:41:57 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[12-May-2015 10:51:18 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[12-May-2015 15:39:46 UTC] PHP Fatal error:  Using $this when not in object context in /home/k1groups/public_html/jaffa.php on line 2
+[12-May-2015 15:40:30 UTC] PHP Fatal error:  Call to undefined function mysqli_connect() in /home/k1groups/public_html/jaffa.php on line 12
+[13-May-2015 07:59:07 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[13-May-2015 12:22:23 UTC] PHP Parse error:  syntax error, unexpected '`', expecting ',' or ';' in /home/k1groups/public_html/search_empajax.php on line 88
+[13-May-2015 13:31:08 UTC] PHP Strict Standards:  mktime(): You should be using the time() function instead in /home/k1groups/public_html/savesign.php on line 14
+[13-May-2015 18:47:44 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/k1groups/public_html/police_verification.php on line 86
+[13-May-2015 19:18:22 UTC] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0

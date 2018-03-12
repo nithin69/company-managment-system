@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Training Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+
+ 
+ {% if trreport %}
+    <h2> Keyword : {{ category }}  </h2>
+    
+        <div class="row">
+                    <div class="col-md-8">
+			
+                         <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+			<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Name</th>
+			<th>Added On </th>
+			<th>Attire</th>
+			<th>Punctuality</th>
+			<th>Behaviour</th>
+			<th>Tobacco</th>
+			<th>Command</th>
+			<th>Drill</th>
+			<th>Recom</th>
+			<th>Remarks</th>
+			
+			</tr>
+			</thead>
+			{% for n in trreport %}
+			<tbody>
+			<tr>			
+			<td>{{ n.id }}</td>
+			<td>{{ n.biodata_id_id }}</td>
+			<td>{{ n.added_on }}</td>
+			<td>{{ n.attire }}</td>
+			<td>{{ n.punctuality }}</td>
+			<td>{{ n.behaviour }}</td>
+			<td>{{ n.tabacco }}</td>
+			 <td>{{ n.command }}</td>
+			<td>{{ n.drill }}</td>
+			<td>{{ n.recom }}</td>
+			<td>{{ n.remarks }}</td>
+<td><a href="#" onclick="window.print();return false;"><button type="print" value="print">print</button></a>
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<div id="content" class="print"></td>
+			</tr>
+			</tbody>
+			{% endfor %}
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

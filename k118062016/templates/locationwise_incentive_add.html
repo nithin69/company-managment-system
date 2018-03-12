@@ -1,0 +1,99 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add LocationWise Incentive {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/incentive_setting_loc/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="task_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{location_form.errors}}
+								<table class="table table-bordered table-responsive">
+									<tr>
+										<td>Month</td>
+										<td>	
+											<select name="month" id="month"  class="chosen-select" data-style="btn-warning" data-live-search="true" required >				<option value="">Select Month</option>
+											<option value="January">January</option>
+											<option value="February">February</option>
+<option value="March">March</option>
+<option value="April">April</option>
+<option value="May">May</option>
+<option value="June">June</option>
+<option value="July">July</option>
+<option value="August">August</option>
+<option value="September">September</option>
+<option value="October">October</option>
+<option value="November">November</option>
+<option value="December">December</option>
+										</select>
+										</td>
+									</tr>								
+									<tr>
+										<td>Location</td>
+										<td><select class="chosen-select" name="location" id="location" required="">
+								<option value="">Select Location</option>
+	{% for e in loc %}
+
+ <option value={{e.name}}>  {{ e.loc_name}} -{{ e.name}}</option>
+
+
+       {% endfor %}							
+								
+							
+									  							</select> 
+                        	
+							
+							
+							 </td>
+									</tr>
+									<tr>
+										<td>Purpose</td>
+										<td>	
+											<input type="text" class="form-control" name="purpose" >
+										</td>
+									</tr>
+									<tr>
+										<td>Amount (Attendance After 15 Days)</td>
+										<td>	
+											<input type="text" class="form-control" name="totamount">
+										</td>
+									</tr>
+									<tr>
+										<td>Amount (Attendance Below 15 Days)</td>
+										<td>	
+											<input type="text" class="form-control" name="amount">
+										</td>
+									</tr>									
+									<tr>
+										<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+									</tr>
+								</table>
+</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

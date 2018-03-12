@@ -1,0 +1,99 @@
+      {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Discipline & Compliance Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/discipline_compliance/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="discipline_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}
+		    {{discipline_form.errors}}
+								<table class="table table-bordered table-responsive">
+								<tr>
+					<td width="40%">Date & Time</td>
+					<td>
+						<div class="input-append success date col-md-4 no-padding">
+						<input type="text" class="form-control" id="send_date" name="send_date">
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-6">
+						<input class="timepicker" type="text" id="send_time" name="send_time">
+						</div>
+					</td>
+				</tr> 
+								<tr>
+						<td>Initiated by</td>
+						<td>
+						
+						<input type="text" id="initiated_by" value="admin - Manas Chowdary" readonly />
+						<input type="hidden"  name="initiated_by" />
+						</td>
+					</tr>
+					
+						
+						<tr><td>Subject</td>
+						<td><input type="text" class="form-control" name="subject" id="subject" required></td>
+						</tr>
+						<tr>
+							
+							<td colspan="2">
+							
+							
+							<textarea id="description" placeholder="Enter text ..." class="form-control" rows="25" 
+									name="description" required>
+							<textarea type="text" class="form-control"></textarea></td>
+						</tr>
+						<tr>
+						<td>Send to Whom</td>
+						<td>
+						<select class="form-control" name="send_to" id="send_to" multiple="multiple">
+							<option value="">Select</option>
+							
+						</select>
+						</td>
+					</tr>
+					<tr>
+					<td>Priority</td>
+					<td>
+					<select name="priority" id="priority" class="chosen-select" required>
+					<option value="">Select Priority</option>
+					<option value="Normal">Normal</option>
+					<option value="Priority">Priority</option>
+					<option value="Serious">Serious</option>
+					</select>
+					</td>
+					</tr>
+				
+						<tr>
+							<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+						</tr>
+								</table>
+							</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

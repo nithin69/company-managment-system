@@ -1,0 +1,11 @@
+django==1.8.14
+djangorestframework
+suit
+Mysql-python
+git+https://github.com/percipient/django-querysetsequence.git
+django-registration
+django-import-export
+django-tracking
+django-adminrestrict
+django-localflavor
+django-autocomplete-light

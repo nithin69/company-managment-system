@@ -1,0 +1,67 @@
+{% extends "base2.html" %}
+
+{% block title %} Item Requisition Approve {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Item Requisition Approve </h3>
+
+
+    <table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> REQUISITION TYPE </th>
+         <th> REQUISITION DATE </th>
+          <th> CODE & NAME </th>
+        <th> DESIGNATION</th>
+		 <th> ITEMS</th>
+		 <th> QUANTITY </th>
+        <th> PRICE</th>
+         <th> TYPE </th>
+          <th> ISSUED ON </th>
+        <th> APPROVED BY</th>
+		 <th> REMARKS</th>
+		 <th> ACTIONS</th>
+          </tr>
+    </thead>
+    <tbody>
+        
+{% for e in item_requisition_approve %}     
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.type}} </td>
+<td> {{ e.request_date }} </td>
+<td> {{ e.employeno }} {{ e.firstname }} {{ e.lastname }} </td> 
+<td> {{ e.designation}} </td>
+<td> {{ e.items }} </td> 
+<td> {{ e.quantity}} </td>
+<td> {{ e.unit_price }} </td>
+<td> {{ e.types }} </td> 
+<td> N/A </td>
+<td> - </td>
+<td> {{ e.remarks }} </td>
+
+<td><a href=""><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
+											
+ <a class="btn btn-small btn-danger" href="" onclick="return delete1();">Reject</a>&nbsp;&nbsp;&nbsp;
+ 
+ <button class="btn btn-small btn-primary" data-toggle="modal" data-target="#myModal11614"> Approve </button>
+ 
+ </td>
+											
+ 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

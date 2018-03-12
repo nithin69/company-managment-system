@@ -1,0 +1,125 @@
+{% extends "base2.html" %}
+
+{% block title %} employee_attendance_bulk {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+  <h3>   Employee Attendance </h3>
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/employee_attendance_bulk/">Employee Attendance</a></li>
+
+</ul>
+
+<form action="/empbulksearch/" method="get">
+                           
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> SELECT LOCATION * </th>
+        <th> SELECT DATE </th>
+         
+		  </tr>
+    </thead>
+    <tbody>
+
+<tr> 
+<td>
+<select class="selectpicker" data-live-search="true" name="loca" id="loca" required="">
+
+								
+
+	{% for c in clients %}
+
+
+
+ <option data-tokens="{{c.loc_name}}" value="{{c.name}}">  {{ c.loc_name}} - {{c.name}}</option>
+
+
+
+
+
+       {% endfor %}
+								
+							
+									  							</select>
+</td>
+<td>
+                        	<input type="text" name="to_date" class="form-control" required id="dpd2">
+                        </td>
+						
+<td><input type="submit" name="Submit" value="Search" class="btn btn-success"></td>
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+</table>
+
+</form>
+
+
+<div class="row">
+				<div class="col-md-2 boxemployee">
+
+                            Date
+			Loc Per 
+
+{{ datex.0 }}
+
+
+				</div>
+				 
+
+				<div class="col-md-2 boxreg">
+           			Date
+
+Loc Per 
+
+				</div>
+
+
+
+				<div class="col-md-2 boxreg">
+        
+				Date				
+
+				</div>
+
+
+				<div class="col-md-2 boxtrng">
+
+				
+				Date
+
+				</div>
+
+
+
+
+				<div class="col-md-2 boxemployed">
+        
+				Date
+
+				</div>
+			
+
+
+    				<div class="col-md-2 boxseper">
+				
+				Date
+
+				</div>
+			</div>
+
+
+
+</div>
+{% endblock %}

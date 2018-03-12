@@ -1,0 +1,75 @@
+{% extends "base2.html" %}
+
+{% block title %} Outward Management {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Outward Management </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE </th>
+         <th> INVOICE NO. </th>
+          <th> STOCK TO </th>
+        <th> TYPE </th>
+         <th> DETAILS</th>
+          <th> APPROVER  </th>
+        <th> ITEMS </th>
+         <th> QUANTITY </th>
+		 <th> PRICE	</th>
+		 <th> REMARKS </th>
+		  <th>REFUNDABLE / NON-REFUNDABLE </th>
+		 <th> ACTIONS	</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in outward_management %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.invoice_no }} </td>
+<td> {{ e.stock_to }} </td> 
+<td> {{ e.type }} </td>
+<td> Name:{{ e.courier_name }}<br/> POD Number:{{e.pod_number}} </td> 
+<td> {{	e.approver }} </td> 
+<td> {{ e.items }} </td> 
+<td> {{ e.quantity }} </td>
+<td> {{ e.value }} </td> 
+<td> {{ e.remarks }} </td>
+<td> {{ e.ref_nonref }} </td>
+<td> <a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp; </td> 
+
+
+
+
+
+       
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

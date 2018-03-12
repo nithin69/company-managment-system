@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Authorised Strength Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get"  action="/authorisedstrengthreport/">
+
+<select class="chosen-select" name="q" id="authorised_id">
+								<option value="">Select Authorised</option>
+	{% for e in client %}
+
+ <option value="{{ e.authorised}}">{{ e.authorised }}</option>
+
+
+       {% endfor %}							
+								
+							
+</select>
+
+<input type="submit" value="search" class="tfbutton">
+
+</div>
+    
+{% endblock %}

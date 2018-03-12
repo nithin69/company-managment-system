@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Customer Feedback {% endblock %}
+
+{% block content_title %}
+
+<div id="printId">
+
+
+
+<div style="float:right"><a href="javascript:void(0);" onclick="javascript:printDiv('printId')" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</a></div>
+
+
+<h3 style="text-align:center;">Patrolling (Day / Night)</h3>			
+Date: {{single_patrolling_id.date}}<br><br>
+
+Patrolling Officer1: {{single_patrolling_id.patrolling_officer}}
+<br><br>
+Patrolling Officer2: {{single_patrolling_id.patrolling_officer2}}
+
+
+<table border="1">
+		<thead>
+			<tr>
+			   <th>S.No</th>	
+				<th>Guard Name</th>	
+				<th>Code</th> 				
+			   <th>Patrolling Time</th>           
+			   <th>Dress Up</th>
+			   <th>W/Belt</th>
+			   <th>W/Tie</th>
+			   <th>W/Shoes</th>
+			   <th>B Polish</th>
+			   <th>Cap Batch</th>
+			   <th>W/Cap</th>
+			   <th>W/Whistle</th>
+			   <th>W/Saving</th>
+			   <th>W/hair-cutting</th>
+			   <th>Sleeping</th>
+			   <th>Post-Out</th>
+			   <th>W/I.card</th>
+			   <th>W/Socks</th>
+			   <th>Dozzing</th>
+			   <th>Tabaco</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+					<tr>
+						<td>{{single_patrolling_id.id}}</td>						
+						<td>{{single_patrolling_id.name}}</td>
+						<td>{{single_patrolling_id.name}}</td>
+						<td>{{single_patrolling_id.patrolling_time}}</td>
+						<td>{{single_patrolling_id.dress_up}}</td>
+						
+						<td>{{single_patrolling_id.wear_belt}}</td>
+						<td>{{single_patrolling_id.wear_tie}}</td>
+						<td>{{single_patrolling_id.wear_shoes}}</td>
+						<td>{{single_patrolling_id.b_polish}}</td>
+						<td>{{single_patrolling_id.cap_batch}}</td>
+						<td>{{single_patrolling_id.wear_cap}}</td>
+						<td>{{single_patrolling_id.wear_whistle}}</td>
+						<td>{{single_patrolling_id.wear_saving}}</td>
+						<td>{{single_patrolling_id.wear_haircut}}</td>
+						<td>{{single_patrolling_id.wear_sleeping}}</td>
+						<td>{{single_patrolling_id.post_out}}</td>
+						<td>{{single_patrolling_id.wear_icard}}</td>
+						<td>{{single_patrolling_id.wear_socks}}</td>
+						<td>{{single_patrolling_id.dozzing}}</td>
+						<td>{{single_patrolling_id.tabaco}}</td>
+						
+					</tr>
+					
+		</tbody>
+	</table>
+	<p>Signature of Accounts Officer:-</p>
+	<p style="float:right">Signature of G.M.:-</p>	
+
+
+</div>
+
+
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+                "<html><head><title>Customer Feedback</title><style type='text/css'>.printhide { display:none; }</style></head><body><div style='width:20%;float:left;'><img width='200px' src='/static/images/k1.png' /></div><div style='width:58%;float:left; text-align:center;'><h3>K1 SECURITY SERVICES PVT. LTD.<br/>(AN ISO: 9001:2008 COMPANY)</h3><p style='text-align:center;'>Plot No.-268/269, Sarala Nagar, Cuttack Road, Bhubaneswar-751006, Orissa, India</p><span style='display:inline_block; padding:5px 10px; border:1px solid;font-weight:bold;'></span></div><div style='height:20px;clear:both;'></div>" + divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+
+          
+        }
+    </script>				
+
+
+{% endblock %}

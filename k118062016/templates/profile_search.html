@@ -1,0 +1,52 @@
+{% extends "base2.html" %}
+
+{% block title %} profile_search {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <p> Search Profile </p>
+
+
+    <table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> PHOTO</th>
+         <th> CODE </th>
+          <th> NAME </th>
+        <th> DESIGNATION </th>
+		<th> PHONE </th>
+         <th> ACTIONS </th>
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employees %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.doj }} </td> 
+<td> {{ e.empcode }} </td>
+<td> {{ e.name }} </td> 
+<td> {{ e.qualification }} </td>
+<td> {{ e.post_applied_for }} </td> 
+<td> {{ e.phone }} </td>
+<td><a class="btn btn-success btn-small" href="" title="View Profile"><i class="fa fa-eye"></i> View Profile</a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

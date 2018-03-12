@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block title %} Outward Gatepass {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Outward Gatepass </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+<thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE </th>
+         <th> INVOICE NO. </th>
+          <th> STOCK TO </th>
+        <th> TYPE </th>
+         <th> DETAILS </th>
+          <th> APPROVER  </th>
+        <th> ITEMS </th>
+         <th> QUANTITY </th>
+		 <th> PRICE </th>
+          <th> REMARKS  </th>
+        <th> REFUNDABLE / 
+						NON-REFUNDABLE </th>
+         <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for op in outward_gatepass %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ op.date }} </td> 
+<td> {{ op.invoice_no }} </td>
+<td> {{ op.stock_to }} </td> 
+<td> {{ op.type }} </td>
+<td> {{ op.type }} </td>
+<td> {{ op.approver }} </td>
+<td> {{ op.items }} </td>
+<td> {{ op.quantity }} </td>
+<td> {{ op.value }} </td>
+<td> {{ op.remarks }} </td>
+<td> {{ op.ref_nonref }} </td>
+<td> {{ op.type }} </td>
+<td> 
+<a href="#">
+          <i class="fa fa-eye"></i>
+        </a>  &nbsp; &nbsp;
+         <a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+        <a href="#">
+          <i class="fa fa-pencil"></i>
+        </a> 
+        
+        </td>
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

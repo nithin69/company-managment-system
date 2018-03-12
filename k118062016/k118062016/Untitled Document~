@@ -1,0 +1,17 @@
+update k1groups.pome_excess_loc_attendance a set ids = (select id from k1groups.pome_manage_clients_locations b where b.name = a.work_order);
+
+
+update kcitsplc_ssms.myproject_pomeexcesslocattendance a set work_order_id = (select ids from k1groups.pome_excess_loc_attendance b where a.id= b.id);
+
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Delevere\\scrapy\\tutorial\\vizag\\meeseva.csv'
+INTO TABLE sv01d3.city_business
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES (phone2, act_cat,website,phone1,name,address) set core_cat = 'Meeseva'
+
+insert into kcitsplc_ssms.myproject_pomeclientattendance a (a.id, a.one, a.two, a.three, a.four, a.five, a.six, a.seven, a.eight, a.nine, a.ten, a.eleven, a.twelve, a.thirteen, a.fourteen, a.fifteen, a.sixteen, a.seventeen, a.eightteen, a.nineteen, a.twenty, a.twentyone, a.twentytwo, a.twentythree, a.twentyfour, a.twentyfive, a.twentysix, a.twentyseven, a.twentyeight, a.twentynine, a.thirty, a.thirtyone, a.total_hours, a.employee_id_id, a.work_order_id) select (b.id, b.one, b.two, b.three, b.four, b.five, b.six, b.seven, b.eight, b.nine, b.ten, b.eleven, b.twelve, b.thirteen, b.fourteen, b.fifteen, b.sixteen, b.seventeen, b.eightteen, b.nineteen, b.twenty, b.twentyone, b.twentytwo, b.twentythree, b.twentyfour, b.twentyfive, b.twentysix, b.twentyseven, b.twentyeight, b.twentynine, b.thirty, b.thirtyone, b.total_hours, b.sessionid, b.parentid) from kcitsplc_ssms.myproject_pomeclientattendancetemp b;
+
+
+update kcitsplc_ssms.myproject_pomeemloyees set work_email = concat(employeno, '@k1groups.in');

@@ -1,0 +1,54 @@
+{% extends "base2.html" %}
+
+{% block title %} Location Wise Incentive {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/locationwise_incentive_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Location Wise Incentive </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> LOCATION</th>
+         <th> MONTH </th>
+          	  <th> PURPOSE </th>
+		<th> AMMOUNT(ATTENDANCE AFTER 15 DAYS) </th>
+		<th> AMMOUNT(ATTENDANCE BELOW 15 DAYS) </th>
+		<th> ACTIONS </th>
+			
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in locationwise_incentive %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.location }} </td> 
+<td> {{ e.date }} </td>
+<td> {{ e.purpose }} </td>
+<td> {{ e.totamount }} </td>
+<td> {{ e.amount }} </td> 
+<td> <a href="/locationwise_incentive_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/locationwise_incentive_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

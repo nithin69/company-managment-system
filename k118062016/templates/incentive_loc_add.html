@@ -1,0 +1,113 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add LocationWise Incentive {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/incentive_setting_loc/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="task_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{location_form.errors}}
+								<table class="table table-bordered table-responsive">
+									<tr>
+										<td>Month</td>
+										<td>	
+											<select name="month" id="month"  class="chosen-select" data-style="btn-warning" data-live-search="true" required >
+											<option value="">Select</option>
+											<?php
+											 for( $i = 1; $i <= 12; $i++ ) 
+											 {
+												$month_num = str_pad( $i, 2, 0, STR_PAD_LEFT );
+												$month_name = date( 'F', mktime( 0, 0, 0, $i + 1, 0, 0, 0 ) );
+												?>
+												<option value="<?php echo $month_num; ?>" <?php if($month_num==$month) { echo "  selected"; } ?>><?php echo $month_name; ?></option>
+												<?php
+											} 
+										?>
+										</select>
+										</td>
+									</tr>								
+									<tr>
+										<td>Location</td>
+										<td> 
+                        	
+							<?php
+						$clp_qry=mysql_query("SELECT distinct(work_order) FROM pome_employee_movement WHERE `parentid`='$var_session'");	
+										
+						$clp_qry_count=mysql_num_rows($clp_qry);
+						?>
+							<select  class="chosen-select" name="location" id="location" required >
+								<option value="">Select Location</option>
+								<?php
+								
+								if($clp_qry_count>0)
+								{
+								
+									while($clp_qry_loc=mysql_fetch_assoc($clp_qry))
+									{
+										$clp_qry_loc1=mysql_fetch_array(mysql_query("SELECT * FROM pome_employee_movement  WHERE `parentid`='$var_session'  AND `work_order`='$clp_qry_loc[work_order]'"));
+										
+										$loc=mysql_fetch_array(mysql_query("SELECT * FROM pome_manage_clients WHERE `parentid`='$var_session' and status=1 AND `id`='$clp_qry_loc1[client_id]'"));
+										
+									
+									  ?>
+									  <option value="<?php echo $clp_qry_loc1['work_order']; ?>" <?php if($loca==$clp_qry_loc1['work_order']) {  echo " selected"; } ?>><?php echo $loc['client_name']; ?>-<?php echo $clp_qry_loc1['work_order']; ?></option>
+									  
+									  <?php
+									}
+								}
+								?>
+							</select>
+							 </td>
+									</tr>
+									<tr>
+										<td>Purpose</td>
+										<td>	
+											<input type="text" class="form-control" name="purpose" >
+										</td>
+									</tr>
+									<tr>
+										<td>Amount (Attendance After 15 Days)</td>
+										<td>	
+											<input type="text" class="form-control" name="totamount">
+										</td>
+									</tr>
+									<tr>
+										<td>Amount (Attendance Below 15 Days)</td>
+										<td>	
+											<input type="text" class="form-control" name="amount">
+										</td>
+									</tr>									
+									<tr>
+										<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+									</tr>
+								</table>
+</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

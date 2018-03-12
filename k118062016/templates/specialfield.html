@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Special Field Staff{% endblock %}
+
+
+{% block content_title %}
+
+    
+    
+        <div class="row">
+                    <div class="col-md-12">
+			
+                        <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+				<thead>
+				<tr>
+					<td rowspan="2" valign="top">S.No</td>
+					<td rowspan="2"  colspan="2" valign="top">Employee Details</td>
+					<td rowspan="2">Month</td>
+    					<td rowspan="2">Year</td>
+					<td rowspan="2" valign="top">Days Work</td>
+					<td rowspan="2" valign="top">Total Hours</td>
+					<!--<td rowspan="2" valign="top">Paid Leaves</td>
+					<td rowspan="2" valign="top">Total Days</td>-->
+					<td rowspan="2" valign="top">Gross Salary</td>
+					<td colspan="6" valign="top">Earnings</td>
+					<td colspan="7" valign="top">Deduction</td>
+					<td rowspan="2" valign="top">Net Pay</td>
+					<td valign="top">Signature</td>
+					
+				</tr>
+				<tr>
+				  <td valign="top">Basic</td>
+				  <td valign="top">HRA</td>
+				  <td valign="top">Washing</td>
+				  
+				  <!--<td valign="top">Annual Bonus</td>-->
+				  
+				  <td valign="top">Conveyance</td>
+				  <td valign="top">Incentive</td>
+				  <!--<td valign="top">Loyality Bonus</td>-->
+				 <!-- <td valign="top">Other</td>-->
+				  <td valign="top">Total</td>
+				  <td valign="top">EPF</td>
+				  <td valign="top">ESI</td>
+				  <td valign="top">Advances</td>
+				  <td valign="top">Loans</td>
+				  <td valign="top">Fines</td>
+				  <td valign="top">Other Deductions</td>
+				  <td valign="top">Total Dedu</td>
+<td valign="top"></td>
+			  </tr>
+			  </thead>
+<tbody>
+{% for n in designation2 %}		
+					
+			   <tr>
+					<td>{{ n.id }}</td>
+					<td>{{n.pome_emloyees_id}}</td>
+					
+					<td>{{n.designation}}</td>
+					<td>{{n.month}}</td>
+					<td>{{n.year}}</td>
+					<td>{{ n.total_days }}</td>
+					<td>{{ n.total_hours }}</td>
+					<!--<td><?php echo $paid_leaves_total; ?></td>
+					<td><?php echo $total_days_total; ?></td>-->
+					<td>{{ n.basic }}</td>
+					<td>{{ n.cal_basic }}</td>
+					<td>{{ n.hra }}</td>
+					<td>{{ n.washing }}</td>
+					
+				
+				<!--  <td valign="top"><?php echo round(($annual_bonus_total)); ?></td>
+				  -->
+				  <td valign="top">{{ n.conveyance }}</td>
+				  <td valign="top">{{ n.bonus }}</td>
+				 <!--  <td><?php echo round(($other_total)); ?></td>
+				 <td valign="top"><?php echo round(($loyality_bonus_total)); ?></td>-->
+				  <td valign="top">{{ n.total_allowances }}</td>
+				  <td valign="top">{{ n.epf }}</td>
+				  <td valign="top">{{ n.esi }}</td>
+				  <td valign="top">{{ n.advances }}</td>
+				  <td valign="top">{{ n.loans }}</td>
+				  <td valign="top">{{ n.fines }}</td>
+				  <td valign="top">{{ n.other_deductions }}</td>
+				  <td valign="top">{{ n.total_deductions }}</td>
+				  <td valign="top">{{ n.net_pay }}</td>
+				  
+			  </tr>
+			 
+			  
+			 
+		</tbody>
+			  
+			{% endfor %}
+			</table>
+			
+			
+					
+                    </div>
+        </div>
+	
+
+	 	
+
+   {% else %}
+
+                    
+
+    <h2> No results for keyword : {{ category }}  </h2>
+
+            {% endif %}
+
+
+
+
+</div>
+{% endblock %}

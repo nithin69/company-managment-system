@@ -1,0 +1,57 @@
+{% extends "base2.html" %}
+
+{% block title %} Trainee Attendance {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Trainee Attendance </h3>
+
+
+    <table  id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> Sl.  </th>
+        <th> CODE </th>
+         <th> NAME </th>
+          <th> APPLIED POST </th>
+        <th> TRAINING DATES </th>
+         <th> TOTAL PRESENTS </th>
+          <th> TOTAL ABSENTS  </th>
+        <th> TOTAL DAYS </th>
+         <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in trainee %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.doj }} </td> 
+<td> {{ e.empcode }} </td>
+<td> {{ e.name }} </td> 
+<td> {{ e.qualification }} </td>
+<td> {{ e.post_applied_for }} </td> 
+<td> {{ e.phone }} </td>
+<td> {{ e.phone }} </td>
+<td> 
+         <a class="btn btn-danger btn-small" href="/trainee_attendance_view/{{e.id}}/"><i class="fa fa-eye" title="Print Preview"></i> View</a>
+       &nbsp; &nbsp;
+         <a href="" class="btn btn-success btn-small"><i title="Print" class="fa fa-print"></i> Print</a>
+         </td> 
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

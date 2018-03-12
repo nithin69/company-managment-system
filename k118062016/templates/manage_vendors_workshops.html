@@ -1,0 +1,75 @@
+{% extends "base2.html" %}
+
+{% block title %} Manage Vendors / Workshops Management {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/vendor_add/" role="button" class="btn btn-warning">Add</a>
+
+  <h3> Manage Vendors / Workshops Management  </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> TYPE</th>
+         <th> CODE </th>
+          <th> COMPANY DETAILS </th>
+        <th> CONTACT PERSON DETAILS </th>
+         <th> BANK DETAILS </th>
+		  <th> ACTIONS </th>
+          
+        
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in vendor %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.login_type }} </td> 
+<td> {{ e.vendor_code }} </td>
+<td>Name {{ e.company_vendor_name }}<br/>
+Type : {{ e.company_type }} <br/>
+City: {{ e.city }}<br/>
+District:{{e.district}}</td>
+ 
+<td>Name: {{ e.name }}<br/>
+Phone No: {{ e.contact_no }} </td>
+<td>Bank Name {{ e.bank }}<br/>
+A/C No : {{ e.ac_no }} <br/>
+IFSC No: {{ e.ifsc_no }}<br/>
+Branch:{{e.branch}}<br/>
+Type:{{e.bank_type}}</td>
+
+<td>
+<a title="View" href="/vendor_view/{{e.id}}/"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;
+
+<a title="Edit" href="/vendor_edit/{{e.id}}/"><i class="fa fa-edit"></i></a>
+&nbsp;&nbsp;&nbsp;
+
+<a title="Inactive" href="" class="btn btn-small btn-primary"> Active</a>											
+&nbsp;&nbsp;
+
+<a title="Print" href="#" onclick="printdata(5)"><i class="fa fa-print"></i></a>
+
+
+</td>
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

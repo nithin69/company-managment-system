@@ -1,0 +1,71 @@
+{% extends "base2.html" %}
+
+{% block title %} Final Report {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Final Report </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> NAME & CODE </th>
+         
+          <th> DESIGNATION </th>
+        <th> APPLIED DATES </th>
+         <th> START DATE </th>
+          <th> COMPLETION DATE  </th>
+        <th> ABSENTS </th>
+         <th> PRESENTS </th>
+		 <th> PERFORMANCE </th>
+          <th> AVG OVERALL RATING  </th>
+        <th> RECOM</th>
+		<th> REMARKS</th>
+         <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for f in final_report %}
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ f.biodata_id_id }} </td> 
+<td> {{ f.designation }} </td> 
+<td> {{ f.qualification }} </td>
+<td> {{ f.post_applied_for }} </td> 
+<td> {{ f.phone }} </td>
+<td> {{ f.phone }} </td>
+<td> {{ f.phone }} </td>
+<td>
+							<table class="table table-bordered">
+							
+							<tbody><tr><td>Attire</td> <td> {{ f.attire }} </td></tr>
+							<tr><td>Punctuality </td><td>{{ f.punctuality }}</td></tr>
+							<tr><td>Behaviour </td><td>{{ f.behaviour }}</td></tr>
+							<tr><td>Command </td><td>{{ f.command }}</td></tr>
+							<tr><td>Tabacco </td><td>{{ f.tabacco }}</td></tr>
+							<tr><td>Drill </td><td>{{ f.drill }}</td></tr>
+							
+							</tbody></table>
+							</td>
+<td> {{ f.phone }} </td>
+<td> {{ f.recom }} </td>
+<td> {{ f.remarks }} </td>
+<td><a href="/final_report_view/{{f.id}}/" class="btn btn-success btn-small"><i title="Print" class="fa fa-print"></i> View</a></td>
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

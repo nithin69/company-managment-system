@@ -1,0 +1,61 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add Loan Advances {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/loan_advances/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="loan_form" method="post" action="."
+              enctype="multipart/form-data">
+<form name="form1" method="post" action="" enctype="multipart/form-data">
+								<table class="table table-bordered table-responsive">
+								<tr>
+									<td>Select Designation</td>
+									<td>
+									<select class="form-control" name="designation" id="designation" >
+									<option value="">Select</option>
+									
+									</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Loan Limit</td>
+									<td><input type="text" name="loan_limit" id="loan_limit" class="form-control"></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+								</tr>
+								</table>
+								</form>
+                                              
+                                              
+                         
+
+
+        {% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

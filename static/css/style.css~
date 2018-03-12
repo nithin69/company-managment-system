@@ -1,0 +1,71 @@
+.contentrow{
+    margin-top: 5%;
+    }
+    
+    
+.navbar-header{
+    margin-top: -2%;
+    }
+    
+.navbar-brand, .welcome-msg{
+    color: white !important;
+    }
+    
+
+.boxemployee, .boxreg, .boxtrng, .boxemployed, .boxseper, .boxcloc, .boxinv, .boxcoll, .boxdes, .boxvendorpay, .boxsal, .boxvendowrks, .boxdeploy, .boxevntcal, .boxnotb, .boxempbd, .boxtaskl{
+
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.btn-small{
+    padding: 3px 12px;
+    font-size: 11.9px;
+    border-radius: 3px;
+}
+
+.btn-primary{
+background-color:#0090D9;
+}
+
+.btn-success{
+background-color:#0090D9;
+}
+
+.btn-info{
+background-color:#1F3853;
+}
+
+
+.daterm{ display: inline; }
+
+.attsavebtn{ display: initial !important; }
+
+
+#calendar{
+width: 200% !important;
+    padding-left: 8%;
+
+}
+
+
+
+.dashstat{
+
+    padding-left: 40% !important;
+
+}
+
+
+$(document).ready(function(){
+  
+  var calendar = $('#calendar').calendar({events_source: '/getcalevents/'});
+
+
+
+
+
+});
+
+

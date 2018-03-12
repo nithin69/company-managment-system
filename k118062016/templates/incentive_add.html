@@ -1,0 +1,62 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add Task {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/reference_incentive_settings/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="task_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{incentive_form.errors}}
+
+
+								<table class="table table-bordered table-responsive">
+									<tr>
+										<td>Date</td>
+										<td>	
+											<div class="input-append success date">
+											<input type="text" class="form-control" name="date">
+											
+											</div>
+										</td>
+									</tr>								
+									
+									<tr>
+										<td>Amount Per Employee reference</td>
+										<td>	
+											<input type="text" class="form-control" name="amount">
+										</td>
+									</tr>	
+									<tr>
+										<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+									</tr>
+								</table>
+												</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base2.html" %}
+
+{% block title %} ID card  {% endblock %}
+
+{% block body_block %}
+
+
+<div class="hero-unit">
+
+
+  <h3>  ID card  </h3>
+
+<div class="col-md-1">
+<a href="javascript:void(0);" onclick="javascript:printDiv('printId')" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</a>	
+</div>			
+<div style="clear:both;"></div>
+<div id="printId" style="margin-left:100px;">
+{% for i in idcard %}
+<div class="printidcard" style="width:210px;float:left;height:310px;margin:5px;margin-top:-22px; margin-left:158px; text-align:center;  padding: 10px; -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);">
+
+<img src="/static/images/k1.png" style="width:120px;margin-top:-10px;height:82px;">
+<div style="clear:both;"></div>				
+<img style="height:85px;width:90px;margin-left:0px; border:1px solid #000;" alt="photo" src="/webapps/k1/k118062016/media/media/{{i.photo}}/">
+<div style="clear:both;"></div>
+<strong style="display:block;font-size:12px;text-transform:uppercase;margin-top:11px;">
+
+
+
+{{i.firstname}} {{i.lastname}} 
+
+<strong style="display:block;font-size:12px;">{{ i.designation }}</strong>
+<strong style="font-size:11px;display:block;">{{i.employeno}} </strong>
+
+
+						
+                                                     Corp Off: 268/269, Shaila Nivas, Sarala Nagar, Cuttack Road, Bhubaneswar - 751006
+									Phone: +91 674 2570707 | www.k1groups.in 
+</div>
+{% endfor %}
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html moznomarginboxes mozdisallowselectionprint ><head><title>K1-Security Invoice</title></head><body>" + divElements + "</body></html>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+           document.body.innerHTML = oldPage;
+			
+			
+        }
+</script>
+<style>
+.cl { list-style-type:none; margin:5px 0px 0px 0px; padding:0px; }
+.l1 { text-align:left; width:40px; font-size:11px; }
+.l2 { display:inline-block; border-bottom:1px solid #111; float:right; height:20px; width:127px; font-weight:bold; font-size:11px; }
+.oll {  padding:0px 0px 10px 10px; font-size:11px; border-bottom:1px solid #000;  }
+.printidcard { margin-left:300px;margin-top:100px;}
+
+@page  
+{ 
+    size: auto;   /* auto is the initial value */ 
+
+    /* this affects the margin in the printer settings */ 
+    margin-top: 25px;
+	margin-left: 91px;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,1021 @@
+<?php ob_start();
+session_start();
+error_reporting(0);
+include "sub_domain.php";
+include "config.php";
+include "secure.php";
+include "pageing.php";
+
+extract($_POST);
+extract($_GET);
+$date=date('Y-m-d H:i:s');
+$page_name=basename($_SERVER['PHP_SELF']);
+date_default_timezone_set("Asia/Calcutta");
+$database_date_query=mysql_fetch_array(mysql_query("SELECT CURDATE()"));
+$database_date=$database_date_query[0];
+$date_database=date('d-m-Y',strtotime($database_date));
+$from_date_database =date("d-m-Y", strtotime($date_database." -6 days"));
+
+$to_date_database=date('d-m-Y',strtotime($database_date));
+
+
+
+if(isset($_GET) && $_GET['Submit']=="Search")
+{
+	if(strtotime($from_date)>strtotime($to_date_database))
+	{
+		$from_date_database=$from_date_database;
+	}
+	else
+	{
+		$from_date_database=$from_date;
+	}
+	
+	if(strtotime($to_date)>strtotime($to_date_database))
+	{
+		$to_date_database=$to_date_database;
+	}
+	else
+	{
+		$to_date_database=$to_date;
+	}
+	
+	
+	
+}
+
+
+
+if(isset($_GET) && $_GET['SubmitAttendence']=="Submit")
+{
+	print_r($_GET);
+	
+	$emp=mysql_fetch_array(mysql_query("SELECT * FROM `pome_emloyees` WHERE `id`='$employee_id' and status=1"));
+	
+	$designation=$emp['designation'];
+	//print_r($_POST);
+	
+	for($i=0; $i<count($status); $i++)
+	{
+		if($status[$i]!='')
+		{
+			$sts=explode("-",$status[$i]);
+			$date_gr=base64_decode($sts[1]);
+			if($sts[0]=="Present")
+			{
+			
+				//echo $locations_array1[$i];
+				if($times_array1[$i]!='' && $locations_array1[$i]!='')
+				{
+					$fet_locations_id=explode("-", $locations_array1[$i]);
+					$flcc= $fet_locations_id[2]; echo "<br>";
+					if($flcc!='0')
+					{
+						//echo "hi";
+						$clc_loc=base64_decode($flcc);
+						
+					}
+					else
+					{
+						$clc_loc=0;
+					}
+					mysql_query("INSERT INTO `pome_employee_attendence`(`employee_id`,`designation`,`date`,`hours`,`minutes`,`locations_id`,`actual_hours`,`status`,`work_order`) VALUES('$employee_id','$designation','$date_gr','$times_array1[$i]','$minutes_array1[$i]','$fet_locations_id[0]','$fet_locations_id[1]','$sts[0]','$clc_loc')");
+					
+					
+					echo "INSERT INTO `pome_employee_attendence`(`employee_id`,`designation`,`date`,`hours`,`minutes`,`locations_id`,`actual_hours`,`status`,`work_order`) VALUES('$employee_id','$designation','$date_gr','$times_array1[$i]','$minutes_array1[$i]','$fet_locations_id[0]','$fet_locations_id[1]','$sts[0]','$clc_loc')";
+					
+				}
+			}
+			else
+			{
+				mysql_query("INSERT INTO `pome_employee_attendence`(`employee_id`,`designation`,`date`,`remarks`,`status`) VALUES('$employee_id','$designation','$date_gr','$remarks[$i]','$sts[0]')");
+				
+			}
+		}
+	}
+	//	exit;
+	//	exit;
+		
+	
+	for($k=0; $k<count($count_times_values); $k++)
+	{
+		$counttimes_values=substr($count_times_values[$k],0,-1);
+		$split_counttimes_values=explode(",", $counttimes_values);
+		
+		for($j=0; $j<count($split_counttimes_values); $j++)
+		{
+			 $org_dt=$_POST["org_dates_array".$split_counttimes_values[$j]]; 
+			
+			 $hours=$_POST["times_array".$split_counttimes_values[$j]]; 
+			 $minutes=$_POST["minutes_array".$split_counttimes_values[$j]]; 
+			 $locations_id=$_POST['locations_array'.$split_counttimes_values[$j]];  
+			
+			$fet_locations_id=explode("-", $locations_id[$k]);
+			$clc_loc=base64_decode($fet_locations_id[2]);
+			mysql_query("INSERT INTO `pome_employee_attendence`(`employee_id`,`designation`,`date`,`hours`,`minutes`,`locations_id`,`actual_hours`,`status`,`work_order`) VALUES('$employee_id','$designation','$org_dt[$k]','$hours[$k]','$minutes[$k]','$fet_locations_id[0]','$fet_locations_id[1]','Present','$clc_loc')");
+			
+			
+		}
+	
+	}
+	
+	//exit;
+	header("location:employee_attendance.php?employee=$emp_ord&desig=$desig&from_date=$from_date&to_date=$to_date&loca=$loca&Submit=Search");
+	
+}
+
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="utf-8" />
+	<title>K1 Security - Employee Attendance</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+		<!-- BEGIN PLUGIN CSS -->
+	<link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+	
+	
+
+
+	<!-- END PLUGIN CSS -->
+
+	<!-- BEGIN CORE CSS FRAMEWORK -->
+	<link href="assets/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
+	<!-- END CORE CSS FRAMEWORK -->
+
+	<!-- BEGIN CSS TEMPLATE -->
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+	<!-- END CSS TEMPLATE -->
+
+	<link href="assets/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="assets/css/chosen.css">
+
+
+<style>
+.selectn{width:60px; font-size:10px; float:left;  border:1px solid #ddd;}
+.daten { width:60px; padding:8px; font-size:10px;  float:left; text-align:center; border:1px solid #ddd; }
+.sun{background:#ffbbba;}
+.Zebra_DatePicker{ top:20% !important;}
+.span2,.span1 { width:auto; }
+#container {  background-color: #fff;
+    border: 1px solid #dddddd; padding:10px;}
+</style>
+
+  <link href="css/datepicker.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+   <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap-select.js"></script>
+  <script type="text/javascript">
+  function valid()
+  {
+	  if(document.getElementById("employee_id").value=='')
+	  {
+		alert("Please Select Employee");
+		document.getElementById("employee_id").focus();
+		return false;  
+	  }	
+	  return true;
+  }
+  
+  </script>
+  <style type="text/css">
+  .container_table_div{
+    display:table;
+    width:100%;
+    border-collapse: collapse;
+    }
+.container_table_div1{
+    display:table;
+    width:70%;
+    border-collapse: collapse;
+    }
+.heading_table_div{
+     font-weight: bold;
+     display:table-row;
+     text-align: center;
+     font-size: 12px;
+    color:#111;  
+}
+.table-row_table_div{  
+     text-align: center;
+}
+.col_table_div{
+display:table-cell;
+border: 0px solid #696;
+font-size:12px;
+width:43px;
+
+
+font-family:Arial, Helvetica, sans-serif;
+}
+label {
+
+	cursor:pointer;
+}
+  </style>
+    <script type="text/javascript">
+  
+  
+  function statusChange(p,i,t)
+  {
+	var arr=p.split("-");
+	var s=arr[0];
+	if(s=="Present")
+	{
+		var id_display="Present"+i+t;
+		var id_notdisplay="Absent"+i+t;
+		document.getElementById(id_display).style.display='';
+		
+		document.getElementById(id_notdisplay).style.display='none';
+	}
+	else if(s=="Absent")
+	{
+		
+		var id_display="Absent"+i+t;
+		var id_notdisplay="Present"+i+t;
+		
+		document.getElementById(id_display).style.display='';
+		document.getElementById(id_notdisplay).style.display='none';
+		
+	}
+	else 
+	{
+		var id_display="Present"+i+t;
+		var id_notdisplay="Absent"+i+t;
+	
+		document.getElementById(id_display).style.display='none';
+		document.getElementById(id_notdisplay).style.display='none';
+		
+		
+	}
+  }
+  
+  </script>
+</head>
+
+<body class="">
+<div id="printDiv" style="display:none;"></div>
+<div class="header navbar navbar-inverse "> 
+  <?php include "header.php";?>
+</div> 
+
+<div class="page-container row"> 
+  <?php include "sidemenu.php"; ?>
+  <div class="page-content"> 
+    <div class="content">
+	<ul class="breadcrumb">
+        <li><p>HRM<p> </li>
+		<li><a href="#">Employee Management</a></li> 
+		<li><a href="#" class="active">Attendance</a></li> 		
+    </ul>	
+		<div class="page-title">	
+			<h3>Employee Attendance</h3>		
+		</div>		
+		<div id="container" >
+		<div class="col-md-12" style="margin-bottom:20px;">
+		<button data-toggle="modal" data-target="#myModal" class="btn btn-danger"> Upload Bulk Attendance </button>
+		<a href="Attendance_format.csv" class="btn btn-primary btn-small btn-sm" style="float:right;">Sample Excel Format</a>
+		</div>
+                 <!-- Modal -->
+				 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<i class="icon-credit-card icon-7x"></i>
+							<h4 id="myModalLabel" class="semi-bold">Upload Bulk Attendance</h4>
+						</div>
+                        <div class="modal-body">
+						<div class="row form-row">
+						<div class="col-md-12">
+						<form action="attendanceimport.php" method="post" name="upload_excel" enctype="multipart/form-data">
+							<div class="col-md-8">
+								<input type="file" class="form-control" name="file" id="file" class="input-large">
+							</div>
+							<div class="col-md-4">
+							<button type="submit" id="submit" name="Import" class="btn btn-primary button-loading" data-loading-text="Loading...">Upload</button>
+							</div>
+						</form>
+						</div>
+						</div>
+						</div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                  <!-- /.modal -->
+		
+		<form name="form1" method="get" action="">
+            	<table class="table table-bordered table-hover">
+                	<tr>
+                    	<th>Select Employee</th>
+						<th>Select Designation</th>
+						<th>Select Location</th>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <tr>
+                    	<td> 
+                        	<select name="employee" id="employee"  class="chosen-select" data-style="btn-warning" data-live-search="true">
+								<option value="">Select Employee</option>
+                                <option value="0">All Employee</option>
+                                <?php
+                                $select_employee=mysql_query("SELECT * FROM `pome_emloyees` WHERE parentid='$var_session' and status=1");
+                                while($select_employee_row=mysql_fetch_assoc($select_employee))
+                                {
+                                    ?>
+                                    <option value="<?php echo $select_employee_row['id']; ?>" <?php if($employee==$select_employee_row['id']) { echo " selected"; } ?>><?php echo ucwords($select_employee_row['employeno'].' - '.$select_employee_row['firstname'].' '.$select_employee_row['lastname']); ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </td>
+						<td>
+							<select class="chosen-select" name="desig" id="desig" >
+								<option value="">Select</option>
+								<?php
+								$qry=mysql_query("select * from pome_manage_masters where `parentid`='$var_session' and status=1 and master_id=1 order by name");
+								while($data=mysql_fetch_array($qry))
+								{
+								?>
+								<option value="<?php echo $data['id']?>" <?php  if($data['id']==$desig) {  echo " selected"; } ?>><?php echo ucfirst($data['name'])?></option>
+								<?php
+								}
+								?>
+							</select>
+						</td>
+						<td>
+						<?php
+						$clp_qry=mysql_query("SELECT distinct(work_order) FROM pome_employee_movement WHERE `parentid`='$var_session'");	
+										
+						$clp_qry_count=mysql_num_rows($clp_qry);
+						?>
+							<select  class="chosen-select" name="loca" id="loca" >
+								<option value="">Select Location</option>
+								
+								
+									<option value="0" <?php if(isset($loca)){ if($loca!='') {  if($loca=='0') { echo " selected"; } } } ?>>HO</option>
+									<?php
+								
+								if($clp_qry_count>0)
+								{
+								
+									while($clp_qry_loc=mysql_fetch_assoc($clp_qry))
+									{
+										$clp_qry_loc1=mysql_fetch_array(mysql_query("SELECT * FROM pome_employee_movement  WHERE `parentid`='$var_session'  AND `work_order`='$clp_qry_loc[work_order]'"));
+										
+										$loc=mysql_fetch_array(mysql_query("SELECT * FROM pome_manage_clients WHERE `parentid`='$var_session' and status=1 AND `id`='$clp_qry_loc1[client_id]'"));
+										
+									
+									  ?>
+									  <option value="<?php echo $clp_qry_loc1['work_order']; ?>" <?php if($loca==$clp_qry_loc1['work_order']) {  echo " selected"; } ?>><?php echo $loc['client_name']; ?>-<?php echo $clp_qry_loc1['work_order']; ?></option>
+									  
+									  <?php
+									}
+								}
+														
+								
+								?>
+							</select>
+						
+						</td>
+                        <td>
+                        	<input type="text" name="from_date" class="form-control" value="<?php echo $from_date_database; ?>" id="dpd1"  >
+                        </td>
+                        <td>
+                        	<input type="text"  name="to_date"  class="form-control" value="<?php echo $to_date_database; ?>" id="dpd2" >
+                        </td>
+                        <td><input type="submit" name="Submit" value="Search" class="btn btn-success" /></td>
+                    </tr>
+                </table>
+                </form>
+        <div class="grid-body height400">
+        <?php
+		if(isset($_GET) && $_GET['Submit']=="Search")
+		{
+			$condition_days=7;
+			$date1=date_create($from_date_database);
+			$date2=date_create($to_date_database);
+			$diff=date_diff($date1,$date2);
+			 $difference_days=$diff->format("%a"); 
+			 if($difference_days>7)
+			{
+				$style="width:1000px;overflow:scroll";
+			}
+			else
+			{
+				$style="";
+			}
+			?>
+			<?php
+                                $days_now=$difference_days+1;
+								
+                            ?>
+                            <?php
+							for($a=0; $a<$days_now; $a++)
+							{
+								$date_arr[] =date("Y-m-d", strtotime($to_date." -".$a." days"));
+							}
+							
+			$cond1='';
+			$cond2='';
+			$cond3='';
+			
+			if($employee!='')
+			{
+				if($employee==0)
+				{
+					$cond1='';
+				}
+				else
+				{
+					$cond1=" and pe.id='$employee' ";
+				}
+				
+			}
+			if($desig!='')
+			{
+				$cond2=" and pe.designation='$desig' ";
+			}
+			if($loca!='')
+			{
+				
+					//$loc_decode=base64_decode($loc);
+					$cond3=" and pea.work_order='$loca' ";
+				
+				
+				
+				
+			}
+			
+		
+			$from_date=date('Y-m-d',strtotime($from_date));
+			$to_date=date('Y-m-d',strtotime($to_date));
+			
+			
+		if($cond3!='')
+		{
+			
+			if($loca!='0')
+			{
+				$sel_emps=mysql_query("SELECT pe.id,pe.firstname,pe.lastname,pe.employeno FROM pome_emloyees pe,pome_employee_movement pea WHERE pe.id=pea.emp_name and  pe.status=1 $cond1 $cond2 $cond3 GROUP BY pea.emp_name");
+			
+				
+			
+			}
+			else
+			{
+					$sel_emps=mysql_query("SELECT * FROM `pome_emloyees` WHERE id NOT IN(SELECT emp_name from `pome_employee_movement`) AND type_id='employee' LIMIT 0,100");
+			}
+		
+		}
+		else
+		{
+			$sel_emps=mysql_query("SELECT pe.id,pe.firstname,pe.lastname,pe.employeno FROM pome_emloyees pe WHERE  pe.status=1 $cond1 $cond2 ");
+		}
+			
+			while($emp=mysql_fetch_array($sel_emps))
+			{
+				$employee_id=$emp[id];
+				
+				$actual_hours='';
+				$total_hours='';
+				$leaves_count='';
+				$absent_count=''; 
+				$present_count='';
+				$fet_dates_now='';
+				$result_dates='';
+				$leaves_count='';
+				$clp_qry_count='';
+				$gr_employ_qry_total='';
+				$overtime_hours='';
+
+				
+					$result = mysql_query("SELECT SUM(hours) as hours FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Present' "); 
+					$row = mysql_fetch_assoc($result); 
+		//	echo $sum = $row['hours'];
+
+
+					$select_emp_hrs_count=mysql_fetch_array(mysql_query("SELECT SUM(hours)  FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Present' "));
+			
+			//echo "SELECT SUM(hours)  FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$date1' AND '$date2') AND `status`='Present'";
+		//	echo "SELECT SUM(hours)  FROM `pome_employee_attendence` WHERE `employee_id`='$select_employees_query_row[id]' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Present'";
+			
+				$select_emp_pre_count=mysql_num_rows(mysql_query("SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Present' "));
+			
+					
+					
+					$actual_hours=$select_emp_pre_count*8;
+					
+					
+					if($total_hours<$actual_hours)
+					{
+						$total_hours=$total_hours+$total_minutes;
+						$overtime_hours='0';
+					}
+					else
+					{
+						$overtime_hours=$total_hours-$actual_hours+$total_minutes;
+						$total_hours=$actual_hours;	
+					}
+			
+			?>
+			<div style="border:1px solid #02aaa6; margin-bottom:20px;" >
+			 <div class="col-md-6"> <h4><strong><?php echo $emp['employeno'].' - '.ucwords($emp['firstname'].' '.$emp['lastname']); ?></strong></h4></div>
+		   <div class="col-md-4"><h4>Total Hours <?php echo $select_emp_hrs_count[0]; ?></h4></div>
+			 <div class="clearfix"></div>
+            <form name="form1" method="get" action="">
+			 <input type="hidden" name="emp_ord" value="<?php echo $employee; ?>" />
+           <input type="hidden" name="employee_id" value="<?php echo $employee_id; ?>" />
+		  <input type="hidden" name="desig" value="<?php echo $desig; ?>" />
+		  <input type="hidden" name="loca" value="<?php echo $loca; ?>" />
+		  <input type="hidden" name="from_date" value="<?php echo $from_date; ?>" />
+		  <input type="hidden" name="to_date" value="<?php echo $to_date; ?>" />
+		 
+           <table class="table table-bordered">
+           		
+                <tr>
+                    <td>
+                    <div style=" <?php echo $style; ?>">
+				
+                    	<div class="container_table_div1" style="width:100%">
+							<div class="table-row_table_div" id="changeCalendar">
+                            	<?php
+								for($i=0; $i<=$difference_days; $i++)
+								{
+									//$frm_date=date("d-m-Y", strtotime($to_date_database." -".$condition_days." days"));
+									//$date_generated =date("d-m-Y", strtotime($frm_date." +".$i." day"));
+									//$date_generated_date =date("Y-m-d", strtotime($date_generated));
+									
+									$date_generated =date("d-M-Y", strtotime($from_date_database." +".$i." day"));
+									$date_generated_date =date("Y-m-d", strtotime($date_generated));
+									
+									$date_generated_month =date("M-d", strtotime($date_generated));
+									
+									
+									
+									$gr_employ_qry=mysql_query("SELECT * FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND `date`='$date_generated_date' ");
+									
+								
+									
+									
+									$gr_employ_qry_total=mysql_num_rows($gr_employ_qry);
+									
+										
+									
+									$day=date('D', strtotime( $date_generated_date));
+									if($day=="Sun")
+									{
+										$background_color="#f7cecd";	
+									}
+									else
+									{
+										$background_color="";	
+									}
+									?>
+                                     <input type="hidden" name="original_dates_array[]"  value="<?php echo $date_generated_date; ?>" />
+									 
+                                     <input type="hidden" name="count_times[]" id="count_times<?php echo $i; ?>" value="1" />
+                                   
+                                    <input type="checkbox" name="count_times_values[]" id="count_times_values<?php echo $i; ?>" value="" style="display:none" />
+									<div class="col_table_div" style="border: 1px solid #0090d9; padding:5px; background-color:<?php echo $background_color; ?>">
+									
+									
+                                    	<div class="container_table_div" >
+                                        	<div class="heading_table_div" >
+                                            	<div class="col_table_div">
+                                                	<?php echo $date_generated_month; ?>
+                                                </div>
+                                            </div>
+											
+											
+											<?php if($gr_employ_qry_total==0)
+											{
+												$hrs_dne_it=0;
+											?>
+											<a class="btn btn-sm btn-small btn-success" href="javascript:void(0);" data-toggle="modal" data-target="#<?php echo $employee_id; ?><?php echo $date_generated; ?>">Click</a>
+											<?php
+											}
+											else
+											{
+												$gr_employ_qry_fetch=mysql_fetch_array($gr_employ_qry);
+												if($gr_employ_qry_fetch['status']=='Present')
+												{
+													$dathrs=mysql_fetch_array(mysql_query("SELECT SUM(hours) as hours FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND `date`='$date_generated_date' "));
+													$hrs_dne_it=$dathrs['hours'];
+												
+														?>
+														<a class="btn btn-sm btn-small btn-primary" href="javascript:void(0);" data-toggle="modal" data-target="#<?php echo $employee_id; ?><?php echo $date_generated; ?>"> <?php echo $dathrs['hours']; ?></a>
+														<?php
+													
+												}
+												else 
+												if($gr_employ_qry_fetch['status']=='Absent')
+												{
+													$hrs_dne_it=0;
+													?>
+													<a class="btn btn-sm btn-small btn-danger" href="javascript:void(0);" data-toggle="modal" data-target="#<?php echo $employee_id; ?><?php echo $date_generated; ?>">A</a>
+													<?php
+												} 
+												else
+												if($gr_employ_qry_fetch['status']=="Leave")
+												{
+													$hrs_dne_it=0;
+													$lv=mysql_fetch_array(mysql_query("SELECT * FROM `pome_leave_management` WHERE `id`='$gr_employ_qry_fetch[applied_for]'"));
+													?>
+													<a class="btn btn-sm btn-small btn-warning" href="javascript:void(0);" data-toggle="modal" data-target="#<?php echo $employee_id; ?><?php echo $date_generated; ?>"><?php echo $lv['leave_code']; ?></a>
+													<?php
+													
+												}
+											
+											}
+											?>
+												
+                  <!-- Modal -->
+                  <div class="modal fade" id="<?php echo $employee_id; ?><?php echo $date_generated; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                         
+                          <i class="icon-credit-card icon-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold"><?php echo $date_generated; ?>-<?php echo $emp['firstname']; ?></h4>
+                         
+                        </div>
+                        <div class="modal-body">
+						 
+						<table class="table">
+						<tr>
+						<td>Client</td>
+						<td>Hours</td>
+						</tr>
+						<?php
+						$date_generate=date('Y-m-d', strtotime( $date_generated));
+						
+						$datehrs=mysql_query("SELECT * FROM `pome_employee_attendence` WHERE `employee_id`='$emp[id]' AND `date`='$date_generate' ");
+						
+						while($datelv=mysql_fetch_assoc($datehrs))
+						
+						{
+
+							$clientnamen=mysql_fetch_assoc(mysql_query("SELECT * FROM `pome_manage_clients` WHERE `id`='$datelv[locations_id]' "));
+							
+							?>
+							<tr>
+							<td><?php if($datelv['locations_id']==0){ echo 'HO';}else{ echo  $clientnamen['client_name']; } ?></td>
+							<td><?php echo $datelv['hours']; ?></td>
+							</tr>
+							<?php
+						}
+						?>
+						</table>
+						<?php
+						if($hrs_dne_it<24)
+						{
+							
+							?>
+						
+							<table class="table">
+							<tr>
+							<td width="20%">
+							<select name="status[]" class="span2" onchange="return statusChange(this.value,<?php echo $i; ?>,<?php echo $employee_id; ?>);">
+								<option value="">Select Status</option>
+								<option value="Present-<?php echo base64_encode($date_generated_date); ?>">Present</option>
+								<option value="Absent-<?php echo base64_encode($date_generated_date); ?>">Absent</option>
+							</select>
+						</td>
+						<td width="75%"><div class="table-row_table_div" style="display:none" id="Present<?php echo $i; ?><?php echo $employee_id; ?>">
+								<div class="col_table_div" id="projectconfiguration<?php echo $i; ?><?php echo $employee_id; ?>">
+									<table width="100%" border="0">
+										<!-- <tr>
+											<td colspan="3">
+												<button type="button" class="btn btn-info" style="float:right" onclick="return addRows(<?php // echo $i; ?>,'<?php //echo $date_generated_date; ?>')">Add</button>
+											</td>
+										</tr> -->
+									   <tr>
+											<td>
+												<?php $limit_hours=24-$hrs_dne_it;; ?>
+												<select name="times_array1[]" class="span1">
+													<option value="">Hours</option>
+													<?php
+													for($j=1; $j<=$limit_hours; $j++)
+													//for($j=1; $j<25; $j++)
+													{
+														?>
+														<option value="<?php echo $j; ?>"><?php echo $j; ?></option>
+														<?php	
+													}
+													?>
+												</select>
+											</td>
+											
+										<td>
+										<?php
+										$clp_qry=mysql_query("SELECT distinct(work_order) FROM pome_employee_movement WHERE `parentid`='$var_session' AND `emp_name`='$employee_id' AND `from_date`<='$date_generated_date' AND `to_date`>='$date_generated_date' ");	
+										//echo "SELECT distinct(work_order) FROM pome_employee_movement WHERE `parentid`='$var_session' AND `emp_name`='$employee_id' AND `from_date`<='$date_generated_date' AND `to_date`>='$date_generated_date' ";
+										
+										$clp_qry_count=mysql_num_rows($clp_qry);
+										
+											
+										
+										?>
+												
+												<select name="locations_array1[]" class="span2">
+													<option value="">Select Location</option>
+													<?php
+													if($clp_qry_count==0)
+													{
+														?>
+														<option value="0-8-0">HO</option>
+														<?php
+													}
+													else
+													{
+														while($clp_qry_loc=mysql_fetch_assoc($clp_qry))
+														{
+															$clp_qry_loc1=mysql_fetch_array(mysql_query("SELECT * FROM pome_employee_movement  WHERE `parentid`='$var_session' AND `emp_name`='$employee_id' AND `from_date`<='$date_generated_date' AND `to_date`>='$date_generated_date' AND `work_order`='$clp_qry_loc[work_order]'"));
+															
+															$loc=mysql_fetch_array(mysql_query("SELECT * FROM pome_manage_clients WHERE `parentid`='$var_session' and status=1 AND `id`='$clp_qry_loc1[client_id]'"));
+															
+														
+														  ?>
+														  <option value="<?php echo $loc['id']; ?>-<?php echo $clp_qry_loc1['hours']; ?>-<?php echo base64_encode($clp_qry_loc1['work_order']); ?>"><?php echo $loc['client_name']; ?>-<?php echo $clp_qry_loc1['work_order']; ?></option>
+														  
+														  <?php
+														}
+													}
+																			
+													
+													?>
+												</select>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							
+							<!-- Absent Remarks -->
+							<div class="table-row_table_div" style="display:none" id="Absent<?php echo $i; ?><?php echo $employee_id; ?>">
+							<textarea name="remarks[]"  class="form-control" placeholder="Remarks"></textarea>
+							</div>
+							
+							
+							
+							</td>
+						
+						</tr>
+						<tr><td colspan="2"><input type="submit" name="SubmitAttendence" value="Submit" class="btn btn-success" /></td></tr>
+						</table>
+							<?php } ?>
+							
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal -->
+											
+                                        </div>
+                                    </div>
+                                    <?php
+								}
+								?>
+                        	</div>
+                        </div>
+                        </div>
+                    	
+           			</td>
+                  </tr>
+				  
+                 
+           </table>
+           </form>
+           <table class="table table-bordered" style="margin-bottom:0px;">
+							
+                            <?php
+							$starting_month_date=date('Y-m-01');
+							$ending_month_date=date('Y-m-d');
+							$database_array=array();
+							$select_emp=mysql_query("SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date')");
+							//echo "SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date')";
+							//echo "SELECT * FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$starting_month_date' AND '$ending_month_date')";
+							while($select_emp_row=mysql_fetch_assoc($select_emp))
+							{
+								$database_array[]=$select_emp_row['date'];
+							}
+							//print_r($database_array);
+							
+							
+							$select_emp_pre=mysql_query("SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Present'");
+							$present_count=mysql_num_rows($select_emp_pre);
+							
+							
+							$total_hours='';
+							$total_minutes='';
+							$hours='';
+							while($select_emp_pre_row=mysql_fetch_assoc($select_emp_pre))
+							{
+								$select_emp_pre1=mysql_fetch_array(mysql_query("SELECT SUM(hours) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND `date`='$select_emp_pre_row[date]' AND `status`='Present'"));
+								
+								$total_hours=$total_hours+$select_emp_pre1[0];
+								
+							}
+							
+							
+							$select_emp_abs=mysql_query("SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Absent'");
+							$absent_count=mysql_num_rows($select_emp_abs);
+							
+							$select_emp_lvs=mysql_query("SELECT distinct(date) FROM `pome_employee_attendence` WHERE `employee_id`='$employee_id' AND (`date` BETWEEN '$from_date' AND '$to_date') AND `status`='Leave'");
+							$leaves_count=mysql_num_rows($select_emp_lvs);
+							
+							$result_dates = array_diff($date_arr, $database_array);
+							//print_r($result_dates);
+							$fet_dates_now='';
+							foreach($result_dates as $fet_dates)
+							{
+								if($fet_dates!='')
+								{
+									$day_fetch=date('D', strtotime( $fet_dates));
+									if($day_fetch=="Sun")
+									{
+										$color_start='<font color="#F00">';	
+										$color_end='</font>';	
+									}
+									else
+									{
+										$color_start="";	
+										$color_end='';	
+									}
+									$fet_dates_split=explode("-",$fet_dates);
+									$fet_dates_now.=$color_start.$fet_dates_split[2].$color_end.",";
+								}
+							}
+							$fet_dates_now=substr($fet_dates_now,0,-1);
+							
+							?>
+                           
+                            <tr>
+                                <th>Working Days </th>
+								<th>Days Not Entered</th>
+								<th>Present</th>
+								<th>Absent</th>
+								<th>Leaves Applied</th>
+								<th>Worked Hours</th>
+                               
+                            </tr>
+                            
+                            <tr>
+                                 <td><?php echo $days_now; ?></td>
+                                <td><?php echo $fet_dates_now; ?></td>
+								<td><?php echo $present_count; ?></td>
+								<td><?php echo $absent_count; ?></td>
+								<td><?php echo $leaves_count; ?></td>
+								<td><?php echo $total_hours; ?> Hours</td>
+                            </tr>
+                           
+                        </table>
+                   
+               </div>
+            <?php
+			
+		}
+	}
+		?>
+
+</div>
+
+
+	 
+		</div>  
+	</div>
+</div>
+
+</div>
+
+
+
+<!-- BEGIN CORE JS FRAMEWORK-->
+<script src="assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+
+<script src="assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/breakpoints.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+
+<!-- END CORE JS FRAMEWORK -->
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script> 
+
+<script src="assets/plugins/jquery-superbox/js/superbox.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-block-ui/jqueryblockui.js" type="text/javascript"></script> 
+<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-inputmask/jquery.inputmask.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-autonumeric/autoNumeric.js" type="text/javascript"></script>
+<script src="assets/plugins/ios-switch/ios7-switch.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+<script src="assets/plugins/dropzone/dropzone.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="assets/js/form_elements.js" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/js/core.js" type="text/javascript"></script>
+<script src="assets/js/chat.js" type="text/javascript"></script> 
+<script src="assets/js/demo.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+
+
+    <script src="js/bootstrap-datepicker.js"></script>
+	<script>
+	if (top.location != location) {
+    top.location.href = document.location.href ;
+  }
+		$(function(){
+			window.prettyPrint && prettyPrint();
+			
+			
+
+        // disabling dates
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var checkin = $('#dpd1').datepicker({
+          onRender: function(date) {
+            return date.valueOf() > now.valueOf() ? 'disabled' : '';
+          }
+        }).on('changeDate', function(ev) {
+          if (ev.date.valueOf() > checkout.date.valueOf()) {
+            var newDate = new Date(ev.date)
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.setValue(newDate);
+          }
+          checkin.hide();
+          $('#dpd2')[0].focus();
+        }).data('datepicker');
+		
+		 var checkout = $('#dpd2').datepicker({
+          onRender: function(date) {
+            return date.valueOf() > now.valueOf() ? 'disabled' : '';
+          }
+        }).on('changeDate', function(ev) {
+         
+          checkout.hide();
+          $('#dpd2')[0].focus();
+        }).data('datepicker');
+		
+       
+		});
+	</script>
+
+
+
+<script src="assets/js/chosen.jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>
+
+
+
+
+     
+
+
+</body>
+</html>

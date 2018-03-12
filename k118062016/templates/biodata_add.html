@@ -1,0 +1,479 @@
+      {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} BioData Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/biodata/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="client_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{biodata_form.errors}}
+<table class="table table-bordered table-responsive">
+						
+							<tr>
+								<td width="40%">Date</td>
+								<td>
+								<input type="text" class="form-control" name="added_on" value="<?php echo $date_added; ?>">
+									
+								</td>
+							</tr>
+							<tr>
+								<td>First Name</td>
+								<td><input type="text" name="first_name" class="form-control" id="first_name" autofocus="true" required></td>
+							</tr>
+							<tr>
+								<td>Middle Name</td>
+								<td><input type="text" name="middle_name" class="form-control" id="middle_name"></td>
+							</tr>
+							<tr>
+								<td>Last Name</td>
+								<td><input type="text" name="last_name" id="last_name" class="form-control" autofocus="true" required ></td>
+							</tr>
+<tr>
+								<td>Short Name<p style="font-size:11px;color:#f00;">(Purpose: Id Card Name)</p></td>
+								<td><input type="text" name="shortname" id="shortname" class="form-control" autofocus="true" required ></td>
+							</tr>
+<tr>
+								<td>Email</td>
+								<td><input type="text" name="email" id="email" class="form-control" autofocus="true" ></td>
+							</tr>
+
+							<tr>
+							<td>Gender</td>
+							<td><select  name="gender" id="gender" autofocus="true" required>
+								<option value="">Select</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								</select>
+							</td>
+							
+							<tr>
+								<td>Post Applied For</td>
+								<td>
+									<select name="post_applied" class="chosen-select" id="post_applied" autofocus="true" required>
+									<option value="">Select Designation</option>
+									<?php
+									$qry=mysql_query("SELECT * FROM `pome_manage_masters` WHERE `parentid`='$var_session' and status=1 and master_id=1 order by name asc");
+									while($row = mysql_fetch_array($qry))
+									{
+									?>
+									<option value="<?php echo $row['id']?>"><?php echo ucfirst($row['name'])?>
+									</option>
+									<?php
+									}
+									?>
+									</select>
+								</td>
+							</tr>
+							<!--<tr>
+								<td>Interview With</td>
+								<td>
+									<select name="interview_with" class="chosen-select" id="interview_with">
+									<option>Select Employee</option>
+									 <?php
+									$qry=mysql_query("SELECT id,firstname,lastname,employeno FROM `pome_emloyees` WHERE `parentid`='$var_session' and status=1 ");
+									while($row = mysql_fetch_array($qry))
+									{
+									?>
+									<option value="<?php echo $row['id']?>"><?php echo $row['employeno']." - ".ucfirst($row['firstname']." ".$row['lastname'])?>
+									</option>
+									<?php
+									}
+									?>
+									</select>
+									
+									
+									
+								</td>
+							</tr>-->
+							<tr>
+								<td>Reference By</td>
+								<td>
+								<select class="chosen-select" name="reference_by" id="reference_by">
+									<option value="">Select</option>
+									<?php
+									$qry=mysql_query("select * from pome_emloyees where `parentid`='$var_session' and status=1");
+									while($data=mysql_fetch_array($qry))
+									{
+									?>
+									<option value="<?php echo $data['id']?>"><?php echo $data['employeno']." - ".ucfirst($data['firstname']." ".$data['lastname'])?></option>
+									<?php
+									}
+									?>
+								</select>
+								</td>
+							</tr>
+							<tr>
+								<td>Father's Name & Age</td>
+								<td>
+								<input type="text" name="father" id="father"  class="form-control" placeholder="Name" style="width:40%; float:left; margin-right:20px;" autofocus="true" required >
+								<input type="text" name="fage" class="form-control" placeholder="Age" style="width:30%;" >
+								</td>
+							</tr>
+							<tr>
+								<td>Mother's Name & Age</td>
+								<td>
+								<input type="text" name="mother" id="mother" class="form-control" placeholder="Name" style="width:40%;float:left; margin-right:20px;" autofocus="true" required >
+								<input type="text" name="mage" class="form-control" placeholder="Age" style="width:30%;" >
+								</td>
+							</tr>
+							<tr>
+								<td>Chest Expanded</td>
+								<td><input type="text" name="chest_expanded" id="chest_expanded" class="form-control" autofocus="true" required ></td>
+							</tr>
+							<tr>
+								<td>Chest Unexpanded</td>
+								<td><input type="text" name="chest_unexpanded"  id="chest_unexpanded" class="form-control" autofocus="true" required ></td>
+							</tr>
+							<tr>
+								<td>Height</td>
+								<td>
+								<input type="text" name="feet" id="feet" class="form-control" style="width:100px; float:left;" placeholder="Feet" autofocus="true" required >
+								<input type="text" name="inches" id="inches" class="form-control" style="width:100px; margin-left:10px; float:left;" placeholder="Inches"  ></td>
+							</tr>
+							<tr>
+								<td>Weight</td>
+								<td><input type="text" name="weight" id="weight" class="form-control"  autofocus="true" required></td>
+							</tr>
+							<tr>
+								<td>Identification Mark (Visible)</td>
+								<td>
+									<textarea class="form-control" name="identification_mark"  id="identification_mark" autofocus="true" required></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td>Upload Photo</td>
+								<td><input type="hidden" name="photo" id="img_snap" value="" autofocus="true" required>
+								
+							<div style="width:320px; float:left;">
+							<script type="text/javascript" src="webcam.js"></script>
+								<script language="JavaScript">
+										document.write( webcam.get_html(320, 240) );
+								</script>
+								<input type="button" class="btn btn-primary btn-sm btn-small" value="Configure settings" onClick="webcam.configure()">
+								<input type="button" class="btn btn-success btn-sm btn-small" value="snap" onClick="take_snapshot()">
+							</div>
+							<div style="width:320px; float:left;">
+							<div id="img" ></div>
+							</div>
+							
+								
+								
+								
+								
+								</td>
+							</tr>
+						
+							<tr>
+								<td><h4>Present Address</h4></td>
+							   <td><h4>Permanent Address</h4><input type="checkbox" name="sama" onclick="getdata()"> Same As Above</td>
+							</tr>
+							<tr>
+							<td>
+							<table class="table">
+							<tr><td>Village
+									<input type="text" name="present_village" id="present_village" class="form-control" autofocus="true" required>
+								</td>
+								</tr>
+								<tr>
+								<td>Post
+									<input type="text" name="present_post" id="present_post" class="form-control" autofocus="true" required >
+								</td>
+								</tr>
+								<tr>
+								<td>Dist
+								<input type="text" name="present_dist" id="present_dist" class="form-control" autofocus="true" required >
+								</td>
+								</tr>
+								<tr>
+								<td>P.S
+								<input type="text" name="present_ps" id="present_ps" class="form-control" autofocus="true" required >
+								</td>
+								</tr>
+								<tr>
+								<td>State<input type="text" name="pre_state" id="pre_state" class="form-control" autofocus="true" required ></td>
+								</tr>
+								<tr>
+								<td>Pin Code<input type="text" name="pre_pincode" id="pre_pincode" class="form-control"  ></td>
+								</tr>
+							</table>
+							</td>
+							<td>
+								
+							<table class="table">
+							<tr>
+								<td>Village
+									<input type="text" name="permanent_village" id="permanent_village" class="form-control"  autofocus="true" required>
+								</td>
+							</tr>
+							<tr>
+								
+								<td>Post								
+									<input type="text" name="permanent_post" id="permanent_post" class="form-control" autofocus="true" required >
+								</td>
+							</tr>
+							<tr>
+								
+								<td>
+								Dist
+								<input type="text" name="permanent_dist" id="permanent_dist" class="form-control" autofocus="true" required ></td>
+							</tr>
+							<tr>
+								
+								<td>
+								P.S
+								<input type="text" name="permanent_ps" id="permanent_ps" class="form-control" autofocus="true" required ></td>
+							</tr>
+							<tr>
+								
+								<td>State<input type="text" name="perm_state" id="perm_state" class="form-control" autofocus="true" required ></td>
+							</tr>
+							<tr>
+								
+								<td>Pin Code<input type="text" name="perm_pincode" id="perm_pincode" class="form-control" ></td>
+							</tr>
+							</table>
+							</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2">
+								<table class="table">
+								<tr>
+									<td>
+									
+									Date Of Birth<br/>
+									
+									<input type="text" class="datepicker" data-date-format="dd/mm/yyyy" name="dob" id="dob" autofocus="true" required >
+									
+									
+								</td>
+								<td> Caste<br/>
+									<select name="caste"  id="caste" autofocus="true" required >
+									<option value="">Select</option>
+									 <?php
+									$qry=mysql_query("SELECT * FROM `pome_manage_masters` WHERE `parentid`='$var_session' and status=1 and master_id=3 order by name asc");
+									while($row = mysql_fetch_array($qry))
+									{
+									?>
+									<option value="<?php echo $row['name']?>"><?php echo ucfirst($row['name'])?>
+									</option>
+									<?php
+									}
+									?>
+									</select></td>
+								<td>Religion<br/>
+									<select name="religian" id="religian"  autofocus="true" required >
+									<option value="">Select</option>
+									 <?php
+									$qry=mysql_query("SELECT * FROM `pome_manage_masters` WHERE `parentid`='$var_session' and status=1 and master_id=9 order by name asc");
+									while($row = mysql_fetch_array($qry))
+									{
+									?>
+									<option value="<?php echo $row['name']?>"><?php echo ucfirst($row['name'])?>
+									</option>
+									<?php
+									}
+									?>
+									</select>
+								</td>
+								</tr>
+								</table>
+								
+								</td>
+							</tr>
+							<tr>
+								<td>
+								Telephone No.<input type="text" name="telno" id="telno" maxlength="12" class="form-control" >
+								
+								</td>
+								<td>Mobile No.<input type="number" name="mobno"  id="mobno" maxlength="12" class="form-control" autofocus="true" required onchange="this.setCustomValidity(validity.valueMissing ? 'Please enter Numeric Only' : '');" ></td>
+							</tr>
+							
+							
+							
+							
+							<tr>
+								<td colspan="2"><h4 class="text-success"><strong>Education Qualification</strong></h4></td> 
+							</tr>
+							<tr>
+								<td colspan="2">
+								<table>
+								<tr>
+									<td>Year</td>
+									<td>Name of the School / College</td>
+									<td>Exam Passed</td>
+									<td>Subject</td>
+									<td>Division</td>
+									<td></td>
+								</tr>
+								
+								<tr id="totaldiv1">
+									<td><input type="text" name="year1"  id="year1" class="form-control" autofocus="true" required ></td>
+									<td><input type="text" name="schoolname1" id="schoolname1" class="form-control" autofocus="true" required ></td>
+									<td><input type="text" name="exampassed1" id="exampassed1" class="form-control" autofocus="true" required ></td>
+									<td><input type="text" name="subject1" id="subject1" class="form-control" autofocus="true" required ></td>
+									<td><input type="text" name="division1" id="division1" class="form-control" autofocus="true" required ></td>
+									<td><input type="button"  value="+" class="btn btn-success" name="addlocation" onclick="addmoredetails()" style="float:right;"></td>
+								</tr>
+								<tr><td colspan="7"><span id="detailsdiv"></span></td></tr>
+								
+								</table>
+								</td>
+								<input type="hidden" id="cnt" name="cnt" value="1">
+							</tr>
+							
+							<tr>
+								<td>Do You Have 2 Wheeler?</td>
+								<td>
+								<div style="float:left; width:80px;">
+									<input type="radio" name="bike" id="bike1" value="Yes" style="float:left;margin-right:5px;margin-top:3px;" autofocus="true" required><label for="yes">Yes</label>
+									</div>
+									<div style="float:left; width:80px;">
+									<input type="radio" name="bike" id="bike2" value="no" style="float:left;margin-right:5px;margin-top:3px;"><label for="no">No</label>
+									</div>
+								</td>
+								
+							</tr>
+							<tr>
+								<td>Do You Have a Driving Licence</td>
+								<td>
+								<div style="float:left; width:80px;">
+								<input type="radio" name="dlicence" id="dlicence1" value="Yes" autofocus="true" required onChange="return license(this.value);"  style="float:left;margin-right:5px;margin-top:3px;"><label for="yes">Yes</label>
+								</div>
+								<div style="float:left; width:80px;">
+								<input type="radio" name="dlicence" id="dlicence2" value="No" onChange="return license(this.value);" style="float:left;margin-right:5px;margin-top:3px;" autofocus="true" required><label for="no">No</label>
+								</div>
+								</td>
+								
+							</tr>
+							<tr id="licensediv" style="display:none;">
+							<td></td>
+							<td>
+							<table class="table"  >
+							<tr><td>Type <input type="text" name="dtype" id="dtype"  class="form-control"></td>
+							<td>Licence No. <input type="text" name="licenceno" id="licenceno" class="form-control" ></td>
+							</table>
+							</tr>
+							
+							<tr>
+								<td colspan="2"><h4 class="text-success"><strong>Personal Information</strong></h4></td> 
+							</tr>
+							<tr>
+								<td>Have You Any Relations Serving in K1SS</td>
+								<td><select name="k1ss" id="k1ss" class="chosen-select" onChange="return changePayment2(this.value);">
+									<option value="">Select</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+									</select>
+									
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<table id="cheque2" style="display:none;" class="table table-bordered">
+										<tr>
+											<td>Service Code No.</td>
+											<td>Rank</td>
+											<td>Name</td>
+										</tr>
+									<tr>
+									<td><input type="text" name="service_code" id="service_code"  class="form-control"></td>
+									<td><input type="text" name="service_rank"  id="service_rank" class="form-control"></td>
+									<td><input type="text" name="service_name" id="service_name"  class="form-control"></td>
+									</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>How Many Brothers</td><td><input type="text" name="brother_no" id="brother_no" class="form-control"></td>
+							</tr>
+							<tr>
+								<td>Brother Name</td><td><input type="text" name="brother_name" id="brother_name" class="form-control tagsinput" data-role="tagsinput">
+								<p>Please type the values with comma press enter</p>
+								
+								</td>
+							</tr>
+							<tr>							
+								<td>How Many Sisters</td><td><input type="text" name="sister_no" id="sister_no" class="form-control"></td> 
+							</tr>
+							<tr>
+								<td>Sisters Name</td><td><input type="text" name="sister_name" id="sister_name" class="form-control tagsinput" data-role="tagsinput">
+								<p>Please type the values with comma press enter</p>
+								</td>
+							</tr>
+							<tr>
+								<td>Are You Married?</td>
+								<td>
+								
+								<select name="marry" id="marry"  class="chosen-select" onChange="return changePayment(this.value);" >
+									<option value="">Select</option>
+									<option value="Yes">Yes</option>
+									<option value="No">No</option>
+									</select>
+									
+								<div id="cheque" style="display:none; margin-top:10px;">
+								<div class="col-md-4 no-padding"><input type="text" name="wife_name"  id="wife_name" class="form-control" placeholder="Name"></div>
+								<div class="col-md-4"><input type="text" name="wife_age" id="wife_age" class="form-control" placeholder="Age"></div>
+								<div style="clear:both;height:15px;"></div>
+								<p style="float:left;">Do You Have Childrens?</p>
+								<select name="child" id="child"  style="float:left; width:100px;margin-left:20px;" autofocus="true" >
+									<option value="No">No</option>
+									<option value="Yes">Yes</option>
+									
+								</select>
+									<div style="clear:both"></div>
+								<div id="cheque3" style="display:none; margin-top:10px;">
+								
+									<input type="text" name="issue" id="issue"  class="form-control tagsinput" data-role="tagsinput" placeholder="Names">
+									<p>Please type the values with comma press enter</p>
+								</div>
+								</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>Have you been Prosecuted</td>
+								<td>
+									<select name="prosecuted" id="prosecuted"  autofocus="true" required>
+									<option value="">Select</option>
+									<option value="yes">yes</option>
+									<option value="No">No</option>
+									</select>								
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+							</tr>
+						</table>
+</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base2.html" %}
+
+{% block title %} Master Type {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/master_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Master Type </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> MASTER NAME</th>
+         <th> DESCRIPTION </th>
+          	  <th> ADDED ON </th>
+		<th> ACTIONS </th>
+			
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in master %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.master_name }} </td> 
+<td> {{ e.master_desc }} </td>
+<td> {{ e.added_on }} </td>
+<td> <a href="/master_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/master_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

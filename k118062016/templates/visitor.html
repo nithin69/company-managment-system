@@ -1,0 +1,58 @@
+{% extends "base2.html" %}
+
+{% block title %} Visitor Management {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/visitor_add/" role="button" class="btn btn-warning">Add</a>
+
+  <h3>  Visitor Management </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> VISITOR NAME</th>
+         <th> FROM(COMPANY) </th>
+          <th> FROM(ADDRESS) </th>
+        <th> CONTACT NUMBER </th>
+         <th> EMAIL </th>
+		  <th> WHOM TO MEET </th>
+          <th> PURPOSE </th>
+        <th> MEET ON </th>
+         <th> ACTIONS </th>
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in visitor %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.visitor_name }} </td> 
+<td> {{ e.from_company }} </td>
+<td> {{ e.from_address }} </td> 
+<td> {{ e.contact_number }} </td>
+<td> {{ e.emailid }} </td> 
+<td> {{ e.staff_guid }} </td>
+<td> {{ e.purpose }} </td>
+<td> {{ e.visit_date_time }} </td>
+<td>{{ e.remarks }}</td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

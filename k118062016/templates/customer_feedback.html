@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+
+{% block title %} customer_feedback {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Customer Feedback </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE </th>
+         <th> CUSTOMER </th>
+          <th> ADDRESS </th>
+        <th> LOCATION </th>
+         <th> REMARKS </th>
+          <th> IMPROVEMENTS  </th>
+          <th> ACTIONS </th>
+		  </tr>
+    </thead>
+    <tbody>
+        
+{% for e in feedback %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.customer_name }} </td>
+<td> {{ e.customer_address }} </td> 
+<td> {{ e.location }} </td>
+<td> {{ e.remarks }} </td>
+<td> {{ e.improvement }} </td>
+<td> <a href="" ><i class="fa fa-edit" title="Edit"></i></a>&nbsp;&nbsp;&nbsp;
+
+<a href="" onclick="return delete1();"><i class="fa fa-trash-o" title="Delete"></i></a>&nbsp;&nbsp;&nbsp;
+
+<i style="cursor:pointer" title="Print" class="fa fa-print" onclick="printfeedback(136)"></i>
+
+</td>
+
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

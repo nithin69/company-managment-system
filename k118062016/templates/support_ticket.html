@@ -1,0 +1,55 @@
+{% extends "base2.html" %}
+
+{% block title %} Support Ticket {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/ticket_add/" role="button" class="btn btn-warning">Compose</a>
+  <h3> Support Ticket   </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> NAME</th>
+         <th> SUBJECT </th>
+          <th> MAIL FROM </th>
+        <th> MESSAGE </th>
+         <th> DATE </th>
+		  <th> ACTIONS </th>
+          <th> UPDATE STATUS </th>
+        
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in support %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.name }} </td> 
+<td> {{ e.subject }} </td>
+<td> {{ e.mail_from }} </td>
+<td> {{ e.message }} </td> 
+<td> {{ e.sended_on }} </td>
+<td> {{ e.status }} </td> 
+<td> {{ e.update_message }} </td>
+
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}UserLog Form{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/userlog/">
+
+<select class="chosen-select" name="q" id="login_type_id" required="">
+								<option value="">Select Login Type</option>
+	{% for e in userlog %}
+
+ <option value="{{ e.login_type}}">{{ e.login_type}}</option>
+
+
+       {% endfor %}							
+								
+							
+</select>
+
+<input type="submit" value="search" class="tfbutton">
+
+
+   </div> 
+{% endblock %}

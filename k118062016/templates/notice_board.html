@@ -1,0 +1,60 @@
+{% extends "base2.html" %}
+
+{% block title %} Notice Board {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/notice_board_add/" role="button" class="btn btn-warning">ADD</a>
+  <h3>  Notice Board </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE</th>
+         <th> SUBJECT </th>
+          <th> MESSAGE </th>
+        <th> POST TO </th>
+         <th> SEND TO </th>
+		  <th> PRIORITY </th>
+          <th> NOTICE TYPE </th>
+        <th> FROM TO TO DATE </th>
+         <th> ACTIONS </th>
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+
+{% for e in notice %}
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.subject }} </td>
+<td> {{ e.message }} </td> 
+<td> {{ e.post_to }} </td>
+<td> <button class="btn btn-small btn-primary" data-toggle="modal" data-target="#myModal16">Sended TO</button> </td>
+<td> {{ e.priority }} </td>
+<td> {{ e.notice_type }} </td>
+<td> {{ e.from_date }} - {{ e.to_date }} </td> 
+<td><a href="/notice_delete/{{e.id}}/">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp; </td>
+
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

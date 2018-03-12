@@ -1,0 +1,73 @@
+{% extends "base2.html" %}
+
+{% block title %} Inward Stock {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Inward Stock </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE OF JOINING </th>
+         <th> INVOICE NO. </th>
+          <th> FROM </th>
+        <th> TYPE </th>
+         <th> DETAILS</th>
+          <th> RECEIVED_BY  </th>
+        <th> ITEMS </th>
+         <th> ORDERED </th>
+		 <th> RECEIVED	</th>
+		 <th> REMARKS </th>
+		 <th> ACTIONS	</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in inward_stock %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.invoice_no }} </td>
+<td> {{ e.from }} </td> 
+<td> {{ e.type }} </td>
+<td> {{ e.details }} </td> 
+<td> {{	e.received_by }} </td> 
+<td> {{ e.items }} </td> 
+<td> {{ e.ordered }} </td>
+<td> {{ e.received }} </td> 
+<td> {{ e.remarks }} </td>
+<td> <a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp; </td> 
+
+
+
+
+
+       
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

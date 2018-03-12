@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+
+{% block title %} Employeewise Payroll {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Employeewise Payroll  </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE </th>
+          <th> EMPLOYEE </th>
+        <th> GROSS SALARY </th>
+         <th> PAY PARTICULARS </th>
+          <th> DEDUCTION DETAILS  </th>
+        <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employee_wise %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.employeno }} {{ e.firstname }} {{ e.lastname }} </td>
+<td> {{ e.gross_salary	 }} </td> 
+<td> Basic:{{ e.percent_basic }}<br> Conveyance:{{ e.value_conveyance }}<br> HRA:{{ e.hra_val }}<br>OTHERS: {{ e.value_others }}</td>
+<td>EPF: {{ e.epf_val }} {{ e.epf_unit }}<br>EPF(Emp): {{ e.epf_emp_val }} {{ e.epf_emp_unit }}<br>ESI:  {{ e.esi_val }} {{ e.esi_unit}}<br>ESI(Emp): {{ e.esi_emp_val }} {{ e.esi_emp_unit }}<br>Professional Tax:  {{ e.ptax_val }} {{ e.ptax_unit }}</td> 
+
+<td> 
+<a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp;
+
+
+		
+		</td>
+
+
+ 
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base2.html" %}
+
+{% block title %} Inward Others {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Inward Others </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE</th>
+         <th> INVOICE NO. </th>
+          <th> TO </th>
+        <th> TYPE </th>
+         <th> DETAILS </th>
+          <th> RECEIVED_BY  </th>
+		  <th> REMARKS </th>
+		  <th> DOWNLOAD </th>
+          <th> ACTIONS </th>
+		  </tr>
+    </thead>
+    <tbody>
+        
+{% for e in inward_others %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.date }} </td> 
+<td> {{ e.invoice_no }} </td>
+<td> {{ e.to}} </td> 
+<td> {{ e.inward_type  }} </td>
+<td> {{ e.details }} </td>
+<td> {{ e.received_by }} </td>
+<td> {{ e.remarks }} </td>
+<td> {{ e.download }} </td>
+<td> {{ e.received_by }} </td> 
+
+
+
+</td>
+
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

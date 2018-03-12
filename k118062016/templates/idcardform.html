@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Id Card{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/idcardreport/">
+
+<select class="chosen-select" name="q" id="id" required="">
+								<option value="">Select Employee</option>
+	{% for e in employee %}
+
+ <option value="{{ e.id }}">{{ e.firstname }} {{ e.lastname }}</option>
+
+
+       {% endfor %}							
+								
+							
+</select>
+
+<input type="submit" value="search" class="tfbutton">
+</div>
+
+    
+{% endblock %}

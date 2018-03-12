@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block title %} Acknowledgement {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Acknowledgement </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> NAME & CODE </th>
+          <th>DESIGNATION</th>
+        <th> JOINING DATE </th>
+         <th> RECEIVE DATE </th>
+          <th> TRAINING COST  </th>
+        <th> DOCUMENTS COST </th>
+         <th> DOCUMENTS </th>
+		 <th> RECEIPT NO. </th>
+		 <th> ACTIONS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in Acknowledgement %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.emp_name }} {{ e.emp_code }} </td> 
+<td> {{ e.designation }} </td>
+<td> {{ e.join_date	 }} </td> 
+<td> {{ e.receive_date }} {{ e.receive_time }} </td>
+<td> {{ e.training_cost }} </td> 
+<td> {{ e.document_cost }} </td> 
+<td> {{ e.document }} </td>
+<td> {{ e.recept_no }} </td> 
+
+
+<td> 
+<a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp;
+
+
+		<a target="_blank" class="btn btn-primary btn-small" href=""><i class="fa fa-eye" title="Print Preview"></i> View</a>
+
+
+		</td>
+
+
+ 
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

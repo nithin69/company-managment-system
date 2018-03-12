@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta charset="utf-8" />
+<title>K1 Security</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+
+
+<!-- BEGIN CORE CSS FRAMEWsORK -->
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="/static/assets/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="/static/assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
+<!-- END CORE CSS FRAMEWORK -->
+
+<!-- BEGIN CSS TEMPLATE -->
+<link href="/static/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="/static/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+<link href="/static/assets/css/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+<!-- END CSS TEMPLATE -->
+
+    
+    <link href="/static/calendar/css/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link href="/static/calendar/css/fullcalendar.css" rel="stylesheet">
+    <link href="/static/lib/colorpicker/css/colorpicker.css" rel="stylesheet">
+    <link href="/static/lib/validation/css/validation.css" rel="stylesheet">
+    <link href="/static/lib/timepicker/jquery-ui-timepicker-addon.css" rel="stylesheet">
+	
+
+	
+	
+	<style>
+	.modal {
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    position: fixed;
+    right: 0;
+    top: 15%;
+	overflow-x: hidden;
+    overflow-y: hidden;
+    width: 450px;
+    z-index: 1040;
+}
+.modal-body {
+ height:300px;
+  padding: 15px;
+  overflow-y: auto;
+}
+.tiles-title a { color:#fff; }
+#result {
+  margin:0px;
+background:#fff;
+position:absolute;
+z-index:99;
+width:300px;
+right:0px;
+
+}
+ 
+#result ul {
+  list-style-type: none;
+  height: 320px;
+overflow-y:scroll;
+ padding: 10px;
+ margin: 0px;
+}
+ 
+#result h3 {
+  font: bold 14px/1.5 "Open Sans";
+}
+ 
+#result li img {
+  float: left;
+  margin: 0 10px 0 0;
+}
+ 
+#result li p {
+  font: bold 12px "Open Sans";
+letter-spacing:normal;
+}
+ 
+#result li {
+  padding: 5px 0px 0px;
+  overflow: auto;
+margin-bottom:4px;
+border-bottom:1px solid #eee;
+}
+ 
+#result li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+.picimg{display: inline-block;
+    float: left;
+    height: 35px;
+    overflow: hidden;
+    width: 35px;
+}
+
+.bodyrow{
+    margin-top: 5%;
+}
+</style>
+<script>
+
+
+function get_employee(cid)
+{	
+
+$.ajax({
+
+		type:"POST",
+		url:"get_employee_home.php",
+		data:"cid="+cid,
+
+		success:function(msg)
+		{
+			$.getScript("assets/js/ajax.js");
+			//alert(msg);
+			$('#workorderdiv2').html(msg);
+		}
+	});	
+}
+
+ function printDiv(id) {
+            $.ajax({
+			//alert(id);	
+			type: "POST",
+			url: "birthdaysms.php",
+			data: "id="+id,
+			success:function( msg ) {
+			 alert( "Send Successfully");
+			 $('#totaldiv'+id).html(msg);
+			}
+		   });
+}
+
+	
+</script>
+</head>
+
+  <body>
+  
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">K1  </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        {% if user.is_authenticated %}
+
+               <li class="welcome-user">  <h4>  Welcome {{ user.name }} </h4> </li>
+                <li><a href="/project/ticket/">Raise a Ticket</a></li>
+                <li><a href="/accounts/logout/">Logout</a></li>
+            {% else %}
+                                    <li><a href="/accounts/login/">Login</a></li>
+                                   <li><a href="/project/help/">Help</a></li>
+
+            {% endif %}
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+   <div class="container-fluid">
+    <div class="row-fluid bodyrow">
+        <div class="col-md-3">
+            <div class="well sidebar-nav">
+
+
+    <ul>
+<li><a class="title" href="/advsearch/"><i class="fa fa-user"></i> <span class="title">Advance Report </span></span></a></li>
+				<li class="start"> 				<a href="/"> 					<i class="icon-custom-home"></i> <span class="title">Dashboard </span> 					<span class="selected"></span> 				</a> 			</li>
+					
+					
+	<li class="">
+				<a data-toggle="collapse" data-target="#demo"><i class="fa fa-user"></i> <span class="title">User Management </span><span class="arrow"></span></a>
+				  <div id="demo" class="collapse">
+    <ul>
+			<li><a class="title" href="/myprofile/"><i class="fa fa-user"></i> <span class="title">My Profile </span></span></a></li>
+			
+			<li><a class="title" href="/user_access"><i class="fa fa-user"></i> <span class="title">User Access </span></span></a>  </li>
+			
+	</ul> 
+	
+	</li> 
+	
+	
+			<li class="">
+							<a data-toggle="collapse" data-target="#demo1"><i class="icon-custom-form"></i> <span class="title">Front Office </span><span class="arrow"></span></a>
+							  <div id="demo1" class="collapse">
+							  
+							  
+						  <ul>
+							<li><a href="gatepass_employee.php">Employee Gatepass</a></li>
+						<li><a href="inward_others.php">Inward Others</a></li>
+						<li><a href="inward_management.php">Inward Stock</a></li>
+						<li><a href="gatepass_stock.php">Outward Gatepass</a></li>
+						<li><a href="outward_management.php">Outward Management</a></li>
+						<li><a href="visitor.php">Visitor Management</a></li>
+
+						</ul>
+			</li>
+			
+			
+<li class="">
+				<a data-toggle="collapse" data-target="#demo2"><i class="icon-custom-portlets"></i> <span class="title">RPM </span><span class="arrow"></span></a>
+				  <div id="demo2" class="collapse">
+  <ul>
+    <li><a href="/biodata/">Bio-data</a></li>
+<li><a href="final_report.php">Final Report</a></li>
+<li><a href="trainee_attendance.php">Trainee Attendance</a></li>
+
+</ul>
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo3"><i class="icon-custom-thumb"></i> <span class="title">HRM </span><span class="arrow"></span></a>
+				  <div id="demo3" class="collapse">
+  <ul>
+    <li><a href="acknowledgement.php">Acknowledgement</a></li>
+	<li><a href="manage_employee.php">Add | Manage Employee</a></li>
+	<li><a href="ho_attendance.php">Attendance H0 / SFF</a></li>
+	<li><a href="employee_attendance_bulk.php">Bulk Employee Attendance</a></li>
+	<li><a href="cut_salary.php">Cut Salary</a></li>
+	<li><a href="discipline_compliance.php">Discipline &amp; Compliance</a></li>
+	<li><a href="employee_attendance.php">Employee Attendance</a></li>
+	<li><a href="employee_leaves.php">Employee Leaves</a></li>
+	<li><a href="leaves_absents.php">Leaves Application</a></li>
+	<li><a href="leaves_absents_approval.php">Leaves Application Approval</a></li>
+	<li><a href="employee_attendence_locationwise.php">Location Attendance</a></li>
+	<li><a href="location_incharge.php">Location Incharge</a></li>
+	<li class="">
+<a data-toggle="collapse" data-target="#demo4"><i></i> <span class="title">Payroll Setting </span><span class="arrow"></span></a>
+				  <div id="demo4" class="collapse">
+								
+								<ul>
+								<li><a href="designation_payroll.php">Designation Wise</a></li>
+								<li><a href="employee_payroll.php">Employee Wise</a></li>
+						</ul>
+				</li>
+				<li><a href="photoupload.php">Photo / Signature Upload</a></li>
+				<li><a href="police_verification.php">Police Verification Form</a></li>
+				<li><a href="profile_search.php">Profile Search</a></li>
+				<li><a href="rota_hours_exceeded.php">Rota Exceeded</a></li>
+				<li><a href="emp_sms.php">Send SMS</a></li>
+				<li><a href="separation.php">Separation</a></li>
+				<li><a href="staff_type.php">Staff Type</a></li>
+
+</ul>
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo5"><i class="fa fa-users"></i> <span class="title">CRM </span> <span class="arrow"></span></a>
+				  <div id="demo5" class="collapse">
+  <ul>
+  <li>
+    <a data-toggle="collapse" data-target="#demo6"><i></i> <span class="title">Clients </span> <span class="arrow"></span></a>
+				  <div id="demo6" class="collapse">
+								<ul>
+																			<li><a href="manage_clients.php">Add | Manage Client</a></li>
+																			<li><a href="manage_quotation.php">Add | Manage Quotation</a></li>
+																			<li><a href="customer_feedback.php">Customer Feedback</a></li>
+																			<li><a href="client_billing_rate.php">Work Order</a></li>
+																	</ul>
+							</li>
+														<li>
+								<a data-toggle="collapse" data-target="#demo7"><i></i> <span class="title">Vendors/Workshops </span> <span class="arrow"></span></a>
+				  <div id="demo7" class="collapse">
+								<ul>
+																			<li><a href="manage_vendors_workshops.php">Add | Manage</a></li>
+																	</ul>
+							</li>
+											</ul>
+			</li>
+
+<li class="">
+				<a data-toggle="collapse" data-target="#demo8"><i class="fa fa-puzzle-piece"></i> <span class="title">Operations </span> <span class="arrow"></span></a>
+				  <div id="demo8" class="collapse">
+  <ul>
+    <li><a href="employee_attendence_report_location.php">Editable Attendance</a></li>
+															<li><a href="employee_movement_order.php">Employee Movement</a></li>
+															<li><a href="item_requisition_approve.php">Item Requisition Approve</a></li>
+															<li><a href="item_requisition_assignment.php">Item Requisition Assignment</a></li>
+															<li><a href="item_requisition.php">Item Requisition Individual</a></li>
+															<li><a href="loans_approve.php">Loans for Approval</a></li>
+															<li>
+								<a data-toggle="collapse" data-target="#demo9"><i></i> <span class="title">Monitoring Process </span> <span class="arrow"></span></a>
+				  <div id="demo9" class="collapse">
+								<ul>
+																			<li><a href="mobile_patrolling.php">Mobile Patrolling</a></li>
+																			<li><a href="patrolling.php">Patrolling(Day/Night)</a></li>
+																			<li><a href="report_submission.php">Reports Submission</a></li>
+																	</ul>
+							</li>
+														
+
+</ul>
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo10"><i class="fa fa-th"></i> <span class="title">Stores </span> <span class="arrow"></span></a>
+				  <div id="demo10" class="collapse">
+  <ul>
+    <li><a href="manage_item.php">Add Items</a></li>
+															<li><a href="idcard.php">Employee Idcard</a></li>
+															<li><a href="individual_issuance.php">Issuance</a></li>
+															<li><a href="issue_item_emp.php">Issue Items New Employee</a></li>
+															<li><a href="manage_store.php">Manage Store</a></li>
+															<li><a href="purchase_order.php">Purchase Order</a></li>
+															<li><a href="purchase_requisition.php">Purchase Requisition</a></li>
+														
+															<li>
+								<a data-toggle="collapse" data-target="#demo11"><i></i> <span class="title">Monitoring Process </span> <span class="arrow"></span></a>
+				  <div id="demo11" class="collapse">
+								<ul>
+																			<li><a href="return_stock_emp.php">From Employee</a></li>
+																			<li><a href="return_stock_emp_assign.php">From Supervisor</a></li>
+																			<li><a href="return_store.php">Return to Store</a></li>
+																			<li><a href="return_stock_vendor.php">To Vendor</a></li>
+																	</ul>
+							</li>
+							<li><a href="stock_receipts.php">Stock Receipts</a></li>
+															<li><a href="stock_status.php">Stock Status</a></li>
+															<li><a href="stock_item.php">Update Stock</a></li>
+														
+
+</ul>
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo12"><i class="fa fa-copy"></i> <span class="title">Accounts </span> <span class="arrow"></span></a>
+				  <div id="demo12" class="collapse">
+  <ul>
+    <li><a href="client_invoice_st.php">Client Invoice ST 14%</a></li>
+															<li><a href="default_advances.php">Default Advances</a></li>
+															<li><a href="donation.php">Donations</a></li>
+															<li><a href="fine.php">Employee Fine</a></li>
+															<li><a href="employee_settlement.php">Employee Settlement</a></li>
+															<li><a href="ot_emp_disbursement.php">Incentive Disbursement</a></li>
+															<li><a href="overtime_employee.php">Incentive Generation</a></li>
+															<li><a href="loans.php">Loans/Advances</a></li>
+															<li><a href="payment.php">Payment to Vendors</a></li>
+															<li><a href="reference_payment.php">Reference Payment</a></li>
+															<li><a href="salary_employees_assignment.php">Salary Assignment</a></li>
+															<li><a href="salary_employees_view.php">Salary Disbursement</a></li>
+															<li><a href="otallow.php">Salary Generation Field</a></li>
+															<li><a href="otnot.php">Salary Generation office</a></li>
+															<li><a href="otallow-adv.php">Salary Generation Special Field</a></li>
+															<li><a href="paywise_achead.php">Salary Release Approve</a></li>
+															<li><a href="payreport_wise.php">Salary Release slip</a></li>
+															<li><a href="paywise_denom.php">Salary Release Update</a></li>
+
+</ul>
+</li>
+<li class="">
+				<a href="task_management.php"> <i class="fa fa-th-list"></i> <span class="title">Task management </span></a>
+				  
+</li>
+<li class="">
+				<a href="noticeboard.php">  <i class="fa fa-file-text-o"></i> <span class="title">Notice Board </span></a>
+				  
+</li>
+<li class="">
+				<a href="gallery.php"> <i class="fa fa-picture-o"></i> <span class="title">Gallery </span></a>
+				  
+</li>
+<li class="">
+				<a href="eod_management.php"> <i class="fa fa-envelope-o"></i> <span class="title">EOD Management </span></a>
+				  
+</li>
+<li class="">
+				<a href="support_ticket.php">  <i class="fa fa-ticket"></i> <span class="title">Support Ticket </span></a>
+				  
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo14"><i class="fa fa-paste"></i> <span class="title">Reports </span> <span class="arrow"></span></a>
+				  <div id="demo14" class="collapse">
+  <ul>
+    <li><a href="adv_report.php">Advance DeductionType</a></li>
+															<li><a href="ded_report.php">Advance Report</a></li>
+															<li><a href="employee_attendence_report_locationwise_date.php">Attendance Location Datewise</a></li>
+															<li><a href="employee_attendence_report_locationwise.php">Attendance Locationwise</a></li>
+															<li><a href="client_w_o_report.php">Authorized Strength Report</a></li>
+															<li><a href="chargablereport.php">Chargable Report</a></li>
+															<li><a href="manage_clients_report.php">Client Details Report</a></li>
+															<li><a href="client_outstanding.php">Client Outstanding Report</a></li>
+															<li><a href="manage_clients_shortlist.php">Client Shortlist</a></li>
+															<li><a href="employee_attendence_report.php">Employee Attendance Report</a></li>
+															<li><a href="employee_attendence_shortlist.php">Employee Attendance Shortlist</a></li>
+															<li><a href="employee_mov_order_report.php">Employee Movement Report</a></li>
+															<li><a href="loc_emp.php">Employee Payment Field</a></li>
+															<li><a href="otnot_report.php">Employee Payment Office</a></li>
+															<li><a href="employee_report.php">Employee Reports</a></li>
+															<li><a href="epf_loc_emp.php">EPF &amp; ESI Report</a></li>
+															<li><a href="hour_analysis_report.php">Hour Analysis Report</a></li>
+															<li><a href="ot_emp.php">Incentive Report</a></li>
+															<li><a href="client_invoice_ajax.php">Invoice Report</a></li>
+															<li><a href="issuereport.php">Issuance Report</a></li>
+															<li><a href="issuereportitem.php">Itemwise Issue Report</a></li>
+															<li><a href="loans_report.php">Loans &amp; Advances</a></li>
+															<li><a href="locationwise_emp_report.php">Location Total Salary</a></li>
+															<li><a href="locationwise_report.php">Location Wise Payment</a></li>
+															<li><a href="outstanding_report.php">Outstanding Report</a></li>
+															<li><a href="reference_report.php">Reference Report</a></li>
+															<li><a href="not_generated.php">Salary Not Generated</a></li>
+															<li><a href="employee_settlement_report.php">Settlement due Report</a></li>
+															<li><a href="stock_status.php">Stock Status Report</a></li>
+															<li><a href="trainee_report.php">Training Report</a></li>
+															<li><a href="userlog_report.php">User Log Report</a></li>
+															<li><a href="client_wo_report.php">Work Order Report</a></li>
+
+</ul>
+</li>
+<li class="">
+				<a data-toggle="collapse" data-target="#demo15"><i class="fa fa-puzzle-piece"></i> <span class="title">Masters </span> <span class="arrow"></span></a>
+				  <div id="demo15" class="collapse">
+  <ul>
+    <li><a href="advances_types.php">Advance Types</a></li>
+															<li><a href="billing_tax_setting.php">Billing &amp; Tax Settings</a></li>
+															<li><a href="incentive_setting.php">Designation Incentive Setting</a></li>
+															<li><a href="designation_item.php">Item According To Designation</a></li>
+															<li>
+								<a data-toggle="collapse" data-target="#demo16"><i></i><span class="title">Monitoring Process </span><span class="arrow"></span></a>
+				  <div id="demo16" class="collapse">
+								<ul>
+																			<li><a href="holidays.php">Holidays</a></li>
+																			<li><a href="leave_period.php">Leave Period</a></li>
+																			<li><a href="leave_types.php">Leave Types</a></li>
+																	</ul>
+							</li>
+							<li><a href="loan_types.php">Loan Types</a></li>
+															<li><a href="loan_advance_setting.php">Loan/Advance Limit Setting</a></li>
+															<li><a href="location_incentive_setting.php">Location Not Incentive</a></li>
+															<li><a href="incentive_setting_loc.php">Locationwise Incentive</a></li>
+															<li><a href="loyality_bonous.php">Loyality Bonus</a></li>
+															<li><a href="consultancy.php">Manage Consultancies</a></li>
+															<li><a href="manage_masters.php">Manage Masters</a></li>
+															<li><a href="masters_type.php">Masters Type</a></li>
+															<li><a href="reference_incentive_settings.php">Reference Incentive Setting</a></li>
+															<li><a href="trainer_setings.php">Trainer Settings</a></li>
+														
+
+</ul>
+</li>
+
+
+
+
+
+	</div>
+												
+											
+			</li>
+					
+					
+
+
+
+  
+			    </ul>
+
+
+  
+</div>
+            <!--/.well -->
+
+        <!--/span-->
+        <div class="col-md-9">
+
+               {% block body_block %}
+
+<h1>This is body block </h1>
+            {% endblock %}
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+<!--/.fluid-container-->
+
+<hr>
+ 
+{% include 'footer.html' %}
+ <script src="static/js/fullcalendar.js"></script>
+    <script src="static/js/gcal.js"></script>
+    <script src="static/js/jquery-ui.js"></script>
+    <script src="static/js/jquery.calendar.js"></script>
+    <script src="static/lib/colorpicker/bootstrap-colorpicker.js"></script>
+   
+    
+    <script src="static/lib/timepicker/jquery-ui-sliderAccess.js"></script>
+    <script src="static/lib/timepicker/jquery-ui-timepicker-addon.min.js"></script>
+    
+    <script src="static/js/custom.js"></script>
+    
+    <!-- call calendar plugin -->
+    <script type="text/javascript">
+		$().FullCalendarExt({
+			calendarSelector: '#calendar',
+			//weekType: 'agendaWeek',
+			//dayType: 'agendaDay',
+			//ajaxJsonFetch: 'http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic',
+			//gcal: true
+		});
+	</script>
+<script>
+setInterval(function() {
+		var date = new Date(),
+		time = date.toLocaleTimeString();
+		$(".clock").html(time);
+	}, 1000);
+	
+</script>
+<script type="text/javascript">
+$(function(){
+$(".search").keyup(function() 
+{ 
+var searchid = $(this).val();
+var dataString = 'search='+ searchid;
+if(searchid!='')
+{
+    $.ajax({
+    type: "POST",
+    url: "search.php",
+    data: dataString,
+    cache: false,
+    success: function(html)
+    {
+    $("#result").html(html).show();
+    }
+    });
+}return false;    
+});
+
+jQuery("#result").live("click",function(e){ 
+    var $clicked = $(e.target);
+    var $name = $clicked.find('.name').html();
+    var decoded = $("<div/>").html($name).text();
+    $('#searchid').val(decoded);
+});
+jQuery(document).live("click", function(e) { 
+    var $clicked = $(e.target);
+    if (! $clicked.hasClass("search")){
+    jQuery("#result").fadeOut(); 
+    }
+});
+$('#searchid').click(function(){
+    jQuery("#result").fadeIn();
+});
+});
+</script>
+ 
+
+    
+
+
+    </body>
+</html>

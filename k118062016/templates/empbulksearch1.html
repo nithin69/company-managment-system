@@ -1,0 +1,246 @@
+{% extends "base2.html" %}
+
+{% block title %} employee_attendance_bulk {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li><a href="/employee_attendance_bulk/">Employee Attendance</a></li>
+
+</ul>
+
+
+<form action="/empbulksearch/" method="get">
+                           
+                                     
+                            
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> LOCATION  </th>
+        <th> DATE  </th>
+         
+		  </tr>
+    </thead>
+    <tbody>
+        
+
+
+<tr> 
+<td>
+<input type="text" name="loca" class="form-control" value = {{ loca}} id="loca" readonly >					
+									  							</select>
+</td>
+<td>
+                        	<input type="text" name="to_date" class="form-control" value = {{ to_date}} id="dpd2">
+                        </td>
+						
+<td><input type="submit" name="Submit" value="Search" class="btn btn-success"></td>
+
+
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+</table>
+
+</form>
+
+
+{{locperday.8}}
+
+<div class="row">
+				<div class="col-md-2 boxemployee">
+
+                            Date <b> {{ datex.0}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.0}}  </b>  <br/>
+  				Rota <b> {{ rotax.0}}  </b>  <br/>
+				Balance    <b> {{ balancex.0}}  </b>  <br/>
+
+
+				</div>
+				 
+
+				<div class="col-md-2 boxreg">
+           			   Date <b> {{ datex.1}}  </b>  <br/>
+					Loc Per    <b> {{ locperday.1}}  </b>  <br/>
+				Rota <b> {{ rotax.1}}  </b>  <br/>
+				Balance    <b> {{ balancex.1}}  </b>  <br/>
+
+				</div>
+
+
+
+				<div class="col-md-2 boxreg">
+        
+				   Date <b> {{ datex.2}}  </b>  <br/>				
+					Loc Per    <b> {{ locperday.2}}  </b>  <br/>
+
+			Rota <b> {{ rotax.2}}  </b>  <br/>
+				Balance    <b> {{ balancex.2}}  </b>  <br/>
+				</div>
+
+
+				<div class="col-md-2 boxtrng">
+
+				
+				   Date <b> {{ datex.3}}  </b>  <br/>
+					Loc Per    <b> {{ locperday.3}}  </b>  <br/>
+
+Rota <b> {{ rotax.3}}  </b>  <br/>
+				Balance    <b> {{ balancex.3}}  </b>  <br/>
+
+
+				</div>
+
+
+
+
+				<div class="col-md-2 boxemployed">
+        
+				   Date <b> {{ datex.4}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.4}}  </b>  <br/>
+
+Rota <b> {{ rotax.4}}  </b>  <br/>
+				Balance    <b> {{ balancex.4}}  </b>  <br/>
+
+
+				</div>
+			
+
+
+    				<div class="col-md-2 boxseper">
+				
+				   Date <b> {{ datex.5}}  </b>  <br/>
+				Loc Per    <b> {{ locperday.5}}  </b>  <br/>
+
+Rota <b> {{ rotax.5}}  </b>  <br/>
+				Balance    <b> {{ balancex.5}}  </b>  <br/>
+				</div>
+			</div>
+
+
+
+
+</div>
+
+
+<br/>
+
+<div class="row">
+		<div class="col-md-12">
+
+		{% for x in emphrslist %}		
+
+				
+
+
+        <div class="panel panel-default">
+      <div class="panel-heading"> <b> {{ x.0 }}  </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     <b> {{ x.1 }}   {{ x.2 }} </b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>     {{ x.3 }} </b> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>    Total Hours </b> 
+       </div>
+
+
+ 
+ <div class="panel-body"> 
+        
+            <div class="col-md-2 boxreg">
+      
+				<b>	&nbsp; {{ datex.0}}  </b> <br/>
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;     {{ x.5.0 }} Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+
+               <div class="col-md-2 boxreg">
+       
+
+<b>	&nbsp;   </b> <br/>
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;       {{ x.5.1 }} Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+
+                <div class="col-md-2 boxreg">
+              
+<b>	&nbsp;   </b> <br/>
+
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;       {{ x.5.2 }} Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+
+                <div class="col-md-2 boxreg">
+           
+
+<b>	&nbsp;  </b> <br/>
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;      {{ x.5.3 }}  Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+
+                <div class="col-md-2 boxreg">
+           
+
+<b>	&nbsp;   </b> <br/>
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;       {{ x.5.4 }} Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+                <div class="col-md-2 boxreg">
+          
+
+<b>	&nbsp;  </b> <br/>
+        
+              
+               <input type="radio" name="gender" value="present" checked> P   &nbsp;&nbsp;      {{ x.5.5 }}  Hrs <br/> 
+   <div class="empbulkatt"> <input type="radio" name="gender" value="absent"> A  &nbsp;&nbsp; <input class = "empbulkattabsput" type="text" name="lastname">  </div>
+            </div>
+    
+
+
+    
+                </div>
+        
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+		{% endfor %}
+
+
+
+ </div>
+
+  </div>
+
+
+
+
+
+
+{% endblock %}

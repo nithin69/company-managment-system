@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Advance Search{% endblock %}
+
+{% block content_title %}
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/advsearch/">
+
+<select class="chosen-select" name="q" id="loan_type" required="">
+			
+
+
+								<option value="">Select Loan Type</option>
+	{% for e in loans %}
+
+ <option value="{{ e.loan_type}}">{{ e.loan_type}}</option>
+
+
+       {% endfor %}
+                        </td>
+						<td>
+                        	
+<input type="submit" value="search" class="tfbutton">
+
+
+</div>    
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Location Attendance Report{% endblock %}
+
+
+{% block content_title %}
+
+
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/locationattendancereport/">
+
+<select class="chosen-select" name="q" id="work_order_id" required="">
+								<option value="">Select Location</option>
+	{% for e in employee %}
+
+ <option value="{{ e.work_order_id }}">{{ e.work_order }}</option>
+
+
+       {% endfor %}							
+								
+							
+</select>
+
+<input type="submit" value="search" class="tfbutton">
+
+</div>
+    
+{% endblock %}

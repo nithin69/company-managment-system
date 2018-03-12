@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+
+  <script type="text/javascript"
+
+	    src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+
+
+	<!--[if IE]>
+
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+	<![endif]-->
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+
+	    rel="stylesheet"
+
+	    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+
+	    crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js">
+
+	</script>
+
+
+
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+
+	    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+
+	    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+
+ <!-- Data Tables -->
+
+    <link href="/static/css/style.css" rel="stylesheet">
+
+
+        <title>  {% block title %} {% endblock %} </title>
+
+
+
+
+    </head>
+
+  <body>
+<div class="se-pre-con"></div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"> <h2> K1</h2> </a>
+
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        
+        
+        {% if user.is_authenticated %}
+
+    <li>        
+<form action="/wiki/search/" method="get">
+                           
+                                        <input type="text" name="q" placeholder="Search"
+                                        class="form-control">
+                                        
+                            </form> </li>
+
+               <li class="welcome-msg">  <h4>  &nbsp;  &nbsp;   Welcome {{ user.name }} </h4> </li>
+                <li><a href="/accounts/logout/">Logout</a></li>
+         
+                <li><a href="/myprofile/"> My Profile</a></li>
+            {% else %}
+            
+                                    <li><a href="/accounts/login/">Login</a></li>
+                        
+
+            {% endif %}
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        <div class="container-fluid">
+    <div class="row-fluid contentrow">
+
+
+        <div class="col-md-3 quickview">
+            <div class="well sidebar-nav">
+
+
+   {% block sidebar %}
+      <u> <h2> Quick View </h2> </u>
+
+   {% endblock %}
+
+
+   <div id="cats">
+     
+     <ul style="list-style: none;">
+				<li class="start"> 				<a href="/"> 					<i class="fa fa-home"></i> <span class="title">Dashboard </span> 					<span class="selected"></span> 				</a> 			</li><br>
+					
+					
+	<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-user"></i> <span class="title">User Management </span><span class="arrow"></span></a>
+				  <div id="demo" class="collapse">
+    <ul>
+			<li><a class="title" href="/myprofile/"><i class="fa fa-user"></i> <span class="title">My Profile </span></span></a></li>
+			
+			<li><a class="title" href="/admin/auth/user/"><i class="fa fa-user"></i> <span class="title">User Access </span></span></a>  </li>
+			
+	</ul> 
+	
+	</li> 
+	
+<br/>	
+			<li class="">
+							<a href="#" data-toggle="collapse" data-target="#demo1"><i class="fa fa-building"></i> <span class="title">Front Office </span><span class="arrow"></span></a>
+							  <div id="demo1" class="collapse">
+							  
+							  
+						  <ul>
+							<li><a href="/admin/myproject/pomegatepass/">Employee Gatepass</a></li>
+						<li><a href="/admin/myproject/pomeinward/">Inward Others</a></li>
+						<li><a href="/admin/myproject/pomeinward/">Inward Stock</a></li>
+						<li><a href="/admin/myproject/pomeoutward/">Outward Gatepass</a></li>
+						<li><a href="/admin/myproject/pomeoutward/">Outward Management</a></li>
+						<li><a href="/admin/myproject/pomevisitor/">Visitor Management</a></li>
+
+						</ul>
+			</li><br>
+			
+			
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo2"><i class="fa fa-wpforms"></i> <span class="title">RPM </span><span class="arrow"></span></a>
+				  <div id="demo2" class="collapse">
+  <ul>
+    <li><a href="/admin/myproject/pomebiodata/">Bio-data</a></li>
+<li><a href="/admin/myproject/pomefinalreport/">Final Report</a></li>
+<li><a href="/admin/myproject/pometraineeattendence/">Trainee Attendance</a></li>
+
+</ul>
+</li><br>
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo3"><i class="fa fa-th-large"></i> <span class="title">HRM </span><span class="arrow"></span></a>
+				  <div id="demo3" class="collapse">
+  <ul>
+    <li><a href="/admin/myproject/pomeacknowledgement/">Acknowledgement</a></li>
+	<li><a href="/admin/myproject/pomeemloyees/">Add | Manage Employee</a></li>
+	<li><a href="/attendance_ho/">Attendance H0 / SFF</a></li>
+	<li><a href="/employee_attendance_bulk/">Bulk Employee Attendance</a></li>
+	<li><a href="/admin/myproject/pomecutsalary/">Cut Salary</a></li>
+	<li><a href="/admin/myproject/pomedisciplinecompliance/">Discipline &amp; Compliance</a></li>
+	<li><a href="/admin/myproject/pomeemployeeattendence/">Employee Attendance</a></li>
+	<li><a href="/employee_leaves/">Employee Leaves</a></li>
+	<li><a href="/admin/myproject/pomeleavesabsents/">Leaves Application</a></li>
+	<li><a href="/leaves_absents_approval/">Leaves Application Approval</a></li>
+	<li><a href="/admin/myproject/pomeclientattendance/">Location Attendance</a></li>
+	<li><a href="/admin/myproject/pomelocationincharge/">Location Incharge</a></li>
+	<li class="">
+<a href ="#" data-toggle="collapse" data-target="#demo4"><i></i> <span class="title">Payroll Setting </span><span class="arrow"></span></a>
+				  <div id="demo4" class="collapse">
+								
+								<ul>
+								<li><a href="/admin/myproject/pomeallowancemaster/">Designation Wise</a></li>
+								<li><a href="/admin/myproject/pomeallowancemaster/">Employee Wise</a></li>
+						</ul>
+				</li>
+				<li><a href="/admin/myproject/pomeupload/">Photo / Signature Upload</a></li>
+				<li><a href="/police_verification/">Police Verification Form</a></li>
+				<li><a href="/profile_search/">Profile Search</a></li>
+				<li><a href="/admin/myproject/pomeexcesslocattendance/">Rota Exceeded</a></li>
+				<li><a href="/admin/myproject/pomesendsms/">Send SMS</a></li>
+				<li><a href="/admin/myproject/pomeseparations/">Separation</a></li>
+				<li><a href="/admin/myproject/pomestafftype/">Staff Type</a></li>
+
+</ul>
+</li><br>
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo5"><i class="fa fa-users"></i> <span class="title">CRM </span> <span class="arrow"></span></a>
+				  <div id="demo5" class="collapse">
+  <ul>
+  <li>
+    <a data-toggle="collapse" data-target="#demo6"><i></i> <span class="title">Clients </span> <span class="arrow"></span></a>
+				  <div id="demo6" class="collapse">
+								<ul>
+																			<li><a href="/admin/myproject/pomemanageclients/">Add | Manage Client</a></li>
+																			<li><a href="/admin/myproject/pomemanagequotation/">Add | Manage Quotation</a></li>
+																			<li><a href="/admin/myproject/pomecustomerfeedback/">Customer Feedback</a></li>
+																			<li><a href="/admin/myproject/pomeclientbilling/">Client Work Order</a></li>
+																			<li><a href="/admin/myproject/pomevendorworkshop/">Add | Manage Vendors | Workshops </a></li>
+																	</ul>
+							</li>
+														<li>
+								<a data-toggle="collapse" data-target="#demo7"><i></i> <span class="title">Vendors/Workshops </span> <span class="arrow"></span></a>
+				  <div id="demo7" class="collapse">
+								<ul>
+																			<li><a href="/admin/myproject/pomevendorworkshop/">Add | Manage</a></li>
+																	</ul>
+							</li>
+											</ul>
+			</li><br>
+
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo8"><i class="fa fa-puzzle-piece"></i> <span class="title">Operations </span> <span class="arrow"></span></a>
+				  <div id="demo8" class="collapse">
+  <ul>
+    <li><a href="/admin/myproject/pomeclientattendance/">Editable Attendance</a></li>
+															<li><a href="/admin/myproject/pomeemployeemovement/">Employee Movement</a></li>
+															<li><a href="/admin/myproject/pomeitemrequisition/">Item Requisition Approve</a></li>
+															<li><a href="/admin/myproject/pomeitemrequisition/">Item Requisition Assignment</a></li>
+															<li><a href="/admin/myproject/pomeitemrequisition/">Item Requisition Individual</a></li>
+															<li><a href="/admin/myproject/pomeemploanstransactions/">Loans for Approval</a></li>
+														
+																			
+															<li>
+								<a data-toggle="collapse" data-target="#demo9"><i></i> <span class="title">Monitoring Process </span> <span class="arrow"></span></a>
+				  <div id="demo9" class="collapse">
+								<ul>
+																			<li><a href="/admin/myproject/pomemobilepatrolling/">Monitoring Process Mobile Patrolling</a></li>
+																			<li><a href="/admin/myproject/pomepatrolling/">Monitoring Process Patrolling(Day/Night)</a></li>
+																			<li><a href="/admin/myproject/pomemobilepatrolling/">Monitoring Process Reports Submission</a></li>
+																	</ul>
+							</li>
+														
+
+</ul>
+</li><br>
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo10"><i class="fa fa-th"></i> <span class="title">Stores </span> <span class="arrow"></span></a>
+				  <div id="demo10" class="collapse">
+  <ul>
+    <li><a href="/idcardform/">Employee Idcard</a></li>
+															<li><a href="/admin/myproject/pomeissuance/">Issuance</a></li>
+															<li><a href="issue_item_emp.php">Issue Items New Employee</a></li>
+															<li><a href="/admin/myproject/pomemanagestores/">Manage Store</a></li>
+															<li><a href="/admin/myproject/pomepurchaseorder/">Purchase Order</a></li>
+															<li><a href="/admin/myproject/pomepurchaserequisition/">Purchase Requisition</a></li>
+														
+																			<li><a href="/admin/myproject/pomereturnstock/">Return Stock - From Employee</a></li>
+																			<li><a href="return_stock_emp_assign.php">Return Stock - From Supervisor</a></li>
+																			<li><a href="return_store.php">Return Stock - Return to Store</a></li>
+																			<li><a href="/admin/myproject/pomereturnstockvendor/">Return Stock -To Vendor</a></li>
+																	
+															<li><a href="/admin/myproject//">Stock Receipts</a></li>
+															<li><a href="/admin/myproject/pomestocks/">Stock Status</a></li>
+															<li><a href="/admin/myproject/pomestockupdate/">Update Stock</a></li>
+														
+
+</ul>
+</li><br>
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo12"><i class="fa fa-copy"></i> <span class="title">Accounts </span> <span class="arrow"></span></a>
+				  <div id="demo12" class="collapse">
+  <ul>
+    <li><a href="/admin/myproject/pomeclientinvoice/">Client Invoice ST 14%</a></li>
+															<li><a href="/admin/myproject/pomedefaultadvances/">Default Advances</a></li>
+															<li><a href="/admin/myproject/pomedonation/">Donations</a></li>
+															<li><a href="/admin/myproject/pomefinedeductions/">Employee Fine</a></li>
+															<li><a href="/admin/myproject/pomeemployeesettlement/">Employee Settlement</a></li>
+															<li><a href="/admin/myproject/pomeovertime/">Incentive Disbursement</a></li>
+															<li><a href="/admin/myproject/pomeovertime/">Incentive Generation</a></li>
+															<li><a href="/admin/myproject/pomeemploanstransactions/">Loans/Advances</a></li>
+															<li><a href="/admin/myproject/pomepaymentcollection/">Payment to Vendors</a></li>
+															<li><a href="/admin/myproject/pomereferencepayment/">Reference Payment</a></li>
+															<li><a href="/admin/myproject/pomesalassignment/">Salary Assignment</a></li>
+															<li><a href="/admin/myproject/pomesalaries/">Salary Disbursement</a></li>
+															<li><a href="/otallowform/">Salary Generation Field</a></li>
+															<li><a href="/otnotform/">Salary Generation office</a></li>
+															<li><a href="/specialfieldform/">Salary Generation Special Field</a></li>
+															<li><a href="paywise_achead.php">Salary Release Approve</a></li>
+															<li><a href="payreport_wise.php">Salary Release slip</a></li>
+															<li><a href="paywise_denom.php">Salary Release Update</a></li>
+
+</ul>
+</li><br>
+<li class="">
+				<a href="/admin/myproject/pometaskmanagement/"> <i class="fa fa-th-list"></i> <span class="title">Task management </span></a>
+				  
+</li><br>
+<li class="">
+				<a href="/admin/myproject/pomenoticeboard/">  <i class="fa fa-file-text-o"></i> <span class="title">Notice Board </span></a>
+				  
+</li><br>
+<li class="">
+				<a href="/admin/myproject/pomegallery/"> <i class="fa fa-picture-o"></i> <span class="title">Gallery </span></a>
+				  
+</li><br>
+<li class="">
+				<a href="/admin/myproject/pomeeodmanagement/"> <i class="fa fa-envelope-o"></i> <span class="title">EOD Management </span></a>
+				  
+</li><br>
+<li class="">
+				<a href="/admin/myproject/pomesupporticket/">  <i class="fa fa-ticket"></i> <span class="title">Support Ticket </span></a>
+				  
+</li><br>
+<li class="">
+				<a href="#" data-toggle="collapse" data-target="#demo14"><i class="fa fa-paste"></i> <span class="title">Reports </span> <span class="arrow"></span></a>
+				  <div id="demo14" class="collapse">
+  <ul>
+    <li><a href="/advsearch">Advance DeductionType</a></li>
+															<li><a href="ded_report.php">Advance Report</a></li>
+															<li><a href="employee_attendence_report_locationwise_date.php">Attendance Location Datewise</a></li>
+															<li><a href="/locationattendanceform/">Attendance Locationwise</a></li>
+															<li><a href="/authorisedstrengthreport">Authorized Strength Report</a></li>
+															<li><a href="chargablereport.php">Chargable Report</a></li>
+															<li><a href="/clientdetailsform/">Client Details Report</a></li>
+															<li><a href="client_outstanding.php">Client Outstanding Report</a></li>
+															<li><a href="manage_clients_shortlist.php">Client Shortlist</a></li>
+															<li><a href="employee_attendence_report.php">Employee Attendance Report</a></li>
+															<li><a href="employee_attendence_shortlist.php">Employee Attendance Shortlist</a></li>
+															<li><a href="/movementreport">Employee Movement Report</a></li>
+															<li><a href="/paymentfieldform/">Employee Payment Field</a></li>
+															<li><a href="otnot_report.php">Employee Payment Office</a></li>
+															<li><a href="employee_report.php">Employee Reports</a></li>
+															<li><a href="/epfesiform/">EPF & ESI Report</a></li>
+															<li><a href="hour_analysis_report.php">Hour Analysis Report</a></li>
+															<li><a href="ot_emp.php">Incentive Report</a></li>
+															<li><a href="client_invoice_ajax.php">Invoice Report</a></li>
+															<li><a href="issuereport.php">Issuance Report</a></li>
+															<li><a href="issuereportitem.php">Itemwise Issue Report</a></li>
+															<li><a href="loans_report.php">Loans & Advances</a></li>
+															<li><a href="locationwise_emp_report.php">Location Total Salary</a></li>
+															<li><a href="locationwise_report.php">Location Wise Payment</a></li>
+															<li><a href="outstanding_report.php">Outstanding Report</a></li>
+															<li><a href="reference_report.php">Reference Report</a></li>
+															<li><a href="not_generated.php">Salary Not Generated</a></li>
+															<li><a href="employee_settlement_report.php">Settlement due Report</a></li>
+															<li><a href="stock_status.php">Stock Status Report</a></li>
+															<li><a href="trainee_report.php">Training Report</a></li>
+															<li><a href="/admin/myproject/pomeuserslog/">User Log Report</a></li>
+															<li><a href="client_wo_report.php">Work Order Report</a></li>
+
+</ul>
+</li><br>
+<li class="">
+				<a  href="#" data-toggle="collapse" data-target="#demo15"><i class="fa fa-puzzle-piece"></i> <span class="title">Masters </span> <span class="arrow"></span></a>
+				  <div id="demo15" class="collapse">
+  <ul>
+    <li><a href="/admin/myproject/pomeadvancestypes/">Advance Types</a></li>
+															<li><a href="/admin/myproject/pomebillingtax/">Billing & Tax Settings</a></li>
+															<li><a href="/admin/myproject/pomeincentive/">Designation Incentive Setting</a></li>
+															<li><a href="/admin/myproject/pomeitemdesignationwise/">Item According To Designation</a></li>
+														<li>
+								<a href="javascript:;">Leave Management<span class="arrow "></span></a>
+								<ul class="sub-menu">
+																			<li><a href="/admin/myproject/pomeholidays/">Holidays</a></li>
+																			<li><a href="/admin/myproject/pomeleaveperiod/">Leave Period</a></li>
+																			<li><a href="/admin/myproject/pomeleavemanagement/">Leave Types</a></li>
+																	</ul>
+							</li>
+															<li><a href="/admin/myproject/pomeloantypes/">Loan Types</a></li>
+															<li><a href="/admin/myproject/pomeloansadvances/">Loan/Advance Limit Setting</a></li>
+															<li><a href="/admin/myproject/pomelocationincentive/">Location Not Incentive</a></li>
+															<li><a href="/admin/myproject/pomeincentiveloc/">Locationwise Incentive</a></li>
+															<li><a href="/admin/myproject/pomeloyalitybonous/">Loyality Bonus</a></li>
+															<li><a href="/admin/myproject/pomeconsultancies/">Manage Consultancies</a></li>
+															<li><a href="/admin/myproject/pomemanagemasters/">Manage Masters</a></li>
+															<li><a href="/admin/myproject/pomemasters/">Masters Type</a></li>
+															<li><a href="/admin/myproject/pomereferenceincentive/">Reference Incentive Setting</a></li>
+															<li><a href="/admin/myproject/pometrainer/">Trainer Settings</a></li>
+														
+
+</ul>
+</li>
+
+
+
+
+
+	</div>
+												
+											
+			</li>
+					
+					
+
+
+
+  
+			    </ul>
+
+     
+     
+     
+    </div>
+
+
+ <!--/.well
+
+<div class="form-group" id = "sticky">
+
+  <label for="comment">Sticky:</label>
+  <textarea class="form-control" rows="10" id = "stickynote"></textarea> <br/>
+<button type="button" class="btn btn-primary sticky">Submit</button>
+</div>
+-->
+
+</div> 
+            <!--/.well -->
+        </div>
+        <!--/span-->
+        <div class="col-md-9 quickfull">
+               {% block body_block %}
+
+<h1>This is body block </h1>
+            {% endblock %}
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+</div>
+<!--/.fluid-container-->
+
+<hr>
+ 
+{% include 'footer2.html' %}
+
+ 
+    <script type="text/javascript" src="{% static 'k1scripts.js' %}"></script>
+<script src="{% static 'js_dels/jquery.cookie.js' %}"></script>
+
+
+  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+<script>
+$(function() {
+$("#dpd2").datepicker({ dateFormat: "dd-mm-yy" }).val()
+});
+</script>
+</body>
+</html>

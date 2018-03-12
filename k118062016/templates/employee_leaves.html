@@ -1,0 +1,74 @@
+{% extends "base2.html" %}
+
+{% block title %} Leave Types {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Leave Types </h3>
+
+<table class="table table-bordered table-responsive table-hover">
+									<tbody><tr>
+						<td>1</td>
+						<td>Sick Leave</td>
+						<td>SL</td>
+						<td>6</td>
+					</tr>
+										<tr>
+						<td>2</td>
+						<td>Casual Leave</td>
+						<td>CL</td>
+						<td>3</td>
+					</tr>
+										<tr>
+						<td>3</td>
+						<td>Previlage Leave</td>
+						<td>PL</td>
+						<td>6</td>
+					</tr>
+								</tbody></table>
+
+<form name="form1" method="post" action="">
+			<table class="table table-bordered table-responsive table-hover">
+				<tbody><tr>
+					<td>
+						<select name="employee_id" id="employee_id" class="chosen-select" data-style="btn-warning" data-live-search="true" style="display: none;">
+                                <option value="">Select Employee</option>
+                                                                    
+
+								
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> EMPLOYEE NAME & CODE </th>
+          <th>USED LEAVES</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employee_leaves %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.firstname }} {{ e.lastname }} {{ e.employeno }}  </td> 
+
+<td> {{ e.usedleaves}} </td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}
+
+

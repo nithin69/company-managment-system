@@ -1,0 +1,51 @@
+{% extends "base2.html" %}
+
+{% block title %} Salary Cutting {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Salary Cutting </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> EMPLOYEE </th>
+          <th>ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+{% for e in cut_salary %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.employeno }} {{ e.firstname }} {{ e.lastname }}  </td> 
+
+<td> 
+<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp;
+
+		
+		</td>
+
+
+ 
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

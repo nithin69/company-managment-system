@@ -1,0 +1,1549 @@
+{% extends "base2.html" %}
+
+{% block title %} Employee Attendance {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Employee Attendance  </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> SELECT EMPLOYEE </th>
+        <th> SELECT DESIGNATION</th>
+         <th>SELECT LOCATION </th>
+          <th> FROM DATE </th>
+        <th> TO DATE </th>
+         
+          
+        
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+
+
+<tr> 
+ 
+<td> <select name="employee" id="employee" class="chosen-select" data-style="btn-warning" data-live-search="true" style="display: none;">
+								<option value="">Select Employee</option>
+                                <option value="0">All Employee</option>
+                                                                    <option value="4">KS01080103 - Md Sallauddin - 0103</option>
+                                                                        <option value="7">KS01080106 - Ranjit Kumar Nayak - 0106</option>
+                                                                        <option value="12">KS01080111 - Bhimsena Behera - 0111</option>
+                                                                        <option value="44">KS02080143 - Sanjeeb Kumar Samal - 0143</option>
+                                                                        <option value="52">KS04080151 - Subodha Charan Mohanty - 0151</option>
+                                                                        <option value="54">KS01080153 - Tilak Kumar Dash - 0153</option>
+                                                                        <option value="56">KS01080155 - Bhikari Charan Moharana - 0155</option>
+                                                                        <option value="57">KS02080156 - Sanjaya Kumar Pattanaik - 0156</option>
+                                                                        <option value="58">KS02080157 - Bijay Kumar Das - 0157</option>
+                                                                        <option value="59">KS02080158 - Sudhakar Pradhan - 0158</option>
+                                                                        <option value="65">KS02080164 - Sanjay Kumar Rout - 0164</option>
+                                                                        <option value="84">KS01080183 - Chagala Naik - 0183</option>
+                                                                        <option value="89">KS01080188 - Pradeep  Mohanty - 0188</option>
+                                                                        <option value="90">KS02080189 - Abhimanyu Behera - 0189</option>
+                                                                        <option value="114">KS02080213 - Ashok Kumar Pradhan - 0213</option>
+                                                                        <option value="145">KS02080244 - Prakash Pati - 0244</option>
+                                                                        <option value="153">KS02080252 - Chitta Ranjan Jena - 0252</option>
+                                                                        <option value="164">KS04080263 - Debasis Nanda - 0263</option>
+                                                                        <option value="167">KS03080266 - Rajkishore Lenka - 0266</option>
+                                                                        <option value="180">KS03080279 - Krushna  Jena - 0279</option>
+                                                                        <option value="183">KS03080282 - Manoj Kumar Mohanty - 0282</option>
+                                                                        <option value="212">KS03080311 - Kailash Chandra Behera - 0311</option>
+                                                                        <option value="239">KS04080338 - Dharmananda Mohapatra - 0338</option>
+                                                                        <option value="251">KS04080350 - Anil Kumar Mishra - 0350</option>
+                                                                        <option value="278">KS05080377 - Pradeep Kumar Dhal - 0377</option>
+                                                                        <option value="335">KS06080434 - Santosh Kumar Das - 0434</option>
+                                                                        <option value="415">KS08080514 - Sumanta Kumar Nayak - 0514</option>
+                                                                        <option value="420">KS07080519 - Mr Santosh Choudhury - 0519</option>
+                                                                        <option value="424">KS08080523 - Pravanjan Behera - 0523</option>
+                                                                        <option value="427">KS08080526 - Prasant Kumar Swain - 0526</option>
+                                                                        <option value="436">KS08080535 - Jayanta Kumar Rout - 0535</option>
+                                                                        <option value="453">KS08080552 - Santosh Mallik - 0552</option>
+                                                                        <option value="467">KS09080566 - Girija Sankar Mohapatra - 0566</option>
+                                                                        <option value="477">KS09080576 - Kedar  Ojha - 0576</option>
+                                                                        <option value="515">KS09080614 - Narendra Parida - 0614</option>
+                                                                        <option value="512">KS09080611 - Nirmal Dehury - 0611</option>
+                                                                        <option value="540">KS09080639 - Binod Kumar Sahoo - 0639</option>
+                                                                        <option value="550">KS10080649 - Madan Naik - 0649</option>
+                                                                        <option value="565">KS10080664 - Pramod Kumar Behera - 0664</option>
+                                                                        <option value="572">KS10080671 - Bijaya Kumar Sethi - 0671</option>
+                                                                        <option value="584">KS10080683 - Basanta  Das - 0683</option>
+                                                                        <option value="594">KS10080693 - Dwiti Krushna Nahak - 0693</option>
+                                                                        <option value="624">KS11080723 - Sraban Kumar Rout - 0723</option>
+                                                                        <option value="633">KS11080732 - Bipin Bihari  Sahoo - 0732</option>
+                                                                        <option value="635">KS11080734 - Prakash  Khuntia - 0734</option>
+                                                                        <option value="764">KS02090863 - Mohan Kumar Sahoo - 0863</option>
+                                                                        <option value="858">KS04090957 - Raj Kishore Jena - 0957</option>
+                                                                        <option value="867">KS04090966 - Debasis  Jena - 0966</option>
+                                                                        <option value="868">KS04090967 - Narayan Chandra Rout - 0967</option>
+                                                                        <option value="871">KS04090970 - Pravat  Panigrahi - 0970</option>
+                                                                        <option value="892">KS05090991 - Bapi Das - 0991</option>
+                                                                        <option value="907">KS05091006 - Suresh Kumar Nanda - 1006</option>
+                                                                        <option value="932">KS05091031 - Niroda Kumar Behera - 1031</option>
+                                                                        <option value="942">KS06091041 - Prabhat Chandra Pradhan - 1041</option>
+                                                                        <option value="956">KS06091055 - Amulya Kumar Behera - 1055</option>
+                                                                        <option value="963">KS06091062 - Gobinda  Lenka - 1062</option>
+                                                                        <option value="988">KS07091087 - Sanjaya Kumar Khuntia - 1087</option>
+                                                                        <option value="1038">KS08091137 - Papu Bhutia - 1137</option>
+                                                                        <option value="1069">KS08091168 - Antaryami Patra - 1168</option>
+                                                                        <option value="1101">KS09091200 - Bharat Behera - 1200</option>
+                                                                        <option value="1132">KS10091231 - Ramesh Chandra Sethi - 1231</option>
+                                                                        <option value="1182">KS11091281 - Sukanta Behera - 1281</option>
+                                                                        <option value="1228">KS12091327 - Ranjan Kumar Jena - 1327</option>
+                                                                        <option value="1233">KS12091332 - Pramod Kumar Sahoo - 1332</option>
+                                                                        <option value="1245">KS12091344 - Bhaskar Chandra Mallick - 1344</option>
+                                                                        <option value="1372">KS03101471 - Dina Bandhu Das - 1471</option>
+                                                                        <option value="1376">KS04101475 - Gopinatha Behera - 1475</option>
+                                                                        <option value="1381">KS04101480 - Sashikanta Nayak - 1480</option>
+                                                                        <option value="1388">KS03101487 - Tuna Sethi - 1487</option>
+                                                                        <option value="1401">KS06101500 - Bijaya  Behera - 1500</option>
+                                                                        <option value="1407">KS04101506 - Ajit Beura - 1506</option>
+                                                                        <option value="1410">KS04101509 - Haladhara Sahoo - 1509</option>
+                                                                        <option value="1421">KS04101520 - Sarat Chandra Biswal - 1520</option>
+                                                                        <option value="1424">KS04101523 - Rasmi Ranjan Swain - 1523</option>
+                                                                        <option value="1441">KS05101540 - Saroj Kumar Tandi - 1540</option>
+                                                                        <option value="1456">KS05101555 - Dillip Kumar Sethi - 1555</option>
+                                                                        <option value="1496">KS06101595 - Sudarsan Acharya - 1595</option>
+                                                                        <option value="1533">KS07101632 - Narottam Dehury - 1632</option>
+                                                                        <option value="1541">KS07101640 - Mir Sarfuddin Ali - 1640</option>
+                                                                        <option value="1543">KS07101642 - Ganeswar Sethi - 1642</option>
+                                                                        <option value="1545">KS07101644 - Gitanjali Sahoo - 1644</option>
+                                                                        <option value="1571">KS08101670 - Ashok Kumar Patra - 1670</option>
+                                                                        <option value="1597">KS07101696 - Ashok Kumar Nayak - 1696</option>
+                                                                        <option value="1598">KS08101697 - Pitharam Hembram - 1697</option>
+                                                                        <option value="1663">KS10101762 - Jaykrushna Das - 1762</option>
+                                                                        <option value="1665">KS08101764 - Anil Kumar Sahu - 1764</option>
+                                                                        <option value="1686">KS09101785 - Ajit Kumar Mallick - 1785</option>
+                                                                        <option value="1757">KS10101856 - Gouranga Das - 1856</option>
+                                                                        <option value="1758">KS10101857 - Rabindra  Behera - 1857</option>
+                                                                        <option value="1786">KS11101885 - Duryodhan Pradhan - 1885</option>
+                                                                        <option value="1866">KS12101965 - Ramesh  Sahoo - 1965</option>
+                                                                        <option value="1872">KS12101971 - Jitendar  Sejapada - 1971</option>
+                                                                        <option value="1884">KS12101983 - Nidhia Naik - 1983</option>
+                                                                        <option value="1887">KS12101986 - Bijayananda Jena - 1986</option>
+                                                                        <option value="1894">KS12101993 - Mihir Kumar Sahoo - 1993</option>
+                                                                        <option value="1932">KS12102031 - Khirod Mohanty - 2031</option>
+                                                                        <option value="1934">KS12102033 - Krushna Chandra Sahu - 2033</option>
+                                                                        <option value="1949">KS01112048 - Basudev Sandhibigraha - 2048</option>
+                                                                        <option value="1950">KS01112049 - Shyama Soren - 2049</option>
+                                                                        <option value="1953">KS01112052 - Alekha Chandra Maharana - 2052</option>
+                                                                        <option value="1954">KS01112053 - Susil Kumar Mohapatra - 2053</option>
+                                                                        <option value="1962">KS01112061 - Sarat Behera - 2061</option>
+                                                                        <option value="1985">KS02112084 - Rajesh  Barik - 2084</option>
+                                                                        <option value="1986">KS02112085 - Gajendra Nath Mahanta - 2085</option>
+                                                                        <option value="1987">KS02112086 - Ramakanta Routray - 2086</option>
+                                                                        <option value="1990">KS02112089 - Kailash Karan - 2089</option>
+                                                                        <option value="2016">KS02112115 - Bijay  Dash - 2115</option>
+                                                                        <option value="2018">KS02112117 - Anirudha Majhi - 2117</option>
+                                                                        <option value="2030">KS02112129 - Sujit Behera - 2129</option>
+                                                                        <option value="2036">KS02112135 - Brundaban Patra - 2135</option>
+                                                                        <option value="2039">KS02112138 - Manoj Kumar Behera - 2138</option>
+                                                                        <option value="2050">KS02112149 - Ramesh  Dash - 2149</option>
+                                                                        <option value="2070">KS02112169 - Sanjay Mohanty - 2169</option>
+                                                                        <option value="2081">KS03112180 - Khageswar Beja - 2180</option>
+                                                                        <option value="2085">KS03112184 - Ram Bhimraj - 2184</option>
+                                                                        <option value="2121">KS03112220 - Suku Ram Gond - 2220</option>
+                                                                        <option value="2185">KS04112284 - Bhikari Charan Paikroy - 2284</option>
+                                                                        <option value="2215">KS04112314 - Banamali Mishra - 2314</option>
+                                                                        <option value="2228">KS04112327 - Pratap Mohanty - 2327</option>
+                                                                        <option value="2241">KS04112340 - Khetra  Barik - 2340</option>
+                                                                        <option value="2244">KS04112343 - Ramesh Paikray - 2343</option>
+                                                                        <option value="2254">KS05112353 - Bideshi Barik - 2353</option>
+                                                                        <option value="2274">KS05112373 - Raj Kishor Patra - 2373</option>
+                                                                        <option value="2296">KS06112395 - Nilambar Pradhan - 2395</option>
+                                                                        <option value="2321">KS06112420 - Prahalad Kampo - 2420</option>
+                                                                        <option value="2324">KS06112423 - Alam  Khan - 2423</option>
+                                                                        <option value="2421">KS07112520 - Abhaya Kumar Mallick - 2520</option>
+                                                                        <option value="2473">KS08112572 - Bharat Chandra Bag - 2572</option>
+                                                                        <option value="2505">KS08112604 - Akshaya Mohanty - 2604</option>
+                                                                        <option value="2514">KS08112613 - Simanchal Maharana - 2613</option>
+                                                                        <option value="2519">KS08112618 - Umashankar Mahanta - 2618</option>
+                                                                        <option value="2536">KS08112635 - Bijaya  Chakra - 2635</option>
+                                                                        <option value="2537">KS08112636 - Sashibhusan Nayak - 2636</option>
+                                                                        <option value="2547">KS09112646 - Ashok  Bhoi - 2646</option>
+                                                                        <option value="2557">KS09112656 - Pralaya Rout - 2656</option>
+                                                                        <option value="2559">KS09112658 - Nanda Pradhan - 2658</option>
+                                                                        <option value="2565">KS09112664 - Pravakar Jena - 2664</option>
+                                                                        <option value="2587">KS10112686 - Manamohan Dehury - 2686</option>
+                                                                        <option value="2600">KS10112699 - Sanatan Sahoo - 2699</option>
+                                                                        <option value="2628">KS10112727 - Ananta Kishore Mohanty - 2727</option>
+                                                                        <option value="2651">KS11112750 - Anadi Patra - 2750</option>
+                                                                        <option value="2660">KS11112759 - Amarprasad Patra - 2759</option>
+                                                                        <option value="2666">KS11112765 - Bijay Patra - 2765</option>
+                                                                        <option value="2673">KS11112772 - Sanjaya Kumar Pradhan - 2772</option>
+                                                                        <option value="2683">KS11112782 - Laxmidhar Parida - 2782</option>
+                                                                        <option value="2701">KS12112800 - Sudarshan Parida - 2800</option>
+                                                                        <option value="2760">KS01122859 - Gopinath Bindhani - 2859</option>
+                                                                        <option value="2764">KS01122863 - Sushanta Kumar Nayak - 2863</option>
+                                                                        <option value="2768">KS01122867 - Ramakanta Mahani - 2867</option>
+                                                                        <option value="2772">KS01122871 - Bhikari Sahoo - 2871</option>
+                                                                        <option value="2785">KS01122884 - Pravash Sethi - 2884</option>
+                                                                        <option value="2805">KS02122904 - Dillip Das - 2904</option>
+                                                                        <option value="2829">KS02122928 - Antaryami Swain - 2928</option>
+                                                                        <option value="2852">KS02122951 - Jaganath Barad - 2951</option>
+                                                                        <option value="2855">KS02122954 - Kartika Chandra Malik - 2954</option>
+                                                                        <option value="2858">KS03122957 - Ugrasen Behera - 2957</option>
+                                                                        <option value="2869">KS03122968 - Mohammed Jahur - 2968</option>
+                                                                        <option value="2877">KS03122976 - Anil  Dehuri - 2976</option>
+                                                                        <option value="2884">KS03122983 - Pramod Kumar Sahu - 2983</option>
+                                                                        <option value="2894">KS03122993 - Ashok  Maharana - 2993</option>
+                                                                        <option value="2896">KS03122995 - Pratap Mahanta - 2995</option>
+                                                                        <option value="2903">KS03123002 - Kirtan Mallick - 3002</option>
+                                                                        <option value="2909">KS03123008 - Jabahar Maharana - 3008</option>
+                                                                        <option value="2910">KS03123009 - Dillip Kumar Behera - 3009</option>
+                                                                        <option value="2917">KS03123016 - Hrushikesh Sahoo - 3016</option>
+                                                                        <option value="2942">KS04123041 - Rajanikanta Mohanty - 3041</option>
+                                                                        <option value="2945">KS04123044 - Samarendra Mohanty - 3044</option>
+                                                                        <option value="2958">KS04123057 - Krupasindhu Behera - 3057</option>
+                                                                        <option value="2960">KS04123059 - Patitapaban Rana - 3059</option>
+                                                                        <option value="2964">KS04123063 - Basanta Kumar  Patra - 3063</option>
+                                                                        <option value="2985">KS05123084 - Gangadhar Rout - 3084</option>
+                                                                        <option value="2993">KS05123092 - Prafulla Kujmar Naik - 3092</option>
+                                                                        <option value="2995">KS05123094 - Bharat Chandra Mohapatra - 3094</option>
+                                                                        <option value="3003">KS05123102 - Satrughana Jena - 3102</option>
+                                                                        <option value="3007">KS05123106 - Niranjan Pradhan - 3106</option>
+                                                                        <option value="3019">KS05123118 - K. Narasinga Ready - 3118</option>
+                                                                        <option value="3028">KS06123127 - Haribandhu Nayak - 3127</option>
+                                                                        <option value="3032">KS06123131 - Pappu Nayak - 3131</option>
+                                                                        <option value="3058">KS06123157 - Rabindra Kumar Mahakud - 3157</option>
+                                                                        <option value="3059">KS06123158 - Dipak Mishra  - 3158</option>
+                                                                        <option value="3072">KS06123171 - Suraj  Sahoo - 3171</option>
+                                                                        <option value="3125">KS07123224 - Pitamber Mahapatra - 3224</option>
+                                                                        <option value="3142">KS07123241 - Rasananda Bhoi - 3241</option>
+                                                                        <option value="3150">KS07123249 - Tusarkanta Bhoi - 3249</option>
+                                                                        <option value="3167">KS08123266 - Resab  Pradhan - 3266</option>
+                                                                        <option value="3170">KS08123269 - Kamalakanta Ojha - 3269</option>
+                                                                        <option value="3172">KS08123271 - Deepak Kumar Behera - 3271</option>
+                                                                        <option value="3196">KS09123295 - Dhaneswar Pradhan - 3295</option>
+                                                                        <option value="3209">KS09123308 - Purna Nayak - 3308</option>
+                                                                        <option value="3211">KS09123310 - Himanshu  Khilar - 3310</option>
+                                                                        <option value="3217">KS09123316 - Sambit Nayak - 3316</option>
+                                                                        <option value="3222">KS10123321 - Puspa Pany - 3321</option>
+                                                                        <option value="3231">KS10123330 - Deepak Tarenia - 3330</option>
+                                                                        <option value="3233">KS10123332 - Sudhir Pradhan - 3332</option>
+                                                                        <option value="3248">KS10123347 - Rajendra Bhoi - 3347</option>
+                                                                        <option value="3251">KS10123350 - Rabindra Pattanaik - 3350</option>
+                                                                        <option value="3279">KS10123378 - Parikhita Panda - 3378</option>
+                                                                        <option value="3284">KS10123383 - Subrat Khatua - 3383</option>
+                                                                        <option value="3307">KS11123406 - Deepak Behera - 3406</option>
+                                                                        <option value="3344">KS11123443 - Lambodhar Behera - 3443</option>
+                                                                        <option value="3345">KS11123444 - Rabindra  Maharana - 3444</option>
+                                                                        <option value="3354">KS11123453 - Sibananda Nayak - 3453</option>
+                                                                        <option value="3383">KS12123482 - Dambarudhar Giri - 3482</option>
+                                                                        <option value="3393">KS12123492 - Kedar Pattnaik - 3492</option>
+                                                                        <option value="3394">KS12123493 - Bhikari Panchabihar - 3493</option>
+                                                                        <option value="3401">KS12123500 - Saroj Kumar Nayak - 3500</option>
+                                                                        <option value="3406">KS12123505 - Hadibandhu Nayak - 3505</option>
+                                                                        <option value="3419">KS12123518 - Silan Kumar Pradhan - 3518</option>
+                                                                        <option value="3453">KS01133552 - Sukadev Das - 3552</option>
+                                                                        <option value="3458">KS01133557 - Birendra Kumar Singh - 3557</option>
+                                                                        <option value="3472">KS01133571 - Subash Chandra  Sahoo - 3571</option>
+                                                                        <option value="3484">KS01133583 - Purusottam Biswal - 3583</option>
+                                                                        <option value="3491">KS01133590 - Ranjan Kumar Dalabehera - 3590</option>
+                                                                        <option value="3492">KS01133591 - Surendra Chandra Mohapatra - 3591</option>
+                                                                        <option value="3502">KS02133601 - Antaryami Biswal - 3601</option>
+                                                                        <option value="3510">KS02133609 - Harihar Nahak - 3609</option>
+                                                                        <option value="3512">KS02133611 - Mathew Nayak - 3611</option>
+                                                                        <option value="3513">KS02133612 - Ashok Pattnaik - 3612</option>
+                                                                        <option value="3514">KS02133613 - Debaraj Nayak - 3613</option>
+                                                                        <option value="3516">KS02133615 - Kedar Biswal - 3615</option>
+                                                                        <option value="3520">KS02133619 - Ganeswar Swain - 3619</option>
+                                                                        <option value="3543">KS02133642 - Lalit Padhan - 3642</option>
+                                                                        <option value="3554">KS02133653 - Saroj Kumar Behera - 3653</option>
+                                                                        <option value="3562">KS02133661 - Rabindra  Behera - 3661</option>
+                                                                        <option value="3573">KS03133672 - Trilochan Patra - 3672</option>
+                                                                        <option value="3580">KS03133679 - Birendra Pradhan - 3679</option>
+                                                                        <option value="3588">KS03133687 - Birakishore Mallick - 3687</option>
+                                                                        <option value="3602">KS03133701 - Keshab Chandra Dash - 3701</option>
+                                                                        <option value="3612">KS03133711 - Prasanna Kumar Barala - 3711</option>
+                                                                        <option value="3613">KS03133712 - Jitendra Jena - 3712</option>
+                                                                        <option value="3614">KS03133713 - Duryadhan Pradhan - 3713</option>
+                                                                        <option value="3621">KS03133720 - Ranajit Jena - 3720</option>
+                                                                        <option value="3667">KS00003766 - Upendra Barik - 3766</option>
+                                                                        <option value="3670">KS05133769 - Pradip Kumar Satapathy - 3769</option>
+                                                                        <option value="3672">KS05133771 - Arjuna Patra - 3771</option>
+                                                                        <option value="3685">KS05133784 - Adarsha Bhoi - 3784</option>
+                                                                        <option value="3686">KS05133785 - Bharat Jhankar - 3785</option>
+                                                                        <option value="3689">KS05133788 - A Enkata Rao - 3788</option>
+                                                                        <option value="3694">KS05133793 - Jayashree Mallick - 3793</option>
+                                                                        <option value="3695">KS05133794 - Puspanjali Sahoo - 3794</option>
+                                                                        <option value="3712">KS06133811 - Sujit Manasing - 3811</option>
+                                                                        <option value="3730">KS06133829 - Pradosh  Swain - 3829</option>
+                                                                        <option value="3731">KS06133830 - Surendra Kumar Behera - 3830</option>
+                                                                        <option value="3734">KS06133833 - Satya  Moharana - 3833</option>
+                                                                        <option value="3744">KS06133843 - Bijaya Kumar Tripathy - 3843</option>
+                                                                        <option value="3745">KS06133844 - Pratap Kumar Mohanty - 3844</option>
+                                                                        <option value="3750">KS06133849 - Maheswar Behera - 3849</option>
+                                                                        <option value="3757">KS07133856 - G. Purusottam Patra - 3856</option>
+                                                                        <option value="3765">KS07133864 - Lokanath Mahananda - 3864</option>
+                                                                        <option value="3766">KS07133865 - Purna  Mohapatra - 3865</option>
+                                                                        <option value="3783">KS07133882 - Ganesh Kumar Behera - 3882</option>
+                                                                        <option value="3784">KS07133883 - Kailash  Sethy - 3883</option>
+                                                                        <option value="3795">KS07133894 - Prabhakant Tripathy - 3894</option>
+                                                                        <option value="3796">KS07133895 - Sishir  Bhoi - 3895</option>
+                                                                        <option value="3797">KS07133896 - Susant  Pattnaik - 3896</option>
+                                                                        <option value="3806">KS08133905 - Prasant Kumar Malik - 3905</option>
+                                                                        <option value="3814">KS08133913 - Indradev Pradhan - 3913</option>
+                                                                        <option value="3826">KS08133925 - Bibhutibhusan Dash - 3925</option>
+                                                                        <option value="3842">KS08133941 - Shambhunath Pramanik - 3941</option>
+                                                                        <option value="3845">KS08133944 - Mangal Marandi - 3944</option>
+                                                                        <option value="3875">KS09133974 - Madan Mohan Jena - 3974</option>
+                                                                        <option value="3882">KS09133981 - Dillip  Sahoo - 3981</option>
+                                                                        <option value="3883">KS09133982 - Tanoj Kumar Mohanty - 3982</option>
+                                                                        <option value="3886">KS09133985 - Janaki  Dhal - 3985</option>
+                                                                        <option value="3900">KS10133999 - Gandharba Behera - 3999</option>
+                                                                        <option value="3906">KS10134005 - Nakula Barad - 4005</option>
+                                                                        <option value="3908">KS10134007 - Kumuda  Behera - 4007</option>
+                                                                        <option value="3910">KS10134009 - Bhagirathi Muduli - 4009</option>
+                                                                        <option value="3913">KS10134012 - J Ganesh Patra - 4012</option>
+                                                                        <option value="3924">KS11134023 - Pradeep Mishra - 4023</option>
+                                                                        <option value="3932">KS11134031 - Narayana Sahoo - 4031</option>
+                                                                        <option value="3958">KS11134057 - Sudarshan Sahoo - 4057</option>
+                                                                        <option value="3963">KS11134062 - Chinmaya Dash - 4062</option>
+                                                                        <option value="3965">KS12134064 - Ajay  Sar - 4064</option>
+                                                                        <option value="3970">KS12134069 - Ratnakar Muduli - 4069</option>
+                                                                        <option value="3990">KS12134089 - Malaya Ranjan  Bag - 4089</option>
+                                                                        <option value="4005">KS12134104 - Ramakanta Behera - 4104</option>
+                                                                        <option value="4008">KS12134107 - Mahendra  Dash - 4107</option>
+                                                                        <option value="4009">KS12134108 - Manoj Sahoo - 4108</option>
+                                                                        <option value="4013">KS12134112 - Tapan Kumar Nayak - 4112</option>
+                                                                        <option value="4017">KS01144116 - Santosh  Senapati - 4116</option>
+                                                                        <option value="4022">KS01144121 - Susila Digal - 4121</option>
+                                                                        <option value="4033">KS01144132 - Sukanta  Dixit - 4132</option>
+                                                                        <option value="4035">KS01144134 - Pradip Kumar Behera - 4134</option>
+                                                                        <option value="4038">KS01144137 - Deni Pradhan - 4137</option>
+                                                                        <option value="4042">KS01144141 - Raghunath Sundaray - 4141</option>
+                                                                        <option value="4044">KS01144143 - Sripati Dehury - 4143</option>
+                                                                        <option value="4049">KS01144148 - Rohit Bhoi - 4148</option>
+                                                                        <option value="4051">KS01144150 - Shyama Sundar Mohapatra - 4150</option>
+                                                                        <option value="4059">KS01144158 - Harekrushna Swain - 4158</option>
+                                                                        <option value="4061">KS01144160 - Ashish Biswal - 4160</option>
+                                                                        <option value="4068">KS01144167 - Dularam Murmu - 4167</option>
+                                                                        <option value="4071">KS01144170 - Jagannath Rout - 4170</option>
+                                                                        <option value="4075">KS01144174 - Narayan Nayak - 4174</option>
+                                                                        <option value="4079">KS01144178 - Debendra Hansdah - 4178</option>
+                                                                        <option value="4087">KS02144186 - Kailash  Naika - 4186</option>
+                                                                        <option value="4089">KS02144188 - Nilamani Biswasaraya - 4188</option>
+                                                                        <option value="4099">KS02144198 - Subhendu Ratha - 4198</option>
+                                                                        <option value="4109">KS02144208 - Bisheswar Dalabehera - 4208</option>
+                                                                        <option value="4115">KS02144214 - Prakash Majhi - 4214</option>
+                                                                        <option value="4127">KS02144226 - Santanu Kumar Behera - 4226</option>
+                                                                        <option value="4129">KS02144228 - Manas Kumar Parhi - 4228</option>
+                                                                        <option value="4134">KS02144233 - Sribachha Behera - 4233</option>
+                                                                        <option value="4148">KS02144247 - Narsingh Mardi - 4247</option>
+                                                                        <option value="4150">KS03144249 - Haresh  Naik - 4249</option>
+                                                                        <option value="4152">KS03144251 - Alok Parida - 4251</option>
+                                                                        <option value="4162">KS03144261 - Rajendra Narayan Mohapatra - 4261</option>
+                                                                        <option value="4166">KS03144265 - Murali Dhar Malik - 4265</option>
+                                                                        <option value="4172">KS03144271 - Nirmal  Patra - 4271</option>
+                                                                        <option value="4173">KS03144272 - Dinabandhu Bishi - 4272</option>
+                                                                        <option value="4174">KS03144273 - Santosh Kumar Sahoo - 4273</option>
+                                                                        <option value="4175">KS03144274 - Bhanu Pratap Samal - 4274</option>
+                                                                        <option value="4178">KS03144277 - Puspaditya Bhoi - 4277</option>
+                                                                        <option value="4184">KS03144283 - Ashok Kumar Rayaguru - 4283</option>
+                                                                        <option value="4189">KS03144288 - Kamaleswar Mohanta - 4288</option>
+                                                                        <option value="4190">KS03144289 - Susanta Kumar Majhi - 4289</option>
+                                                                        <option value="4192">KS03144291 - Susanta Behera - 4291</option>
+                                                                        <option value="4201">KS03144300 - Amit Mishra - 4300</option>
+                                                                        <option value="4208">KS03144307 - Subas Kumar Sahoo - 4307</option>
+                                                                        <option value="4213">KS03144312 - Keshab Chandra Prusty - 4312</option>
+                                                                        <option value="4229">KS03144328 - Ranjit Kumar Nanda - 4328</option>
+                                                                        <option value="4232">KS04144331 - Bijoy  Sethi - 4331</option>
+                                                                        <option value="4233">KS04144332 - Nagendra  Patra - 4332</option>
+                                                                        <option value="4238">KS04144337 - Niranjan Das - 4337</option>
+                                                                        <option value="4243">KS04144342 - Susant Kumar Moharana - 4342</option>
+                                                                        <option value="4246">KS04144345 - Gajendra Malik - 4345</option>
+                                                                        <option value="4254">KS04144353 - Soumya Ranjan Bal - 4353</option>
+                                                                        <option value="4262">KS04144361 - Raghunath Rout - 4361</option>
+                                                                        <option value="4267">KS04144366 - Ramesh Behera - 4366</option>
+                                                                        <option value="4269">KS04144368 - Aruna Kumar Das - 4368</option>
+                                                                        <option value="4270">KS04144369 - Soumya  Barik - 4369</option>
+                                                                        <option value="4275">KS04144374 - Lokanath Bhuyan - 4374</option>
+                                                                        <option value="4277">KS04144376 - Guru Charan Mahanta - 4376</option>
+                                                                        <option value="4279">KS05144378 - Susila Badi - 4378</option>
+                                                                        <option value="4286">KS05144385 - Bikash Chandra Das - 4385</option>
+                                                                        <option value="4291">KS05144390 - Rupesh Sahu - 4390</option>
+                                                                        <option value="4293">KS05144392 - Hrushikesh Mohanty - 4392</option>
+                                                                        <option value="4301">KS05144400 - Baikuntha Nath Behera - 4400</option>
+                                                                        <option value="4303">KS05144402 - Prasanta Kumar Rout - 4402</option>
+                                                                        <option value="4308">KS05144407 - Samir Kumar Harijan - 4407</option>
+                                                                        <option value="4315">KS05144414 - Babu Rana - 4414</option>
+                                                                        <option value="4324">KS06144423 - Purusottam Sabar - 4423</option>
+                                                                        <option value="4327">KS06144426 - Sangram Kumar Das - 4426</option>
+                                                                        <option value="4328">KS06144427 - Ranjan Mohanty - 4427</option>
+                                                                        <option value="4331">KS06144430 - Sri Manas Sing - 4430</option>
+                                                                        <option value="4337">KS06144436 - Bikram Kumar Sahoo - 4436</option>
+                                                                        <option value="4341">KS06144440 - Jitendra Kumar Barik - 4440</option>
+                                                                        <option value="4351">KS06144450 - Biswanath Sahoo - 4450</option>
+                                                                        <option value="4352">KS06144451 - Bapi Sahoo - 4451</option>
+                                                                        <option value="4355">KS06144454 - Rabindra Kumar Barik - 4454</option>
+                                                                        <option value="4357">KS06144456 - Sarat Kumar Sahani - 4456</option>
+                                                                        <option value="4358">KS06144457 - Ranjeeta Dalai - 4457</option>
+                                                                        <option value="4362">KS06144461 - Abinash Jena - 4461</option>
+                                                                        <option value="4364">KS06144463 - Prakash Kumar Naik - 4463</option>
+                                                                        <option value="4367">KS07144466 - Debasis Senapati - 4466</option>
+                                                                        <option value="4368">KS07144467 - Arttatran Sahoo - 4467</option>
+                                                                        <option value="4369">KS07144468 - Sikandar Marandi - 4468</option>
+                                                                        <option value="4370">KS07144469 - Bankanidhi Mishra - 4469</option>
+                                                                        <option value="4371">KS07144470 - Sushil Pradhan - 4470</option>
+                                                                        <option value="4374">KS07144473 - Bantu Naik - 4473</option>
+                                                                        <option value="4376">KS07144475 - Akshaya Kumar Parida - 4475</option>
+                                                                        <option value="4377">KS07144476 - Subhasis Pani - 4476</option>
+                                                                        <option value="4380">KS07144479 - Debendra Naik - 4479</option>
+                                                                        <option value="4384">KS07144483 - Prabhat  Kumar Sahoo - 4483</option>
+                                                                        <option value="4386">KS07144485 - Abhaya Kumar Pati - 4485</option>
+                                                                        <option value="4404">KS07144503 - Debendra Kumar Behera - 4503</option>
+                                                                        <option value="4405">KS07144504 - Dillip Kumar Mahanandia - 4504</option>
+                                                                        <option value="4408">KS07144507 - Krushna Chandra Panda - 4507</option>
+                                                                        <option value="4410">KS07144509 -  Jasa Gartia - 4509</option>
+                                                                        <option value="4411">KS07144510 - Sukant Chandra Panda - 4510</option>
+                                                                        <option value="4413">KS07144512 - Mukula Behera - 4512</option>
+                                                                        <option value="4414">KS07144513 - Badal Sahoo - 4513</option>
+                                                                        <option value="4415">KS07144514 - Ajit Pradhan - 4514</option>
+                                                                        <option value="4422">KS08144521 - Rama Kanta Panda - 4521</option>
+                                                                        <option value="4425">KS08144524 - Santosh Kumar Mohanty - 4524</option>
+                                                                        <option value="4426">KS08144525 - Natabar Sahoo - 4525</option>
+                                                                        <option value="4427">KS08144526 - Basanta Baraik - 4526</option>
+                                                                        <option value="4428">KS08144527 - Bijay  Sethi - 4527</option>
+                                                                        <option value="4435">KS08144534 - Sarbeswar Behera - 4534</option>
+                                                                        <option value="4436">KS08144535 - Pradyumna Kumar Biswal - 4535</option>
+                                                                        <option value="4439">KS08144538 - Sarita Swain - 4538</option>
+                                                                        <option value="4440">KS08144539 - Dinesh Moharana - 4539</option>
+                                                                        <option value="4449">KS08144548 - Jagadish Tripathy - 4548</option>
+                                                                        <option value="4450">KS08144549 - Bijay Ku Sethi - 4549</option>
+                                                                        <option value="4458">KS08144557 - Kailash Chandra Rout - 4557</option>
+                                                                        <option value="4459">KS08144558 - Arabinda Biswal - 4558</option>
+                                                                        <option value="4465">KS09144564 - Babuji Gouda - 4564</option>
+                                                                        <option value="4466">KS09144565 - Kishore Kumar Pattanaik - 4565</option>
+                                                                        <option value="4468">KS08144567 - Prahallad Parida - 4567</option>
+                                                                        <option value="4470">KS08144569 - Saroj Ku Biswal - 4569</option>
+                                                                        <option value="4472">KS08144571 - Pravat Ku Behera - 4571</option>
+                                                                        <option value="4473">KS09144572 - Rajesh Kumar Swain - 4572</option>
+                                                                        <option value="4475">KS09144574 - Arup Kumar Mohanty - 4574</option>
+                                                                        <option value="4482">KS09144581 - Niranjan Munda - 4581</option>
+                                                                        <option value="4483">KS09144582 - Shirish Chandra Biswal - 4582</option>
+                                                                        <option value="4489">KS09144588 - Sudhansu Sekhar Jena - 4588</option>
+                                                                        <option value="4490">KS09144589 - Nabina Naik - 4589</option>
+                                                                        <option value="4491">KS09144590 - Rajani Kanta Rout - 4590</option>
+                                                                        <option value="4492">KS09144591 - Srikanta  Sethi - 4591</option>
+                                                                        <option value="4493">KS09144592 - Parama Nanda Nath - 4592</option>
+                                                                        <option value="4499">KS09144598 - Pramod Kumar Jena - 4598</option>
+                                                                        <option value="4500">KS09144599 - Deepak Besra - 4599</option>
+                                                                        <option value="4501">KS09144600 - Pratap Behera - 4600</option>
+                                                                        <option value="4502">KS09144601 - Ganesh Padhi - 4601</option>
+                                                                        <option value="4503">KS09144602 - Satya Nanda Sahoo - 4602</option>
+                                                                        <option value="4505">KS09144604 - Srikant Sahoo - 4604</option>
+                                                                        <option value="4506">KS09144605 - Pruthwi Raj Singh - 4605</option>
+                                                                        <option value="4507">KS09144606 - Sidhartha Dash - 4606</option>
+                                                                        <option value="4508">KS09144607 - Dyuti Prakash Das - 4607</option>
+                                                                        <option value="4510">KS10144609 - Rakesh Lenka - 4609</option>
+                                                                        <option value="4513">KS10144612 - Gangadhar Swain - 4612</option>
+                                                                        <option value="4515">KS10144614 - Bhimasen Naik - 4614</option>
+                                                                        <option value="4517">KS10144616 - Niranjan Mallik - 4616</option>
+                                                                        <option value="4524">KS10144623 - Santanu Kumar Bhoi - 4623</option>
+                                                                        <option value="4525">KS10144624 - Samir Ranjan Jena - 4624</option>
+                                                                        <option value="4530">KS10144629 - Satya Ranjan Panda - 4629</option>
+                                                                        <option value="4533">KS10144632 - Belal Khan - 4632</option>
+                                                                        <option value="4536">KS11144635 - Rajesh Kumar Panda - 4635</option>
+                                                                        <option value="4537">KS11144636 - Srimukha Pradhan - 4636</option>
+                                                                        <option value="4540">KS11144639 - Niranjan Roul - 4639</option>
+                                                                        <option value="4541">KS11144640 - Dillip Naik - 4640</option>
+                                                                        <option value="4542">KS11144641 - Satya Ranjan Behera - 4641</option>
+                                                                        <option value="4544">KS11144643 - Soumya Darshan Sahoo - 4643</option>
+                                                                        <option value="4545">KS11144644 - Gobardhan Naik - 4644</option>
+                                                                        <option value="4551">KS11144650 - Sibaram Dalabehera - 4650</option>
+                                                                        <option value="4555">KS11144654 - Pratap Rudra Malik - 4654</option>
+                                                                        <option value="4560">KS11144659 - Suryanarayan Grahacharya - 4659</option>
+                                                                        <option value="4565">KS11144664 - Chitta Ranjan Pattanayak - 4664</option>
+                                                                        <option value="4573">KS11144672 - Thabira Kand - 4672</option>
+                                                                        <option value="4576">KS11144675 - Ranajit Malla - 4675</option>
+                                                                        <option value="4577">KS11144676 - Suban Singh - 4676</option>
+                                                                        <option value="4579">KS11144678 - Sudhir Kumar Sasmal - 4678</option>
+                                                                        <option value="4580">KS11144679 - Prasanna Mohapatra - 4679</option>
+                                                                        <option value="4585">KS11144684 - Partha Sarathi Rout - 4684</option>
+                                                                        <option value="4586">KS11144685 - Bharat Tudu - 4685</option>
+                                                                        <option value="4587">KS12144686 - Biswanath Jena - 4686</option>
+                                                                        <option value="4595">KS12144694 - Rakhima Pradhan - 4694</option>
+                                                                        <option value="4597">KS12144696 - Bhagirath Barik - 4696</option>
+                                                                        <option value="4598">KS12144697 -  Sukanta Prasad                                                                        Das - 4697</option>
+                                                                        <option value="4599">KS12144698 - Biswajit Parija - 4698</option>
+                                                                        <option value="4601">KS12144700 - Manoranjan Mohanty - 4700</option>
+                                                                        <option value="4605">KS12144704 - Tushar Kanta Rout - 4704</option>
+                                                                        <option value="4609">KS12144708 - Soumya Ranjan Pradhan - 4708</option>
+                                                                        <option value="4613">KS12144712 - Pradipa Kumar Rout - 4712</option>
+                                                                        <option value="4616">KS12144715 - Gopal Chandra Sahoo - 4715</option>
+                                                                        <option value="4619">KS12144718 - Bhajamana Sahoo - 4718</option>
+                                                                        <option value="4620">KS12144719 - Lakshmikant Sahu - 4719</option>
+                                                                        <option value="4621">KS12144720 - Samir Kumar Pradhan - 4720</option>
+                                                                        <option value="4625">KS01154724 - Jadumani Nathsharma - 4724</option>
+                                                                        <option value="4633">KS01154732 - Karunakar Soren - 4732</option>
+                                                                        <option value="4634">KS01154733 - Muna Sing - 4733</option>
+                                                                        <option value="4635">KS01154734 - Alok Samal - 4734</option>
+                                                                        <option value="4638">KS01154737 - Babu Pradhan - 4737</option>
+                                                                        <option value="4639">KS01154738 - Binayak Patra - 4738</option>
+                                                                        <option value="4640">KS01154739 - Sumanta Behera - 4739</option>
+                                                                        <option value="4641">KS01154740 - Debananda Beshra - 4740</option>
+                                                                        <option value="4642">KS01154741 - Janmejaya Behera - 4741</option>
+                                                                        <option value="4643">KS01154742 - Jisaya Pradhan - 4742</option>
+                                                                        <option value="4644">KS01154743 - Rajesh Nayak - 4743</option>
+                                                                        <option value="4645">KS01154744 - Rintu Mallick - 4744</option>
+                                                                        <option value="4646">KS01154745 - Lala Pradumna Ray - 4745</option>
+                                                                        <option value="4649">KS01154748 - Saroj Kumar Pradhan - 4748</option>
+                                                                        <option value="4652">KS01154751 - Shashindra Mallick - 4751</option>
+                                                                        <option value="4653">KS01154752 - Phiringi Pradhan - 4752</option>
+                                                                        <option value="4656">KS01154755 - Tanis Nayak - 4755</option>
+                                                                        <option value="4657">KS01154756 - Jitendra Samal - 4756</option>
+                                                                        <option value="4658">KS00004757 - Kishor Behera - 4757</option>
+                                                                        <option value="4660">KS01154759 - Rabindra Pradhan - 4759</option>
+                                                                        <option value="4661">KS01154760 - Partha Sarathi Bhuyan - 4760</option>
+                                                                        <option value="4663">KS01154762 - Jitendra Saura - 4762</option>
+                                                                        <option value="4668">KS01154767 - Ram Chandra Singh - 4767</option>
+                                                                        <option value="4676">KS01154775 - Bir Bahadur Marndi - 4775</option>
+                                                                        <option value="4681">KS00004780 - Pratap Kumar Nayak - 4780</option>
+                                                                        <option value="4682">KS01154781 - Aswani Kumar Bagal - 4781</option>
+                                                                        <option value="4683">KS01154782 - Prabina Kumar Kumbhar - 4782</option>
+                                                                        <option value="4684">KS01154783 - Prafulla Kumar Suna - 4783</option>
+                                                                        <option value="4686">KS01154785 - Tarapad Singh - 4785</option>
+                                                                        <option value="4690">KS01154789 - Kartik Chandra Samal - 4789</option>
+                                                                        <option value="4691">KS01154790 - Arjuna Mohanty - 4790</option>
+                                                                        <option value="4693">KS01154792 - Dillip Kumar Behera - 4792</option>
+                                                                        <option value="4694">KS01154793 - Nirakara Naik - 4793</option>
+                                                                        <option value="4696">KS01154795 - Tophan Pradhan - 4795</option>
+                                                                        <option value="4697">KS01154796 - Saraswati Mohapatra - 4796</option>
+                                                                        <option value="4699">KS01154798 - Nilanchala Sahani - 4798</option>
+                                                                        <option value="4700">KS01154799 - Srikanta Parida - 4799</option>
+                                                                        <option value="4701">KS01154800 - Ganeswar Hansdah - 4800</option>
+                                                                        <option value="4703">KS01154802 - Sabya Sachi Jena - 4802</option>
+                                                                        <option value="4704">KS01154803 - Sujit Bag - 4803</option>
+                                                                        <option value="4705">KS01154804 - Nitesh Kumar Swain - 4804</option>
+                                                                        <option value="4707">KS01154806 - Durga Charan Marandi - 4806</option>
+                                                                        <option value="4710">KS01154809 - Dakhin Hembram - 4809</option>
+                                                                        <option value="4713">KS01154812 - Santanu Kumar Mishra - 4812</option>
+                                                                        <option value="4715">KS02154814 - Nirmal Chandra Das - 4814</option>
+                                                                        <option value="4716">KS02154815 - Bhaskar Ch Rout - 4815</option>
+                                                                        <option value="4717">KS02154816 - Dharanidhar Sahoo - 4816</option>
+                                                                        <option value="4720">KS02154819 - Biswa Ranjan Moharana - 4819</option>
+                                                                        <option value="4721">KS02154820 - Rohita Pradhan - 4820</option>
+                                                                        <option value="4722">KS02154821 - Kartik  Bal - 4821</option>
+                                                                        <option value="4723">KS02154822 - Ashish Kumar Das - 4822</option>
+                                                                        <option value="4724">KS02154823 - K.Khandeshu Reddy - 4823</option>
+                                                                        <option value="4727">KS02154826 - Santosh Kumar Patnaik - 4826</option>
+                                                                        <option value="4728">KS02154827 - Dhruba Charan Das - 4827</option>
+                                                                        <option value="4729">KS02154828 - Rabi Narayan Panda - 4828</option>
+                                                                        <option value="4734">KS02154833 - B.Sankar Rao - 4833</option>
+                                                                        <option value="4735">KS02154834 - Bhagaban Nayak - 4834</option>
+                                                                        <option value="4741">KS02154840 - Saroj Kumar Rout - 4840</option>
+                                                                        <option value="4744">KS02154843 - Ganeswar Sahoo - 4843</option>
+                                                                        <option value="4745">KS02154844 - Pravat Kumar Nayak - 4844</option>
+                                                                        <option value="4746">KS02154845 - Santosh Kumar Malik - 4845</option>
+                                                                        <option value="4747">KS02154846 - Amiya Kumar Das - 4846</option>
+                                                                        <option value="4748">KS02154847 - Chandan Kumar Barik - 4847</option>
+                                                                        <option value="4749">KS02154848 - Biswaswar Das - 4848</option>
+                                                                        <option value="4750">KS02154849 - Ajita Kumar Barik - 4849</option>
+                                                                        <option value="4751">KS02154850 - Manoj Kumar Sankhua - 4850</option>
+                                                                        <option value="4752">KS02154851 - Anil Kumar Mandal - 4851</option>
+                                                                        <option value="4753">KS02154852 -  RAJLAXMI BEHERA - 4852</option>
+                                                                        <option value="4755">KS03154854 - Pankaj Lochan Sahoo - 4854</option>
+                                                                        <option value="4756">KS03154855 - Brajendra Prusty - 4855</option>
+                                                                        <option value="4760">KS03154859 - Biswajeet Barik - 4859</option>
+                                                                        <option value="4761">KS03154860 - Patel Senapati - 4860</option>
+                                                                        <option value="4762">KS03154861 - Suresh Majhi - 4861</option>
+                                                                        <option value="4763">KS03154862 - Harihar Biswal - 4862</option>
+                                                                        <option value="4764">KS03154863 - Mitu Nayak - 4863</option>
+                                                                        <option value="4765">KS03154864 - Ripun Pradhan - 4864</option>
+                                                                        <option value="4769">KS03154868 - Chandra Sekhar Nayak - 4868</option>
+                                                                        <option value="4770">KS03154869 - Manoranjan Behera - 4869</option>
+                                                                        <option value="4772">KS03154871 - Manoranjan Panda - 4871</option>
+                                                                        <option value="4773">KS03154872 - Dillip Kumar Nayak - 4872</option>
+                                                                        <option value="4774">KS03154873 - Jyoti Prakash Jena - 4873</option>
+                                                                        <option value="4775">KS03154874 - Deepak Nayak - 4874</option>
+                                                                        <option value="4777">KS03154876 - Kalucharan Ranasingh - 4876</option>
+                                                                        <option value="4779">KS03154878 - Pradyumna Parida - 4878</option>
+                                                                        <option value="4780">KS03154879 - Biswjit Mantry - 4879</option>
+                                                                        <option value="4782">KS03154881 - Pramoda   Swain - 4881</option>
+                                                                        <option value="4783">KS03154882 - Kartikeswar Biswal - 4882</option>
+                                                                        <option value="4785">KS03154884 - Somnath Singh - 4884</option>
+                                                                        <option value="4786">KS03154885 - Prasanta Barial - 4885</option>
+                                                                        <option value="4787">KS03154886 - Pradyumna Kumar Nayak - 4886</option>
+                                                                        <option value="4788">KS03154887 - Nitu Naik - 4887</option>
+                                                                        <option value="4790">KS03154889 - Kalpataru Jena - 4889</option>
+                                                                        <option value="4791">KS03154890 - Suryamani Nayak - 4890</option>
+                                                                        <option value="4792">KS03154891 - Subash Chandra  Jena - 4891</option>
+                                                                        <option value="4793">KS04154892 - Ganesh  Bhimraj - 4892</option>
+                                                                        <option value="4794">KS04154893 - Nirmal  Padhi - 4893</option>
+                                                                        <option value="4795">KS04154894 - Sibaprasad Jena - 4894</option>
+                                                                        <option value="4796">KS04154895 - Suresh Kumar  Jena - 4895</option>
+                                                                        <option value="4797">KS04154896 - Sasadhara  Mallick - 4896</option>
+                                                                        <option value="4798">KS04154897 - Kartik  Jena - 4897</option>
+                                                                        <option value="4800">KS04154899 - Kailash Chandra  Parida - 4899</option>
+                                                                        <option value="4801">KS04154900 - Dinabandhu Parida - 4900</option>
+                                                                        <option value="4803">KS04154902 - Satynaryana  Nayak - 4902</option>
+                                                                        <option value="4806">KS04154905 - Rashmiranjan Bhatta - 4905</option>
+                                                                        <option value="4807">KS04154906 - Subhendu Kumar  Pursty - 4906</option>
+                                                                        <option value="4808">KS04154907 - Pradeep  Behera - 4907</option>
+                                                                        <option value="4809">KS04154908 -   Trilochana Barik - 4908</option>
+                                                                        <option value="4810">KS04154909 - Nakul  Harijan - 4909</option>
+                                                                        <option value="4811">KS04154910 - Subrat Kumar  Sahoo - 4910</option>
+                                                                        <option value="4812">KS04154911 - Laxmidhar Sahoo - 4911</option>
+                                                                        <option value="4814">KS04154913 - Jayanta Kumar Khuntia - 4913</option>
+                                                                        <option value="4815">KS04154914 - Sanjeeb  Mohapatra - 4914</option>
+                                                                        <option value="4819">KS04154918 - Sanjaya  Samal - 4918</option>
+                                                                        <option value="4821">KS04154920 - Debabrata Prasanta Ranjan Aich - 4920</option>
+                                                                        <option value="4824">KS11134923 - Susanta Kumar Dash - 4923</option>
+                                                                        <option value="4828">KS04154926 - Satyajit Behera - 4926</option>
+                                                                        <option value="4830">KS05154928 - Barendra Dalei - 4928</option>
+                                                                        <option value="4831">KS05154929 - Manoj Kumar  Das - 4929</option>
+                                                                        <option value="4832">KS05154930 - Anasuya  Sethi - 4930</option>
+                                                                        <option value="4834">KS05154932 - Saroj  Kar - 4932</option>
+                                                                        <option value="4835">KS05154933 - Sarada Das - 4933</option>
+                                                                        <option value="4837">KS05154934 - Gananath  Sethi - 4934</option>
+                                                                        <option value="4838">KS05154935 - Rakesh Mishra - 4935</option>
+                                                                        <option value="4841">KS05154938 - Swadhin Pradhan - 4938</option>
+                                                                        <option value="4842">KS05154939 - Muna Sahu - 4939</option>
+                                                                        <option value="4845">KS05154942 - Ranjan  Sahoo - 4942</option>
+                                                                        <option value="4846">KS05154943 - SIBANI SANKAR MOHANTY - 4943</option>
+                                                                        <option value="4847">KS05154944 - Hari Bhoi - 4944</option>
+                                                                        <option value="4848">KS05154945 - Subhransu  Bhoi - 4945</option>
+                                                                        <option value="4852">KS05154949 - Ashok  Sahoo - 4949</option>
+                                                                        <option value="4853">KS05154950 - Kalyani Satapathy - 4950</option>
+                                                                        <option value="4854">KS05154951 - Amarjeet Nayak - 4951</option>
+                                                                        <option value="4860">KS06154957 - Kalakar Mallik - 4957</option>
+                                                                        <option value="4861">KS06154958 - Gobinda Tirkey - 4958</option>
+                                                                        <option value="4862">KS06154959 - Tapan Behera - 4959</option>
+                                                                        <option value="4865">KS06154962 - Nilamber  Sahoo - 4962</option>
+                                                                        <option value="4866">KS06154963 - Sisira Samal - 4963</option>
+                                                                        <option value="4867">KS06154964 - Santosh  Kumar Mohanta - 4964</option>
+                                                                        <option value="4868">KS06154965 - Narayan  Thakur - 4965</option>
+                                                                        <option value="4869">KS06154966 - Binod  Sahu - 4966</option>
+                                                                        <option value="4870">KS06154967 - Sidhant  Samal - 4967</option>
+                                                                        <option value="4871">KS06154968 - Tikina Behera - 4968</option>
+                                                                        <option value="4873">KS06154970 - Bimal  Minz - 4970</option>
+                                                                        <option value="4876">KS06154973 - Rasmi  Mishra - 4973</option>
+                                                                        <option value="4877">KS06154974 - Narayana Nayak - 4974</option>
+                                                                        <option value="4879">KS06154976 -  Srikanta Das - 4976</option>
+                                                                        <option value="4880">KS06154977 - Dayanidhi  Rana - 4977</option>
+                                                                        <option value="4881">KS06154978 - Pramoda Nayak - 4978</option>
+                                                                        <option value="4882">KS06154979 - Paresh Mishra - 4979</option>
+                                                                        <option value="4884">KS06154981 - Mithun Naik - 4981</option>
+                                                                        <option value="4885">KS06154982 - Ramesh Sahu - 4982</option>
+                                                                        <option value="4886">KS06154983 - Jagannath Hansdah - 4983</option>
+                                                                        <option value="4887">KS06154984 - Kartik  Rout - 4984</option>
+                                                                        <option value="4888">KS06154985 - Bibhu Mohanty - 4985</option>
+                                                                        <option value="4889">KS06154986 - Uttam  Behera - 4986</option>
+                                                                        <option value="4890">KS06154987 - Krushna  Sahu - 4987</option>
+                                                                        <option value="4894">KS06154990 - Krushna Khara - 4990</option>
+                                                                        <option value="4895">KS06154991 - Saroj   Sahani - 4991</option>
+                                                                        <option value="4897">KS06154993 - Gouri Biswal - 4993</option>
+                                                                        <option value="4898">KS06154994 - Satrughna Nayak - 4994</option>
+                                                                        <option value="4899">KS06154995 - Pritam   Samal - 4995</option>
+                                                                        <option value="4900">KS06154996 - Narayan Lohar - 4996</option>
+                                                                        <option value="4903">KS06154999 - Sambit  Biswal - 4999</option>
+                                                                        <option value="4904">KS06155000 - Biswanath Penthei - 5000</option>
+                                                                        <option value="4905">KS06155001 - Rushi Nayak - 5001</option>
+                                                                        <option value="4906">KS06155002 - Arun  Penthei - 5002</option>
+                                                                        <option value="4907">KS06155003 - Sumanta  Biswal - 5003</option>
+                                                                        <option value="4909">KS06155005 - Arabinda Mohanty - 5005</option>
+                                                                        <option value="4911">KS06155007 - Chittaranjan Kumbhar - 5007</option>
+                                                                        <option value="4912">KS06155008 - Manaranjan Mahanta - 5008</option>
+                                                                        <option value="4914">KS06155010 - Harekrushna Barik - 5010</option>
+                                                                        <option value="4915">KS06155011 - Debadatta Mishra - 5011</option>
+                                                                        <option value="4916">KS07155012 - Santosh  Maharana - 5012</option>
+                                                                        <option value="4917">KS07155013 - Chitaranjan Dalei - 5013</option>
+                                                                        <option value="4918">KS07155014 - Sukant Malik - 5014</option>
+                                                                        <option value="4919">KS07155015 - Srikanta Nayak - 5015</option>
+                                                                        <option value="4920">KS07155016 - Santosh  Nayak - 5016</option>
+                                                                        <option value="4921">KS07155017 - Rabindra  Das - 5017</option>
+                                                                        <option value="4924">KS07155020 - Bijaya  Routray - 5020</option>
+                                                                        <option value="4925">KS07155021 - Tarun Dila - 5021</option>
+                                                                        <option value="4926">KS07155022 - Gopal Malana - 5022</option>
+                                                                        <option value="4928">KS07155024 - Mantu Pradhan - 5024</option>
+                                                                        <option value="4929">KS07155025 - Prasanta  Setha - 5025</option>
+                                                                        <option value="4930">KS07155026 - Siba Prasad Rout - 5026</option>
+                                                                        <option value="4931">KS07155027 - Sanjay Samal - 5027</option>
+                                                                        <option value="4932">KS07155028 - Prasant Kumar  Behera - 5028</option>
+                                                                        <option value="4934">KS07155030 - Sribaschha Parida - 5030</option>
+                                                                        <option value="4935">KS07155031 - Sanjaya Rout - 5031</option>
+                                                                        <option value="4937">KS07155033 - Ashok Kumar Das - 5033</option>
+                                                                        <option value="4938">KS07155034 - Rajkishore Das - 5034</option>
+                                                                        <option value="4939">KS07155035 - Manoj Kumar  Parida - 5035</option>
+                                                                        <option value="4940">KS07155036 - Priyanath Kandi - 5036</option>
+                                                                        <option value="4941">KS07155037 - Prasanta Kumar Jena - 5037</option>
+                                                                        <option value="4942">KS07155038 - Ananta Behura - 5038</option>
+                                                                        <option value="4943">KS07155039 - Litu  Pradhan - 5039</option>
+                                                                        <option value="4944">KS07155040 - Sakhi  Bastia - 5040</option>
+                                                                        <option value="4945">KS07155041 - Sunil Khatua - 5041</option>
+                                                                        <option value="4946">KS07155042 - Pradeep Dhal - 5042</option>
+                                                                        <option value="4947">KS07155043 - Biswaranjan Mishra - 5043</option>
+                                                                        <option value="4948">KS07155044 - Biswajit Banua - 5044</option>
+                                                                        <option value="4949">KS07155045 - Jitendra  Sahoo - 5045</option>
+                                                                        <option value="4950">KS07155046 - Bijaya Nayak - 5046</option>
+                                                                        <option value="4951">KS07155047 - Nityananda Jena - 5047</option>
+                                                                        <option value="4952">KS07155048 - Swetapadma  Samal - 5048</option>
+                                                                        <option value="4953">KS07155049 - Pramod Kumar  Mallick - 5049</option>
+                                                                        <option value="4954">KS07155050 - Suresh Kumar Pati - 5050</option>
+                                                                        <option value="4955">KS07155051 - Ramesh  Bhumia - 5051</option>
+                                                                        <option value="4956">KS07155052 - Pitabash  Jiram - 5052</option>
+                                                                        <option value="4958">KS07155053 - Biswakalyani Jena - 5053</option>
+                                                                        <option value="4959">KS07155054 - Prasad Samal - 5054</option>
+                                                                        <option value="4961">KS07155056 - Dushmanta Kumar Mohanty - 5056</option>
+                                                                        <option value="4962">KS07155057 - Amresh  Swain - 5057</option>
+                                                                        <option value="4963">KS07155058 - Suresh  Sethy - 5058</option>
+                                                                        <option value="4965">KS07155060 - Subash  Majhi - 5060</option>
+                                                                        <option value="4966">KS07155061 - Pabitra Sahoo - 5061</option>
+                                                                        <option value="4967">KS07155062 - Manoj  Sahoo - 5062</option>
+                                                                        <option value="4968">KS07155063 - Santosh Das - 5063</option>
+                                                                        <option value="4969">KS07155064 - Suryamani  Behera - 5064</option>
+                                                                        <option value="4973">KS07155068 - Nikhila  Parija - 5068</option>
+                                                                        <option value="4974">KS07155069 - Rama Kanta Parida - 5069</option>
+                                                                        <option value="4975">KS07155070 - Sambhunath Sahoo - 5070</option>
+                                                                        <option value="4976">KS07155071 - Rajesh Nayak - 5071</option>
+                                                                        <option value="4977">KS07155072 - Tikan  Baliarsingh - 5072</option>
+                                                                        <option value="4978">KS07155073 - Bijaya  Pattanaik - 5073</option>
+                                                                        <option value="4979">KS07155074 - Ajay Sahoo - 5074</option>
+                                                                        <option value="4980">KS07155075 - Ranjan Sethi - 5075</option>
+                                                                        <option value="4982">KS07155077 - Chittaranjan Mohanty - 5077</option>
+                                                                        <option value="4983">KS07155078 - Susanta Kumar Samal - 5078</option>
+                                                                        <option value="4985">KS07155080 - Lipu Kisan - 5080</option>
+                                                                        <option value="4986">KS08155081 - Janaki Ballav Mohapatra - 5081</option>
+                                                                        <option value="4987">KS08155082 - Sharat Kumar Das - 5082</option>
+                                                                        <option value="4989">KS08155084 - Prakash Kumar Samal - 5084</option>
+                                                                        <option value="4990">KS08155085 - Soumya Ranjan Barik - 5085</option>
+                                                                        <option value="4991">KS08155086 - Sipun Pati - 5086</option>
+                                                                        <option value="4992">KS08155087 - Samir Kumar Malik - 5087</option>
+                                                                        <option value="4993">KS08155088 - Sarada Prasad  Behera - 5088</option>
+                                                                        <option value="4994">KS08155089 - Pradyumna  Kumbhar - 5089</option>
+                                                                        <option value="4995">KS08155090 - Kanhei Jena - 5090</option>
+                                                                        <option value="4996">KS08155091 - Soumya Ranjan Behera - 5091</option>
+                                                                        <option value="4997">KS08155092 - Ganeswar  Sahoo - 5092</option>
+                                                                        <option value="4998">KS08155093 - Nruparaj Sahoo  - 5093</option>
+                                                                        <option value="4999">KS08155094 - Pratap Kumar Samal - 5094</option>
+                                                                        <option value="5000">KS08155095 - Kabi  Gadaka - 5095</option>
+                                                                        <option value="5001">KS08155096 - Manas Ranjan Jena - 5096</option>
+                                                                        <option value="5002">KS08155097 - Panchanan Mantry - 5097</option>
+                                                                        <option value="5003">Account - Auditor A/c - ount</option>
+                                                                        <option value="5004">KS08155098 - Nrusingh Chandra  Nanda - 5098</option>
+                                                                        <option value="5006">KS08155100 - Rakesh Sethy - 5100</option>
+                                                                        <option value="5007">KS08155101 - Sukanta Swain - 5101</option>
+                                                                        <option value="5008">KS08155102 - Gobinda Chandra Sathua - 5102</option>
+                                                                        <option value="5010">KS08155104 - Binod Behera - 5104</option>
+                                                                        <option value="5011">KS08155105 - Niranjan Dora - 5105</option>
+                                                                        <option value="5012">KS08155106 - Nirbikar Naik - 5106</option>
+                                                                        <option value="5013">KS08155107 - Prasant Kumar Mohanty - 5107</option>
+                                                                        <option value="5014">KS08155108 - Madan Mohan Behera - 5108</option>
+                                                                        <option value="5016">KS08155110 -  Dandapani  Nayak - 5110</option>
+                                                                        <option value="5019">KS08155112 - Nimain Charan Bhoi - 5112</option>
+                                                                        <option value="5020">KS08155113 - Raju  Yadav - 5113</option>
+                                                                        <option value="5022">KS08155115 - Siba Prasad Nayak - 5115</option>
+                                                                        <option value="5023">KS08155116 - Jyoti Ranjan Jena - 5116</option>
+                                                                        <option value="5024">KS08155117 - Rajesh  Behera - 5117</option>
+                                                                        <option value="5025">KS08155118 - Shishir Digal - 5118</option>
+                                                                        <option value="5026">KS09155119 - Bachan Kumar Mohapatra - 5119</option>
+                                                                        <option value="5027">KS09155120 - Santosh Kumar Sahoo - 5120</option>
+                                                                        <option value="5028">KS09155121 - Ranjan Kumar Behera - 5121</option>
+                                                                        <option value="5029">KS09155122 - Kamal  Naik - 5122</option>
+                                                                        <option value="5030">KS09155123 - Amaresh Mohanty - 5123</option>
+                                                                        <option value="5031">KS09155124 - Rupak Kumar Mohanty - 5124</option>
+                                                                        <option value="5032">KS09155125 - Narayan  Nayak - 5125</option>
+                                                                        <option value="5033">KS09155126 - Pradip Kumar Sahoo - 5126</option>
+                                                                        <option value="5034">KS09155127 - Surendra Padanayak - 5127</option>
+                                                                        <option value="5035">KS09155128 - A B Ramya Ranjan  Nayak - 5128</option>
+                                                                        <option value="5036">KS09155129 - Abhimanyu  Swain - 5129</option>
+                                                                        <option value="5037">KS09155130 - Karnna Pisiraj Roul - 5130</option>
+                                                                        <option value="5038">KS09155131 - Manoja Ranjan Jena - 5131</option>
+                                                                        <option value="5039">KS09155132 - Abinash Samantray - 5132</option>
+                                                                        <option value="5040">KS09155133 - Ganguli  Das - 5133</option>
+                                                                        <option value="5041">KS09155134 - Sudipta Nathsharma - 5134</option>
+                                                                        <option value="5042">KS09155135 - Sarju Kumar Raj - 5135</option>
+                                                                        <option value="5043">KS09155136 - Deepak Kumar  Mohanta - 5136</option>
+                                                                        <option value="5044">KS09155137 - Lingaraj Basti - 5137</option>
+                                                                        <option value="5046">KS09155139 - Suresh Kumar Sahoo - 5139</option>
+                                                                        <option value="5047">KS09155140 - Bhabani Sankar Kar - 5140</option>
+                                                                        <option value="5048">KS09155141 - Susila  Gudia - 5141</option>
+                                                                        <option value="5049">KS09155142 - Lingaraj Dash - 5142</option>
+                                                                        <option value="5050">KS09155143 - Bijaya Mallick - 5143</option>
+                                                                        <option value="5051">KS09155144 - Rama Chandra Naik - 5144</option>
+                                                                        <option value="5052">KS09155145 - Bikram Kumar  Baral - 5145</option>
+                                                                        <option value="5053">KS09155146 - Natabar Behera - 5146</option>
+                                                                        <option value="5054">KS09155147 - Sakti Ranjan Mishra - 5147</option>
+                                                                        <option value="5055">KS09155148 - Bhagamat Hembram - 5148</option>
+                                                                        <option value="5056">KS09155149 - Gopabandhu Sahu - 5149</option>
+                                                                        <option value="5057">KS09155150 - Prakash  Sahu - 5150</option>
+                                                                        <option value="5059">KS09155152 - Chandra Sekhar Dash - 5152</option>
+                                                                        <option value="5060">KS09155153 - Sagar Sen Malik - 5153</option>
+                                                                        <option value="5061">KS09155154 - Amiya Prasad  Mallik - 5154</option>
+                                                                        <option value="5062">KS09155155 - Sarat Kumar Jena - 5155</option>
+                                                                        <option value="5063">KS09155156 - Srikanta Malik - 5156</option>
+                                                                        <option value="5064">KS09155157 - Tripur Naik - 5157</option>
+                                                                        <option value="5066">KS09155159 - Kshitish Kumar Naik - 5159</option>
+                                                                        <option value="5067">KS09155160 - Rajendra Kumar Behera - 5160</option>
+                                                                        <option value="5068">KS09155161 - Sukra  Singh - 5161</option>
+                                                                        <option value="5070">KS09155163 - Bhagabana Salma - 5163</option>
+                                                                        <option value="5071">KS09155164 - Giridhari Sa - 5164</option>
+                                                                        <option value="5072">KS09155165 - Majhia Majhi - 5165</option>
+                                                                        <option value="5073">KS09155166 - Babu Ram Sethi - 5166</option>
+                                                                        <option value="5074">KS09155167 - Umakanta Das - 5167</option>
+                                                                        <option value="5076">KS10155169 - Suresh Chandra  Behera - 5169</option>
+                                                                        <option value="5078">KS10155171 - Kapilash  Sabar - 5171</option>
+                                                                        <option value="5079">KS10155172 - Prasanna Kumar Jethi - 5172</option>
+                                                                        <option value="5081">KS10155174 - Subrat Rath - 5174</option>
+                                                                        <option value="5082">KS10155175 - Samanta Sri Saumyakant Sekhar Singh - 5175</option>
+                                                                        <option value="5083">KS10155176 - Bipra Charan Sahoo - 5176</option>
+                                                                        <option value="5084">KS10155177 - Chhabindra  Sahu - 5177</option>
+                                                                        <option value="5085">KS10155178 - Jharia Bharasagar - 5178</option>
+                                                                        <option value="5086">KS10155179 - Smruti Ranjan Rout - 5179</option>
+                                                                        <option value="5088">KS10155181 - Gopinath Jena - 5181</option>
+                                                                        <option value="5089">KS10155182 - Bharat Bhusan Mohanty - 5182</option>
+                                                                        <option value="5090">KS10155183 - Sumanta Kumar Bhoi - 5183</option>
+                                                                        <option value="5091">KS10155184 - Ranjit Bhoi - 5184</option>
+                                                                        <option value="5092">KS10155185 - Pinku Pradhan - 5185</option>
+                                                                        <option value="5093">KS10155186 - Bikash Das - 5186</option>
+                                                                        <option value="5095">KS10155188 - Shyama  Behera - 5188</option>
+                                                                        <option value="5096">KS10155189 - Udaya Nath Naik - 5189</option>
+                                                                        <option value="5097">KS10155190 - Milan Bikash  Panda - 5190</option>
+                                                                        <option value="5098">KS10155191 - Santosh Nahak - 5191</option>
+                                                                        <option value="5099">KS10155192 - Santosh Kumar Baral - 5192</option>
+                                                                        <option value="5101">KS10155194 - Golekha Swain - 5194</option>
+                                                                        <option value="5102">KS10155195 - Pravat Kumar Sahoo - 5195</option>
+                                                                        <option value="5103">KS10155196 - Sibasankar  Sahoo - 5196</option>
+                                                                        <option value="5104">KS10155197 - Dipti Ranjan Sahoo - 5197</option>
+                                                                        <option value="5105">KS11155198 - Anil Pattnayak - 5198</option>
+                                                                        <option value="5106">KS11155199 - Karunakar Sahoo - 5199</option>
+                                                                        <option value="5107">KS11155200 - Ghanasham  Sahu - 5200</option>
+                                                                        <option value="5108">KS11155201 - Ganeswar Behera - 5201</option>
+                                                                        <option value="5109">KS11155202 - Sanjib Khilar - 5202</option>
+                                                                        <option value="5110">KS11155203 - Saroj Kumar Biswal - 5203</option>
+                                                                        <option value="5111">KS11155204 - Raju Mishra - 5204</option>
+                                                                        <option value="5112">KS11155205 - Rabindra Kumar  Rout - 5205</option>
+                                                                        <option value="5113">KS11155206 - Satyananda Sahoo - 5206</option>
+                                                                        <option value="5114">KS11155207 - Amit Kumar Jena - 5207</option>
+                                                                        <option value="5115">KS11155208 - Jitendra Kumar Nayak - 5208</option>
+                                                                        <option value="5116">KS11155209 - Janardan  Dash - 5209</option>
+                                                                        <option value="5118">KS11155211 - Swopna Rani Das - 5211</option>
+                                                                        <option value="5119">KS11155212 - Ranajit  Swain - 5212</option>
+                                                                        <option value="5120">KS11155213 - Prahallad Pradhan - 5213</option>
+                                                                        <option value="5121">KS11155214 - Birsa Marndi - 5214</option>
+                                                                        <option value="5124">KS11155217 - Purna Chandra Balabantray - 5217</option>
+                                                                        <option value="5125">KS11155218 - Gopal Chandra  Sahoo - 5218</option>
+                                                                        <option value="5126">KS11155219 - Saroj  Nath - 5219</option>
+                                                                        <option value="5127">KS12155220 - Bikash Ghadei - 5220</option>
+                                                                        <option value="5128">KS12155221 - Madan Mohan  Rautray - 5221</option>
+                                                                        <option value="5129">KS12155222 - Jibesh  Pradhan - 5222</option>
+                                                                        <option value="5130">KS12155223 - Prasanta  Behera - 5223</option>
+                                                                        <option value="5131">KS12155224 - Abhijit  Singh - 5224</option>
+                                                                        <option value="5132">KS12155225 - Bijaya Kumar  Sahoo - 5225</option>
+                                                                        <option value="5133">KS12155226 - Gopinath Muduli - 5226</option>
+                                                                        <option value="5134">KS12155227 - Sashikanta Mallick - 5227</option>
+                                                                        <option value="5135">KS12155228 - Chiranjibi Prusty - 5228</option>
+                                                                        <option value="5136">KS12155229 - Abhaya Behera - 5229</option>
+                                                                        <option value="5137">KS12155230 - Deepak Jena - 5230</option>
+                                                                        <option value="5138">KS12155231 - Ranjan Kumar Mohanty - 5231</option>
+                                                                        <option value="5140">KS12155233 - Akash  Das - 5233</option>
+                                                                        <option value="5141">KS12155234 - Sarita Mohanty - 5234</option>
+                                                                        <option value="5142">KS12155235 - Bhabani Prasad Panda - 5235</option>
+                                                                        <option value="5143">KS12155236 - Deeptimayee Mahapatra - 5236</option>
+                                                                        <option value="5144">KS12155237 - Kanhu Ojha - 5237</option>
+                                                                        <option value="5145">KS12155238 - Baruna Behera - 5238</option>
+                                                                        <option value="5146">KS12155239 - Lipun Banichal - 5239</option>
+                                                                        <option value="5147">KS12155240 - Amiya Panda - 5240</option>
+                                                                        <option value="5148">KS12155241 - Ranjib  Pattanaik - 5241</option>
+                                                                        <option value="5149">KS12155242 - Gokula  Maharana - 5242</option>
+                                                                        <option value="5150">KS12155243 - Biswa Ranjan Guru - 5243</option>
+                                                                        <option value="5151">KS12155244 - Chita Ranjan Pradhan - 5244</option>
+                                                                        <option value="5152">KS12155245 - Raghunath  Panda - 5245</option>
+                                                                        <option value="5153">KS12155246 - Kishor Kumar Bag - 5246</option>
+                                                                        <option value="5154">KS12155247 - Jyoti Ranjan Nayak - 5247</option>
+                                                                        <option value="5155">KS12155248 - Shesadev Bhoi - 5248</option>
+                                                                        <option value="5156">KS12155249 - Amar Jena - 5249</option>
+                                                                        <option value="5157">KS12155250 - Mohan Dansana - 5250</option>
+                                                                        <option value="5158">KS12155251 -   Narendra        Sahu - 5251</option>
+                                                                        <option value="5159">KS12155252 - Sudhir Ray - 5252</option>
+                                                                        <option value="5160">KS12155253 - Pradeep Majhi - 5253</option>
+                                                                        <option value="5161">KS12155254 - Suresh Nayak - 5254</option>
+                                                                        <option value="5163">KS12155256 - A. Srinivas Rao - 5256</option>
+                                                                        <option value="5164">KS12155257 - Bapun Kumar Sahoo - 5257</option>
+                                                                        <option value="5165">KS12155258 - Shukamani Kumbhar - 5258</option>
+                                                                        <option value="5166">KS12155259 - Annapurna  Nayak - 5259</option>
+                                                                        <option value="5167">KS12155260 - Baijayanti  Chand - 5260</option>
+                                                                        <option value="5168">KS12155261 - Sarat Pradhan - 5261</option>
+                                                                        <option value="5169">KS12155262 - Simanchal Naik - 5262</option>
+                                                                        <option value="5171">KS12155264 - Saroj Kumar Pradhan - 5264</option>
+                                                                        <option value="5172">KS12155265 - Dipen Kumar Pattanayak - 5265</option>
+                                                                        <option value="5173">KS12155266 - Sujit Ranjan Mohanty - 5266</option>
+                                                                        <option value="5174">KS12155267 - Hemanta Kumar Lenka - 5267</option>
+                                                                        <option value="5175">KS01165268 - Jitendra Kumar Subudhi - 5268</option>
+                                                                        <option value="5176">KS01165269 - Panchanan Majhi - 5269</option>
+                                                                        <option value="5177">KS01165270 - Sirish Kumar Bhoi - 5270</option>
+                                                                        <option value="5178">KS01165271 - Anil Kumar Naik - 5271</option>
+                                                                        <option value="5179">KS01165272 - Ugrasen  Sankhua - 5272</option>
+                                                                        <option value="5180">KS01165273 - Khageswar Sahoo - 5273</option>
+                                                                        <option value="5181">KS01165274 - Mustak Ali - 5274</option>
+                                                                        <option value="5182">KS01165275 - Pravat Kumar Nayak - 5275</option>
+                                                                        <option value="5183">KS01165276 - Deba Brata  Nayak - 5276</option>
+                                                                        <option value="5184">KS01165277 - Manoj Sahu - 5277</option>
+                                                                        <option value="5185">KS01165278 - Malaya Ranjan Sahoo - 5278</option>
+                                                                        <option value="5186">KS01165279 - Tofan Kumar Mishra - 5279</option>
+                                                                        <option value="5187">KS01165280 - Sanjay Kumar Panda - 5280</option>
+                                                                        <option value="5188">KS01165281 - Bikash Suar - 5281</option>
+                                                                        <option value="5189">KS01165282 - Subhranshu Sekhar Paital - 5282</option>
+                                                                        <option value="5190">KS01165283 - Jayanta Kumar  Behera - 5283</option>
+                                                                        <option value="5191">KS01165284 - Laxmidhar Choudhury - 5284</option>
+                                                                        <option value="5192">KS01165285 - Mohan Samal - 5285</option>
+                                                                        <option value="5193">KS01165286 - Mithun  Barik - 5286</option>
+                                                                        <option value="5194">KS01165287 - Bhuban Kumar Sahu - 5287</option>
+                                                                        <option value="5195">KS01165288 - Bhajaman Pradhan - 5288</option>
+                                                                        <option value="5196">KS01165289 - Sarat Kumar Pradhan - 5289</option>
+                                                                        <option value="5197">KS01165290 - Sarat Chandra Bhutia - 5290</option>
+                                                                        <option value="5198">KS01165291 - Asish Kumar Rout - 5291</option>
+                                                                        <option value="5199">KS01165292 - Basudev Behera - 5292</option>
+                                                                        <option value="5200">KS01165293 - Niranjan Sahoo - 5293</option>
+                                                                        <option value="5201">KS01165294 - Papu  Majhi - 5294</option>
+                                                                        <option value="5202">KS01165295 - Ajay Kumar Mallick - 5295</option>
+                                                                        <option value="5203">KS01165296 - Chitaranjan Praharaj - 5296</option>
+                                                                        <option value="5204">KS01165297 - Kamal Lochan Giri - 5297</option>
+                                                                        <option value="5206">KS01165299 - Gupteswar Nayak - 5299</option>
+                                                                        <option value="5207">KS01165300 - Krishna Chandra Mahakul - 5300</option>
+                                                                        <option value="5208">KS01165301 - Sidharth  Naik - 5301</option>
+                                                                        <option value="5209">KS01165302 - Debasish  Nishanka - 5302</option>
+                                                                        <option value="5210">KS01165303 - Rakesh Kumar Sahoo - 5303</option>
+                                                                        <option value="5211">KS01165304 - Pramod Kumar Sethi - 5304</option>
+                                                                        <option value="5212">KS01165305 - Nrusingha Charan Singh  Bariha - 5305</option>
+                                                                        <option value="5213">KS01165306 - Amish Bariha - 5306</option>
+                                                                        <option value="5214">KS01165307 - Prashanta Kumar Patta - 5307</option>
+                                                                        <option value="5215">KS02165308 - Pradipa Kumar  Rautaray - 5308</option>
+                                                                        <option value="5216">KS02165309 - Bapina  Sahoo - 5309</option>
+                                                                        <option value="5217">KS02165310 - Phanendra Patel - 5310</option>
+                                                                        <option value="5218">KS02165311 - Sameer Kumar  Rout - 5311</option>
+                                                                        <option value="5219">KS02165312 - Akshaya Kumar Mishra - 5312</option>
+                                                                        <option value="5220">KS02165313 - Sama  Oram - 5313</option>
+                                                                        <option value="5221">KS02165314 - Nityananda Pasayat - 5314</option>
+                                                                        <option value="5222">KS02165315 - Tikidhar Behera - 5315</option>
+                                                                        <option value="5223">KS02165316 - Soubhagya Kumar  Dash - 5316</option>
+                                                                        <option value="5224">KS02165317 - Vidya Bhusan Nayak - 5317</option>
+                                                                        <option value="5225">KS02165318 - Rajendra  Guru - 5318</option>
+                                                                        <option value="5226">KS02165319 - Jeetendra Kumar Bhuyan - 5319</option>
+                                                                        <option value="5227">KS02165320 - Jayadev Samal - 5320</option>
+                                                                        <option value="5228">KS02165321 - Rajani Kanta Sahoo - 5321</option>
+                                                                        <option value="5229">KS02165322 - Sisir Naik - 5322</option>
+                                                                        <option value="5230">KS02165323 - Santosh Kumar Das - 5323</option>
+                                                                        <option value="5231">KS02165324 - Santosh Kumar Jena - 5324</option>
+                                                                        <option value="5232">KS02165325 - Biranchi Kumar Patra - 5325</option>
+                                                                        <option value="5233">KS02165326 - Ajit Kumar Mohapatra - 5326</option>
+                                                                        <option value="5234">KS02165327 - Balaram Padhiary - 5327</option>
+                                                                        <option value="5235">KS02165328 - Iswar Puala - 5328</option>
+                                                                        <option value="5237">KS02165330 - Narayan Behera - 5330</option>
+                                                                        <option value="5238">KS02165331 - Baburam Kandi - 5331</option>
+                                                                        <option value="5239">KS02165332 - Priya Ranjan Sahoo - 5332</option>
+                                                                        <option value="5240">KS02165333 - Sudhansu Das - 5333</option>
+                                                                        <option value="5241">KS02165334 - Ranjit  Muna - 5334</option>
+                                                                        <option value="5242">KS02165335 - Ramesh  Pradhan - 5335</option>
+                                                                        <option value="5243">KS02165336 - Saumya Ranjan  Jena - 5336</option>
+                                                                        <option value="5244">KS02165337 - Hari Krushna Malik - 5337</option>
+                                                                        <option value="5245">KS02165338 - Narendra Tandia - 5338</option>
+                                                                        <option value="5246">KS02165339 - Prakash Kumbhar - 5339</option>
+                                                                        <option value="5247">KS02165340 - Santosh Kumar Malik - 5340</option>
+                                                                        <option value="5248">KS02165341 - Sameer Kumar Jena - 5341</option>
+                                                                        <option value="5249">KS02165342 - Pravas Kumar Sahoo - 5342</option>
+                                                                        <option value="5250">KS02165343 - Umakanta Meher - 5343</option>
+                                                                        <option value="5251">KS02165344 - Harekrushna Behera - 5344</option>
+                                                                        <option value="5253">KS02165346 - Susant Kumar  Nayak - 5346</option>
+                                                                        <option value="5254">KS02165347 - Manas Kumar Pattanaik - 5347</option>
+                                                                        <option value="5255">KS02165348 - Niranjan Das - 5348</option>
+                                                                        <option value="5256">KS02165349 - Sumit Kumar Pradhan - 5349</option>
+                                                                        <option value="5257">KS02165350 - Dasarath Jaipuria - 5350</option>
+                                                                        <option value="5258">KS02165351 - Rasmi Ranjan Sahoo - 5351</option>
+                                                                        <option value="5259">KS02165352 - Arun Kumar Maharana - 5352</option>
+                                                                        <option value="5262">KS02165355 - Pradeep Kumar Nayak - 5355</option>
+                                                                        <option value="5263">KS03165356 - Santosh Kumar Pal - 5356</option>
+                                                                        <option value="5264">KS03165357 - Manasa Kumar Pratihari - 5357</option>
+                                                                        <option value="5265">KS03165358 - SASANKA MOHAPATRA - 5358</option>
+                                                                        <option value="5266">KS03165359 - Ramesh Chandra Nath - 5359</option>
+                                                                        <option value="5267">KS03165360 - Rasmi Ranjan Das - 5360</option>
+                                                                        <option value="5268">KS03165361 - Lokanath Kahnar - 5361</option>
+                                                                        <option value="5269">KS03165362 - Ameswar Patmajhi - 5362</option>
+                                                                        <option value="5270">KS03165363 - Santosh Kumar Swain - 5363</option>
+                                                                        <option value="5271">KS03165364 - Sudhira Kumar  Mohapatra - 5364</option>
+                                                                        <option value="5273">KS03165366 - Sukesh Bihari Nayak - 5366</option>
+                                                                        <option value="5274">KS03165367 - Lipi Samal - 5367</option>
+                                                                        <option value="5275">KS03165368 - Niranjan Swain - 5368</option>
+                                                                        <option value="5276">KS03165369 - Narayana Sahu - 5369</option>
+                                                                        <option value="5277">KS03165370 - Biswa Ranjan Bal - 5370</option>
+                                                                        <option value="5278">KS03165371 - Manasi Behera - 5371</option>
+                                                                        <option value="5280">KS03165373 - Suchismita Rout - 5373</option>
+                                                                        <option value="5281">KS03165374 - Biswa Rajan Basantia - 5374</option>
+                                                                        <option value="5282">KS03165375 - Jogendranath Sahoo - 5375</option>
+                                                                        <option value="5283">KS03165376 - Dilip  Sahani - 5376</option>
+                                                                        <option value="5284">KS03165377 - Barun Naik - 5377</option>
+                                                                        <option value="5285">KS03165378 - Keshaba Biswal - 5378</option>
+                                                                        <option value="5286">KS03165379 - Dinesh Kumar Bariki - 5379</option>
+                                                                        <option value="5287">KS03165380 - Sanjay Naik - 5380</option>
+                                                                        <option value="5288">KS03165381 - Gadadhara  Rout - 5381</option>
+                                                                        <option value="5289">KS04165382 - Amaresha Nayak - 5382</option>
+                                                                        <option value="5290">KS04165383 - Sipu Naik - 5383</option>
+                                                                        <option value="5291">KS04165384 - Tapan Kumar Sahoo - 5384</option>
+                                                                        <option value="5292">KS04165385 - Saroj Kumar Mohanty - 5385</option>
+                                                                        <option value="5293">KS04165386 - Suriya Narayan  Achari - 5386</option>
+                                                                        <option value="5294">KS04165387 - Manas Kumar Palai - 5387</option>
+                                                                        <option value="5295">KS04165388 - Sitanath Sahoo - 5388</option>
+                                                                        <option value="5296">KS04165389 - Samaresh Puhan - 5389</option>
+                                                                        <option value="5297">KS04165390 - Amiya Ranjan Swain - 5390</option>
+                                                                        <option value="5298">KS04165391 - Priyabrata Ojha - 5391</option>
+                                                                        <option value="5299">KS04165392 - Krushna Chandra Swain - 5392</option>
+                                                                        <option value="5300">KS04165393 - Ajaya Kumar Bishwal - 5393</option>
+                                                                        <option value="5301">KS04165394 - Jhatu Pratihar - 5394</option>
+                                                                        <option value="5302">KS04165395 - Smruti Ranjan Das - 5395</option>
+                                                                        <option value="5303">KS04165396 - Prafulla Kumar  Jena - 5396</option>
+                                                                        <option value="5304">KS04165397 - Milu Khatua - 5397</option>
+                                                                        <option value="5305">KS04165398 - Fakir Mohan Das - 5398</option>
+                                                                        <option value="5306">KS04165399 - Suranjan Kandi - 5399</option>
+                                                                        <option value="5307">KS04165400 - Chitta Ranjan Barik - 5400</option>
+                                                                        <option value="5308">KS04165401 - Swagat  Hati - 5401</option>
+                                                                        <option value="5309">KS04165402 - Brajaraj Thanapati - 5402</option>
+                                                                        <option value="5310">KS04165403 - Minati Sahoo - 5403</option>
+                                                                        <option value="5311">KS04165404 - Trisul Munda - 5404</option>
+                                                                        <option value="5312">KS04165405 - Sudam Charan Behera - 5405</option>
+                                                                        <option value="5314">KS04165407 - Dipti Ranjan Khatoi - 5407</option>
+                                                                        <option value="5315">KS04165408 - Lochan Behera - 5408</option>
+                                                                        <option value="5316">KS04165409 - Tapan Kumar Mohanty - 5409</option>
+                                                                        <option value="5317">KS04165410 - Upendra Kumar Dhal - 5410</option>
+                                                                        <option value="5318">KS04165411 - Hrudananda Behera - 5411</option>
+                                                                        <option value="5319">KS04165412 - Niranjan Nath - 5412</option>
+                                                                        <option value="5320">KS04165413 - Satya Nanda Mallick - 5413</option>
+                                                                        <option value="5321">KS04165414 - Sanjay Kumar Parida - 5414</option>
+                                                                        <option value="5322">KS04165415 - Sangram Keshari Swain - 5415</option>
+                                                                        <option value="5323">KS04165416 - Chandra Singh Majhi - 5416</option>
+                                                                        <option value="5324">KS04165417 - Rabi Narayan  Das - 5417</option>
+                                                                        <option value="5325">KS04165418 - Madan Sundar Behera - 5418</option>
+                                                                        <option value="5326">KS04165419 - Suryamani Behera - 5419</option>
+                                                                        <option value="5327">KS04165420 - Jashmin Kumari Sahu - 5420</option>
+                                                                        <option value="5328">KS04165421 - Malaya Kumar Jena - 5421</option>
+                                                                        <option value="5329">KS04165422 - Ajaya Kumar Rout - 5422</option>
+                                                                        <option value="5331">KS04165424 - Ananda Swain - 5424</option>
+                                                                        <option value="5332">KS05165425 - Sasmita Malik - 5425</option>
+                                                                        <option value="5333">KS05165426 - Kamal Kumar Samal - 5426</option>
+                                                                        <option value="5334">KS05165427 - Duryodhan Das - 5427</option>
+                                                                        <option value="5335">KS05165428 - Manas Kumar Pradhan - 5428</option>
+                                                                        <option value="5336">KS05165429 - Manas Kumar Dash - 5429</option>
+                                                                        <option value="5337">KS05165430 - Asutosh Nayak - 5430</option>
+                                                                        <option value="5338">KS05165431 - Dipti Ranjan Mohanty - 5431</option>
+                                                                        <option value="5340">KS05165433 - Akash Kumar Behera - 5433</option>
+                                                                        <option value="5341">KS05165434 - Kirti Chandra Panda - 5434</option>
+                                                                        <option value="5342">KS05165435 - Rama Kanta  Nayak - 5435</option>
+                                                                        <option value="5343">KS05165436 - Aruna Kumar Swain - 5436</option>
+                                                                        <option value="5345">KS05165438 - Kishore Kumar Sethi - 5438</option>
+                                                                        <option value="5346">KS05165439 - Ajaya  Behera - 5439</option>
+                                                                        <option value="5347">KS05165440 - Mahesh Kumar Singh - 5440</option>
+                                                                        <option value="5348">KS05165441 - Jyoti Prakash Jena - 5441</option>
+                                                                        <option value="5349">KS05165442 - Dibyajyoti Swain - 5442</option>
+                                                                        <option value="5350">KS05165443 - Bapuna Das - 5443</option>
+                                                                        <option value="5351">KS05165444 - Ramesh Chandra Sahoo - 5444</option>
+                                                                        <option value="5352">KS05165445 - Satya Ranjan Swain - 5445</option>
+                                                                        <option value="5353">KS05165446 - Aruna Kumar Pradhan - 5446</option>
+                                                                        <option value="5354">KS05165447 - Abhimanyu  Jena - 5447</option>
+                                                                        <option value="5355">KS05165448 - Soumya Ranjan Mahana - 5448</option>
+                                                                        <option value="5356">KS05165449 - Suryamani  Sahu - 5449</option>
+                                                                        <option value="5357">KS05165450 - Bishnu Prasad Nanda - 5450</option>
+                                                                        <option value="5358">KS05165451 - Pramod Kumar  Samal - 5451</option>
+                                                                        <option value="5359">KS05165452 - Prakash Kumar Jena - 5452</option>
+                                                                        <option value="5360">KS05165453 - Susanta Kumar Swain - 5453</option>
+                                                                        <option value="5361">KS05165454 - Purandar Singh - 5454</option>
+                                                                        <option value="5362">KS05165455 - Pramod Kumar Maharana - 5455</option>
+                                                                        <option value="5363">KS05165456 - Suresh Chandra Bhulugayan - 5456</option>
+                                                                        <option value="5364">KS05165457 - Dillip  Behera - 5457</option>
+                                                                        <option value="5365">KS05165458 - Lopamudra  Mishra - 5458</option>
+                                                                        <option value="5366">KS05165459 - Tapas Kumar Panda - 5459</option>
+                                                                        <option value="5367">KS05165460 - Minati Pattnaik - 5460</option>
+                                                                        <option value="5368">KS05165461 - Rajendra Sahoo - 5461</option>
+                                                                        <option value="5369">KS05165462 - Bikash Behera - 5462</option>
+                                                                        <option value="5370">KS05165463 -  Santosh Bhadra - 5463</option>
+                                                                        <option value="5371">KS05165464 - Bilash Kumar Bhoi - 5464</option>
+                                                                        <option value="5372">KS05165465 - Rajendra Kumar Jena - 5465</option>
+                                                                        <option value="5373">KS05165466 - Bimal Kumar Parija - 5466</option>
+                                                                        <option value="5374">KS05165467 - Sukanta Kumar Bhoi - 5467</option>
+                                                                        <option value="5375">KS05165468 - Kanhu  Pradhan - 5468</option>
+                                                                        <option value="5376">KS05165469 - Tareni Prasad Mohanty - 5469</option>
+                                                                        <option value="5377">KS05165470 - Kishor Kumar Bhitiriya - 5470</option>
+                                                                        <option value="5378">KS05165471 - Gobinda Chandra Singh - 5471</option>
+                                                                        <option value="5379">KS05165472 - Chandan Kumar Singh - 5472</option>
+                                                                        <option value="5380">KS05165473 - Kanan Kumar Sahoo - 5473</option>
+                                                                        <option value="5381">KS05165474 - Rajesh Kumar Barwa - 5474</option>
+                                                                        <option value="5382">KS05165475 - Chinmaya Nath - 5475</option>
+                                                                        <option value="5383">KS05165476 - Gagan Chandra Mohapatra - 5476</option>
+                                                                        <option value="5384">KS05165477 - Rabindra Nath Mohanty - 5477</option>
+                                                                        <option value="5385">KS05165478 - Bikas Kumar Mahapatra - 5478</option>
+                                                                        <option value="5386">KS05165479 - Brundaban Jena - 5479</option>
+                                                                        <option value="5387">KS05165480 - Bharat Kumar Behera - 5480</option>
+                                                                        <option value="5388">KS05165481 - Ganesh Munda - 5481</option>
+                                                                        <option value="5389">KS05165482 - Gana Nath Barik - 5482</option>
+                                                                        <option value="5390">KS05165483 - Ambika Prasanna Mallick - 5483</option>
+                                                                        <option value="5391">KS05165484 - Ajaya Das - 5484</option>
+                                                                        <option value="5392">KS05165485 - Saroj Behera - 5485</option>
+                                                                        <option value="5393">KS05165486 - Ashish  Behera - 5486</option>
+                                                                        <option value="5394">KS05165487 - Nasaram Majhi - 5487</option>
+                                                                        <option value="5395">KS05165488 - Duleswar Bhoi - 5488</option>
+                                                                        <option value="5396">KS05165489 - Subasish Khanda - 5489</option>
+                                                                        <option value="5397">KS05165490 - Millan Swain - 5490</option>
+                                                                        <option value="5398">KS05165491 - Sisir Kumar Rout - 5491</option>
+                                                                        <option value="5399">KS06165492 - Budhimanta Nayak - 5492</option>
+                                                                        <option value="5400">KS06165493 - Nihar Ranjan Rout - 5493</option>
+                                                                        <option value="5401">KS06165494 - Amar Jena - 5494</option>
+                                                                        <option value="5402">KS06165495 - Pagal Kumar Jena - 5495</option>
+                                                                        <option value="5403">KS06165496 - Basudev Sahoo - 5496</option>
+                                                                        <option value="5404">KS06165497 - Ranjan Kumar Nayak - 5497</option>
+                                                                        <option value="5405">KS06165498 - Bulu  Jena - 5498</option>
+                                                                        <option value="5406">KS06165499 - Akash Kumar Sethi - 5499</option>
+                                                                        <option value="5407">KS06165500 - Ganeswar Nayak - 5500</option>
+                                                                        <option value="5408">KS06165501 - Bibhuti Bhusan Nath - 5501</option>
+                                                                        <option value="5409">KS06165502 - Mano Ranjan Karan - 5502</option>
+                                                                        <option value="5410">KS06165503 - Tukuna  Gouda - 5503</option>
+                                                                        <option value="5411">KS06165504 - Birabhadra Patra - 5504</option>
+                                                                        <option value="5412">KS06165505 - Deba Kumar Sethi - 5505</option>
+                                                                        <option value="5413">KS06165506 - Pramod Kumar Sethi - 5506</option>
+                                                                        <option value="5414">KS06165507 - Badal Ku Pattnaik - 5507</option>
+                                                                        <option value="5415">KS06165508 - Bikas Kumar Mahapatra - 5508</option>
+                                                                        <option value="5416">KS06165509 - Jituranjan  Dash - 5509</option>
+                                                                        <option value="5417">KS06165510 - Rabindra Kumar  Padhi - 5510</option>
+                                                                        <option value="5418">KS06165511 - Ajaya Kumar  Mohanty - 5511</option>
+                                                                        <option value="5419">KS06165512 - Santosh Kumar Das - 5512</option>
+                                                                        <option value="5420">KS06165513 - Minati Sahoo - 5513</option>
+                                                                        <option value="5421">KS06165514 - Aloka Mohanty - 5514</option>
+                                                                        <option value="5422">KS06165515 - Krushna Chandra Behera - 5515</option>
+                                                                        <option value="5423">KS06165516 - Subhrajit  Mohanty - 5516</option>
+                                                                        <option value="5424">KS06165517 - Gyana Ranjan Bhol - 5517</option>
+                                                                        <option value="5425">KS06165518 - Shibasambhu Nath  Bera - 5518</option>
+                                                                        <option value="5426">KS06165519 - Sanjay Nayek - 5519</option>
+                                                                        <option value="5427">KS06165520 - Saroj Kumar Sahoo - 5520</option>
+                                                                        <option value="5428">KS06165521 - Premananda Das - 5521</option>
+                                                                        <option value="5429">KS06165522 - Tulekh Charan  Behera - 5522</option>
+                                                                        <option value="5430">KS06165523 - Prasant Kumar Sahoo - 5523</option>
+                                                                        <option value="5431">KS06165524 - Biswajit  Das - 5524</option>
+                                                                        <option value="5432">KS06165525 - Mama Nayak - 5525</option>
+                                                                        <option value="5433">KS06165526 - Anil Kumar Sahoo - 5526</option>
+                                                                        <option value="5434">KS06165527 - Jwala Prasad  Sarangi - 5527</option>
+                                                                        <option value="5435">KS06165528 - Sanatan  Palei - 5528</option>
+                                                                        <option value="5436">KS06165529 - Dusmanta Barik - 5529</option>
+                                                                        <option value="5437">KS06165530 - Pradyumna Kumar Swain - 5530</option>
+                                                                        <option value="5438">KS07165531 - Deepak Kumar Swain - 5531</option>
+                                                                        <option value="5439">KS07165532 - Sukumar Rana - 5532</option>
+                                                                        <option value="5440">KS07165533 - Tuna Raita - 5533</option>
+                                                                        <option value="5441">KS07165534 - Trinath Barik - 5534</option>
+                                                                        <option value="5442">KS07165535 - Mahendra Beura - 5535</option>
+                                                                        <option value="5443">KS07165536 - Susil Kumar Rout - 5536</option>
+                                                                        <option value="5444">KS07165537 - Niranjan  Nayak - 5537</option>
+                                                                        <option value="5445">KS07165538 - Khageswar Nayak - 5538</option>
+                                                                        <option value="5446">KS07165539 - Sukanta Kumar Pradhan - 5539</option>
+                                                                        <option value="5447">KS07165540 - Pankaja Kumar Mahapatra - 5540</option>
+                                                                        <option value="5448">KS07165541 - Soubhagya Prasad Sarangi - 5541</option>
+                                                                        <option value="5449">KS07165542 - Manas Ranjan Sahoo - 5542</option>
+                                                                        <option value="5450">KS07165543 - Prakash Chandra  Malik - 5543</option>
+                                                                        <option value="5451">KS07165544 - Satyaban  Mahanandia - 5544</option>
+                                                                </select> </td> 
+<td> <select class="chosen-select" name="desig" id="desig" style="display: none;">
+								<option value="">Select</option>
+																<option value="101"></option>
+																<option value="53">Accounts Executive</option>
+																<option value="51">Accounts Manager</option>
+																<option value="52">Accounts Officer</option>
+																<option value="62">Area Manager</option>
+																<option value="61">Asst Operations Manager</option>
+																<option value="80">Asst Personnel Officer</option>
+																<option value="66">Asst Security Officer</option>
+																<option value="99">Auditor</option>
+																<option value="49">Back office executive</option>
+																<option value="69">Bouncer</option>
+																<option value="75">Business Development Manager</option>
+																<option value="54">Cashier</option>
+																<option value="55">Collection Executive</option>
+																<option value="77">Customer Care Executive</option>
+																<option value="76">Customer Relations Officer</option>
+																<option value="86">Director</option>
+																<option value="83">Dog Master</option>
+																<option value="97">Doorman</option>
+																<option value="91">Driver</option>
+																<option value="48">Front office executive</option>
+																<option value="45">General Manager</option>
+																<option value="92">GM - HR &amp; Admin</option>
+																<option value="59">GM Operations</option>
+																<option value="72">Guard</option>
+																<option value="65">Gunman (Armed Guard)</option>
+																<option value="70">Head Guard</option>
+																<option value="47">HR Executive</option>
+																<option value="46">HR Manager</option>
+																<option value="67">Inspector</option>
+																<option value="71">Lady Guard</option>
+																<option value="93">Lady Watchman</option>
+																<option value="100">Manager Sales</option>
+																<option value="85">Managing Director</option>
+																<option value="94">Marketing Executive</option>
+																<option value="50">Office Boy</option>
+																<option value="60">Operations Manager</option>
+																<option value="64">Personal Security Officer</option>
+																<option value="98">Personnel Manager</option>
+																<option value="79">Personnel Officer</option>
+																<option value="63">Security Officer</option>
+																<option value="58">Store Assistant</option>
+																<option value="82">Store In-charge</option>
+																<option value="57">Store Manager</option>
+																<option value="68">Supervisor</option>
+																<option value="89">Training Instructor</option>
+																<option value="44">Vice President</option>
+																<option value="73">Watchman</option>
+															</select> </td>
+<td> <select class="chosen-select" name="loca" id="loca" style="display: none;">
+								<option value="">Select Location</option>
+								
+								
+									<option value="0">HO</option>
+																		  <option value="AAP0114041-PAHLBBS">Ananta Automobiles Pvt Ltd.-AAP0114041-PAHLBBS</option>
+									  
+									  									  <option value="ABM0914048-JDVIHAR"> Ajanta Bv Media Initiative-ABM0914048-JDVIHAR</option>
+									  
+									  									  <option value="ABO1211031-FPRKBBS">M/S.Ambica Builders-ABO1211031-FPRKBBS</option>
+									  
+									  									  <option value="ABO1211031-IDCOBBS">M/S.Ambica Builders-ABO1211031-IDCOBBS</option>
+									  
+									  									  <option value="ACC0911028-JANPATH">Ace Commercial Company Private Limited-ACC0911028-JANPATH</option>
+									  
+									  									  <option value="AHT0214042-ACHVIHR">Ayush Hospital&amp; Trauma Care Private Limited-AHT0214042-ACHVIHR</option>
+									  
+									  									  <option value="ASB0409010-CHANDAK">Asian School Of Business Management,-ASB0409010-CHANDAK</option>
+									  
+									  									  <option value="ASB0409010-LUMBVIH">Asian School Of Business Management,-ASB0409010-LUMBVIH</option>
+									  
+									  									  <option value="BCL0208004-KHNDGIR">M/S.Bharat Carriers Limited-BCL0208004-KHNDGIR</option>
+									  
+									  									  <option value="BIT0000054-MNCHSWR">Bharat Industrial Training Centre-BIT0000054-MNCHSWR</option>
+									  
+									  									  <option value="BKD0514044-TULSPUR">Bijay Kumar Das-BKD0514044-TULSPUR</option>
+									  
+									  									  <option value="BML0208001-BANARPL">M/S.Bharat Motors Limited-BML0208001-BANARPL</option>
+									  
+									  									  <option value="BML0208001-BRHMPUR">M/S.Bharat Motors Limited-BML0208001-BRHMPUR</option>
+									  
+									  									  <option value="BML0208001-LAXMSGR">M/S.Bharat Motors Limited-BML0208001-LAXMSGR</option>
+									  
+									  									  <option value="BML0208001-MIEBBSR">M/S.Bharat Motors Limited-BML0208001-MIEBBSR</option>
+									  
+									  									  <option value="BML0208001-PAHLBBS">M/S.Bharat Motors Limited-BML0208001-PAHLBBS</option>
+									  
+									  									  <option value="BML0208001-TAFEBLS">M/S.Bharat Motors Limited-BML0208001-TAFEBLS</option>
+									  
+									  									  <option value="BML0208001-TVSMIEB">M/S.Bharat Motors Limited-BML0208001-TVSMIEB</option>
+									  
+									  									  <option value="CAP1010022-CHTRPUR">Consortium Automobiles Pvt Ltd-CAP1010022-CHTRPUR</option>
+									  
+									  									  <option value="CAP1010022-MPATPUR">Consortium Automobiles Pvt Ltd-CAP1010022-MPATPUR</option>
+									  
+									  									  <option value="CAP1010022-NAYGARH">Consortium Automobiles Pvt Ltd-CAP1010022-NAYGARH</option>
+									  
+									  									  <option value="CAP1010022-PAHLBBS">Consortium Automobiles Pvt Ltd-CAP1010022-PAHLBBS</option>
+									  
+									  									  <option value="CAP1010022-SHDNAGR">Consortium Automobiles Pvt Ltd-CAP1010022-SHDNAGR</option>
+									  
+									  									  <option value="CFP1214051-KHURDA">M/S.Century Fibre Plates Pvt Ltd.-CFP1214051-KHURDA</option>
+									  
+									  									  <option value="CMP0000057-BHOINGR">M/S.City Motors Pvt Ltd-CMP0000057-BHOINGR</option>
+									  
+									  									  <option value="CMP0000057-MNCHSWR">M/S.City Motors Pvt Ltd-CMP0000057-MNCHSWR</option>
+									  
+									  									  <option value="CMP0000057-PAHLBBS">M/S.City Motors Pvt Ltd-CMP0000057-PAHLBBS</option>
+									  
+									  									  <option value="CPR0509012-JANPATH">M/S Center Point (Raymond),-CPR0509012-JANPATH</option>
+									  
+									  									  <option value="CPR0509012-SHDNAGR">M/S Center Point (Raymond),-CPR0509012-SHDNAGR</option>
+									  
+									  									  <option value="DNT0813038-SHDNAGR">D.N.T Infrastructure Pvt Ltd.-DNT0813038-SHDNAGR</option>
+									  
+									  									  <option value="EML0108003-A62NAYP">Eastern Media Limited-EML0108003-A62NAYP</option>
+									  
+									  									  <option value="EML0108003-AMARSGH">Eastern Media Limited-EML0108003-AMARSGH</option>
+									  
+									  									  <option value="EML0108003-B27RSGH">Eastern Media Limited-EML0108003-B27RSGH</option>
+									  
+									  									  <option value="EML0108003-B29RSGH">Eastern Media Limited-EML0108003-B29RSGH</option>
+									  
+									  									  <option value="EML0108003-CMDRSGH">Eastern Media Limited-EML0108003-CMDRSGH</option>
+									  
+									  									  <option value="EML0108003-DIRCRES">Eastern Media Limited-EML0108003-DIRCRES</option>
+									  
+									  									  <option value="EML0108003-JMDRSGH">Eastern Media Limited-EML0108003-JMDRSGH</option>
+									  
+									  									  <option value="EML0108003-KONRSGH">Eastern Media Limited-EML0108003-KONRSGH</option>
+									  
+									  									  <option value="EML0108003-NEWRSGH">Eastern Media Limited-EML0108003-NEWRSGH</option>
+									  
+									  									  <option value="GJR1210026-JDVIHAR">Gitanjali Jewellery Retail Limited-GJR1210026-JDVIHAR</option>
+									  
+									  									  <option value="HHI0714047-U3JANPT">Hotel Hindustan International-HHI0714047-U3JANPT</option>
+									  
+									  									  <option value="IDR0110021-LAXMSGR">M/S.Ilex Developers &amp; Resorts Limited-IDR0110021-LAXMSGR</option>
+									  
+									  									  <option value="ISC0811027-CHANDAK">Inter Science College-ISC0811027-CHANDAK</option>
+									  
+									  									  <option value="ITE1112036-KHNDGIR">Institute Of Technical Education &amp; Research (Iter)-ITE1112036-KHNDGIR</option>
+									  
+									  									  <option value="JHO0215052-SHDNAGR">M/S.Jagannath Hospital,-JHO0215052-SHDNAGR</option>
+									  
+									  									  <option value="JMP0114040-CRPSBBS">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-CRPSBBS</option>
+									  
+									  									  <option value="JMP0114040-KEONJHR">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-KEONJHR</option>
+									  
+									  									  <option value="JMP0114040-MDBFPRK">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-MDBFPRK</option>
+									  
+									  									  <option value="JMP0114040-MDN29NP">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-MDN29NP</option>
+									  
+									  									  <option value="JMP0114040-N25NYPL">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-N25NYPL</option>
+									  
+									  									  <option value="JMP0114040-NAYGARH">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-NAYGARH</option>
+									  
+									  									  <option value="JMP0114040-PATIABB">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-PATIABB</option>
+									  
+									  									  <option value="JMP0114040-SHRLWRD">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-SHRLWRD</option>
+									  
+									  									  <option value="JMP0114040-STYDMIE">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-STYDMIE</option>
+									  
+									  									  <option value="JMP0114040-STYLWRD">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-STYLWRD</option>
+									  
+									  									  <option value="JMP0114040-WHSEMIE">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-WHSEMIE</option>
+									  
+									  									  <option value="JMP1014049-PAHLBBS">M/S.Jyote Premier Pvt. Ltd.-JMP1014049-PAHLBBS</option>
+									  
+									  									  <option value="K1SECCOMPL-BIJMOHA">K1 Complimentory-K1SECCOMPL-BIJMOHA</option>
+									  
+									  									  <option value="K1SECCOMPL-GATEBBS">K1 Complimentory-K1SECCOMPL-GATEBBS</option>
+									  
+									  									  <option value="K1SECCOMPL-K1BEVBB">K1 Complimentory-K1SECCOMPL-K1BEVBB</option>
+									  
+									  									  <option value="K1SECCOMPL-WINMAX">K1 Complimentory-K1SECCOMPL-WINMAX</option>
+									  
+									  									  <option value="KAP1211032-HNDPATI">M/S.Khimji Autorides Pvt Ltd.-KAP1211032-HNDPATI</option>
+									  
+									  									  <option value="KAP1211032-TYTPATI">M/S.Khimji Autorides Pvt Ltd.-KAP1211032-TYTPATI</option>
+									  
+									  									  <option value="KCC1110025-DAITARY">Kalinga Commercial Corporation Limited-KCC1110025-DAITARY</option>
+									  
+									  									  <option value="KCC1110025-GRGBRMD">Kalinga Commercial Corporation Limited-KCC1110025-GRGBRMD</option>
+									  
+									  									  <option value="KCC1110025-HBOBRMD">Kalinga Commercial Corporation Limited-KCC1110025-HBOBRMD</option>
+									  
+									  									  <option value="KCC1110025-HBRBRMD">Kalinga Commercial Corporation Limited-KCC1110025-HBRBRMD</option>
+									  
+									  									  <option value="KCC1110025-KHNDDHR">Kalinga Commercial Corporation Limited-KCC1110025-KHNDDHR</option>
+									  
+									  									  <option value="KKD1211030-BJNGBBS">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-BJNGBBS</option>
+									  
+									  									  <option value="KKD1211030-CHSKRPR">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-CHSKRPR</option>
+									  
+									  									  <option value="KKD1211030-JANPATH">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-JANPATH</option>
+									  
+									  									  <option value="KKD1211030-MBZRCTC">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-MBZRCTC</option>
+									  
+									  									  <option value="KKD1211030-ROURKLA">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-ROURKLA</option>
+									  
+									  									  <option value="KRO0509011-CHSKRPR">Kalamandir Royal-KRO0509011-CHSKRPR</option>
+									  
+									  									  <option value="KRO0509011-SHDNAGR">Kalamandir Royal-KRO0509011-SHDNAGR</option>
+									  
+									  									  <option value="KRP1114050-ORNDCTC">M/S Karma Rerollers Pvt Ltd-KRP1114050-ORNDCTC</option>
+									  
+									  									  <option value="KRP1114050-PATIABB">M/S Karma Rerollers Pvt Ltd-KRP1114050-PATIABB</option>
+									  
+									  									  <option value="KRV1211029-JANPATH">Khimji Retail Venture(P) Ltd.-KRV1211029-JANPATH</option>
+									  
+									  									  <option value="LAS0509013-JANPATH">M/S Landmark (Allen Soly),-LAS0509013-JANPATH</option>
+									  
+									  									  <option value="LML0812035-PAHLBBS">Lexus Motors Limited-LML0812035-PAHLBBS</option>
+									  
+									  									  <option value="LMP0912061-GPANGUL">M/S. Laxmiraj Motors Pvt Ltd.,-LMP0912061-GPANGUL</option>
+									  
+									  									  <option value="LNM0808007-JRSGUDA">L N Metallics Limited-LNM0808007-JRSGUDA</option>
+									  
+									  									  <option value="MHR0108002-CONVNBB">Mayfair Hotel And Resorts Limited-MHR0108002-CONVNBB</option>
+									  
+									  									  <option value="MHR0108002-GOVHSBB">Mayfair Hotel And Resorts Limited-MHR0108002-GOVHSBB</option>
+									  
+									  									  <option value="MHR0108002-LAGUNBB">Mayfair Hotel And Resorts Limited-MHR0108002-LAGUNBB</option>
+									  
+									  									  <option value="MHR0108002-PRDRKLA">Mayfair Hotel And Resorts Limited-MHR0108002-PRDRKLA</option>
+									  
+									  									  <option value="MHR0108002-RESRKLA">Mayfair Hotel And Resorts Limited-MHR0108002-RESRKLA</option>
+									  
+									  									  <option value="MHR0108002-SELLRBB">Mayfair Hotel And Resorts Limited-MHR0108002-SELLRBB</option>
+									  
+									  									  <option value="MHR0108002-TIMESBB">Mayfair Hotel And Resorts Limited-MHR0108002-TIMESBB</option>
+									  
+									  									  <option value="NMP0000056-JRPDBBS">M/S. Narayani Motors Pvt Ltd.-NMP0000056-JRPDBBS</option>
+									  
+									  									  <option value="OI00514045-TLPRCTC">Orifeb Industries-OI00514045-TLPRCTC</option>
+									  
+									  									  <option value="PAP1109014-MNCHSWR">Pal Automotive Private Limited-PAP1109014-MNCHSWR</option>
+									  
+									  									  <option value="PCC0608006-KHURDA">Premier Cables &amp; Conductor (P) Ltd.-PCC0608006-KHURDA</option>
+									  
+									  									  <option value="PCP0212033-JDVIHAR">Padmalaya  Corporation Pvt Ltd.-PCP0212033-JDVIHAR</option>
+									  
+									  									  <option value="PEP1009018-SHDNAGR">Panda Enterprises Private Limited-PEP1009018-SHDNAGR</option>
+									  
+									  									  <option value="PLW1109015-JDVIHAR">Pal Life Wear-PLW1109015-JDVIHAR</option>
+									  
+									  									  <option value="PME1109016-PATRPAD">Pal Motors &amp; Engineers-PME1109016-PATRPAD</option>
+									  
+									  									  <option value="PMP0214043-PNGRCTC">M/S.Padma Motors Pvt Ltd-PMP0214043-PNGRCTC</option>
+									  
+									  									  <option value="PMP1109017-BALASOR">Pal Movers Private Limited.-PMP1109017-BALASOR</option>
+									  
+									  									  <option value="PMP1109017-CTCRDBB">Pal Movers Private Limited.-PMP1109017-CTCRDBB</option>
+									  
+									  									  <option value="PMP1109017-KEONJHR">Pal Movers Private Limited.-PMP1109017-KEONJHR</option>
+									  
+									  									  <option value="PRP0000059-CHSKRPR">Panda Retail Private Limited,-PRP0000059-CHSKRPR</option>
+									  
+									  									  <option value="PWI0409009-MNCHSWR">Power Wear India Private Limited-PWI0409009-MNCHSWR</option>
+									  
+									  									  <option value="RHP0509019-JANPATH">Royale Hotels Private Limited-RHP0509019-JANPATH</option>
+									  
+									  									  <option value="RHP0509019-RUDRPUR">Royale Hotels Private Limited-RHP0509019-RUDRPUR</option>
+									  
+									  									  <option value="SA00512034-SDNGRPP">M/S.Shivam Automobiles.-SA00512034-SDNGRPP</option>
+									  
+									  									  <option value="SA00512034-SHDNAGR">M/S.Shivam Automobiles.-SA00512034-SHDNAGR</option>
+									  
+									  									  <option value="SBM0208005-BADCHNA">Shree Bharat  Motors Limited-SBM0208005-BADCHNA</option>
+									  
+									  									  <option value="SBM0208005-BARBIL">Shree Bharat  Motors Limited-SBM0208005-BARBIL</option>
+									  
+									  									  <option value="SBM0208005-BJ3BLSR">Shree Bharat  Motors Limited-SBM0208005-BJ3BLSR</option>
+									  
+									  									  <option value="SBM0208005-BRHMPUR">Shree Bharat  Motors Limited-SBM0208005-BRHMPUR</option>
+									  
+									  									  <option value="SBM0208005-CHATBAR">Shree Bharat  Motors Limited-SBM0208005-CHATBAR</option>
+									  
+									  									  <option value="SBM0208005-DHNKADA">Shree Bharat  Motors Limited-SBM0208005-DHNKADA</option>
+									  
+									  									  <option value="SBM0208005-DICBLSR">Shree Bharat  Motors Limited-SBM0208005-DICBLSR</option>
+									  
+									  									  <option value="SBM0208005-FIATPHL">Shree Bharat  Motors Limited-SBM0208005-FIATPHL</option>
+									  
+									  									  <option value="SBM0208005-KEONJHR">Shree Bharat  Motors Limited-SBM0208005-KEONJHR</option>
+									  
+									  									  <option value="SBM0208005-PAHLBBS">Shree Bharat  Motors Limited-SBM0208005-PAHLBBS</option>
+									  
+									  									  <option value="SBM0208005-ROURKLA">Shree Bharat  Motors Limited-SBM0208005-ROURKLA</option>
+									  
+									  									  <option value="SBM0208005-TATABLS">Shree Bharat  Motors Limited-SBM0208005-TATABLS</option>
+									  
+									  									  <option value="SH00614046-LAXMSGR">M/S.Sunshine Hospitals-SH00614046-LAXMSGR</option>
+									  
+									  									  <option value="SIP0000060-KLDANGL">Shell India Private Limited-SIP0000060-KLDANGL</option>
+									  
+									  									  <option value="SRM1112037-KHNDGIR">Summa Real Media Pvt Ltd-SRM1112037-KHNDGIR</option>
+									  
+									  									  <option value="SSA1010023-PAHLBBS">Super Sales Automobiles Pvt Ltd.-SSA1010023-PAHLBBS</option>
+									  
+									  									  <option value="SSM1010024-MNCHSWR">Super Sales Motors Pvt Ltd.-SSM1010024-MNCHSWR</option>
+									  
+									  									  <option value="SV00000055-SHDNAGR">M/S Spectra Vision-SV00000055-SHDNAGR</option>
+									  
+									  									  <option value="MAP1108062-SHDNAGR">The Maple Computer &amp; Communication Pvt. Ltd.,-MAP1108062-SHDNAGR</option>
+									  
+									  									  <option value="TPH1109020-JDVIHAR">Hotel Pal Regency Pvt. Ltd.-TPH1109020-JDVIHAR</option>
+									  
+									  									  <option value="VMP1113039-BRMUNDA">M/S. Vaidehi Motors Pvt Ltd.-VMP1113039-BRMUNDA</option>
+									  
+									  									  <option value="VMP1113039-MNCHSWR">M/S. Vaidehi Motors Pvt Ltd.-VMP1113039-MNCHSWR</option>
+									  
+									  									  <option value="TMC1108008-JANPATH">The Manor Computer &amp; Communication Pvt. Ltd.,-TMC1108008-JANPATH</option>
+									  
+									  									  <option value="SSM1010024-BNGRBBS">Super Sales Motors Pvt Ltd.-SSM1010024-BNGRBBS</option>
+									  
+									  									  <option value="KAP1211032-PDIPATI">M/S.Khimji Autorides Pvt Ltd.-KAP1211032-PDIPATI</option>
+									  
+									  									  <option value="KKD1211030-LWCHBBS">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-LWCHBBS</option>
+									  
+									  									  <option value="KKD1211030-LWMDBBS">Khimji-K.D &amp; Sons Pvt Ltd.-KKD1211030-LWMDBBS</option>
+									  
+									  									  <option value="K1SECCOMPL-RADKGHO">K1 Complimentory-K1SECCOMPL-RADKGHO</option>
+									  
+									  									  <option value="SLM0812009-SIDMOAN">Sidhi Laxmi Motors, Angul-SLM0812009-SIDMOAN</option>
+									  
+									  									  <option value="SMA0812010-SUBMOAN">Subhalaxmi Motors, Angul-SMA0812010-SUBMOAN</option>
+									  
+									  									  <option value="LAC0812011-LAXATCO">Laxmi Auto Combine, Angul-LAC0812011-LAXATCO</option>
+									  
+									  									  <option value="JMP1014049-JMPWOSH">M/S.Jyote Premier Pvt. Ltd.-JMP1014049-JMPWOSH</option>
+									  
+									  									  <option value="SRM1112037-PRMEYPN">Summa Real Media Pvt Ltd-SRM1112037-PRMEYPN</option>
+									  
+									  									  <option value="OOT0615067-RWJSPUR">Office Of The Executive Engineer Rural Works Division, Jagatsinghpur-OOT0615067-RWJSPUR</option>
+									  
+									  									  <option value="CMP0000057-CITYSMB">M/S.City Motors Pvt Ltd-CMP0000057-CITYSMB</option>
+									  
+									  									  <option value="" selected="">-</option>
+									  
+									  									  <option value="PB0715068-PARISBK">Paris Bakery-PB0715068-PARISBK</option>
+									  
+									  									  <option value="SSA1010023-SSANGUL">Super Sales Automobiles Pvt Ltd.-SSA1010023-SSANGUL</option>
+									  
+									  									  <option value="KCC1110025-PALASMD">Kalinga Commercial Corporation Limited-KCC1110025-PALASMD</option>
+									  
+									  									  <option value="JMP1014049-CRPWBBS">M/S.Jyote Premier Pvt. Ltd.-JMP1014049-CRPWBBS</option>
+									  
+									  									  <option value="JMP0114040-NEXABBS">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-NEXABBS</option>
+									  
+									  									  <option value="CMP0000057-RYMDSMB">M/S.City Motors Pvt Ltd-CMP0000057-RYMDSMB</option>
+									  
+									  									  <option value="HO">-HO</option>
+									  
+									  									  <option value="HSB0915069-SEETALB">Hotel Seetal, Bhubaneswar-HSB0915069-SEETALB</option>
+									  
+									  									  <option value="VMP1113039-TELENGA">M/S. Vaidehi Motors Pvt Ltd.-VMP1113039-TELENGA</option>
+									  
+									  									  <option value="GD1015070-GUPTADI">Gupta Distributors-GD1015070-GUPTADI</option>
+									  
+									  									  <option value="SV00000055-SVPATIA">M/S Spectra Vision-SV00000055-SVPATIA</option>
+									  
+									  									  <option value="JMP0114040-JYTESUM">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-JYTESUM</option>
+									  
+									  									  <option value="RIP0116071-RKFINFO">RKF Infoservices Pvt. Ltd.-RIP0116071-RKFINFO</option>
+									  
+									  			x`						  <option value="SBM0208005-BRHMPR">Shree Bharat  Motors Limited-SBM0208005-BRHMPR</option>
+									  
+									  									  <option value="EML0108003-DIGITAL">Eastern Media Limited-EML0108003-DIGITAL</option>
+									  
+									  									  <option value="PRP0116072-RESORTS">Panda Resorts Private Limited-PRP0116072-RESORTS</option>
+									  
+									  									  <option value="JMP0114040-DRVSCTC">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-DRVSCTC</option>
+									  
+									  									  <option value="ABO1211031-BJBNAGR">M/S.Ambica Builders-ABO1211031-BJBNAGR</option>
+									  
+									  									  <option value="RM0316073-RAMDRBB"> Ram Mandir Seva Samit-RM0316073-RAMDRBB</option>
+									  
+									  									  <option value="RAC0416074-PARADIP">Rams Assorted Cold Storage Limited-RAC0416074-PARADIP</option>
+									  
+									  									  <option value="RAC0416074-TELNGAP">Rams Assorted Cold Storage Limited-RAC0416074-TELNGAP</option>
+									  
+									  									  <option value="JMP0114040-SUZUKIP">M/S.Jyote Motors Pvt. Ltd.-JMP0114040-SUZUKIP</option>
+									  
+									  									  <option value="EML0108003-ENTRTAN">Eastern Media Limited-EML0108003-ENTRTAN</option>
+									  
+									  									  <option value="PIP0516075-PRECAST">Precasters India Pvt. Ltd.-PIP0516075-PRECAST</option>
+									  
+									  							</select> </td> 
+<td> <input type="text" name="from_date" class="form-control" value="05-07-2016" id="dpd1"> </td>
+<td> <input type="text" name="to_date" class="form-control" value="11-07-2016" id="dpd2"> </td> 
+<td> <input type="submit" name="Submit" value="Search" class="btn btn-success"> </td>
+
+
+</tr> 
+
+
+</table>
+
+
+
+</div>
+{% endblock %}

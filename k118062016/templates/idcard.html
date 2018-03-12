@@ -1,0 +1,30 @@
+{% extends "base2.html" %}
+
+{% block title %} ID card  {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  ID card  </h3>
+
+			
+		
+<img style="height:85px;width:90px;margin-left:0px; border:1px solid #000;" alt="photo" src="/media/{{idcard.photo}}">
+<div style="clear:both;"></div>
+<strong style="display:block;font-size:12px;text-transform:uppercase;margin-top:11px;">
+
+{{idcard.firstname}} {{idcard.lastname}} 
+
+<strong style="display:block;font-size:12px;">{{ idcard.designation }}</strong>
+<strong style="font-size:11px;display:block;">{{idcard.employeno}} </strong>
+
+
+							<p style="font-size:9px;padding-top:25px;margin-top:-4px;">{{ idcard.home_address1 }}<br/>
+							Phone:{{ idcard.mobile }} <br>
+                                                     Corp Off: 268/269, Shaila Nivas, Sarala<br> Nagar, Cuttack Road, Bhubaneswar - 751006<br>
+Phone: +91 674 2570707 | www.k1groups.in 
+</div>
+
+</div>
+{% endblock %}

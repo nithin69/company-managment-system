@@ -1,0 +1,48 @@
+{% extends "base2.html" %}
+
+{% block title %} Loan Types {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/loan_types_add/" role="button" class="btn btn-warning">Add</a>
+  <h3> Loan Types </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> LOAN TYPE</th>
+         <th> DESCRIPTION </th>
+          	  <th> ACTIONS </th>
+			
+          
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in loan_types %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.loan_type }} </td> 
+<td> {{ e.description }} </td>
+<td> <a href="/loan_types_edit/{{e.id}}/"><i class="fa fa-edit" title="edit"></i></a>&nbsp;&nbsp;&nbsp;
+<a href="/loan_types_delete/{{e.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a></td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

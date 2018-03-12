@@ -1,0 +1,50 @@
+{% extends "base2.html" %}
+
+{% block title %} discipline_compliance {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Discipline Compliance </h3>
+
+<a href="/discipline_add/" role="button" class="btn btn-warning">Add</a>
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> INITIATED BY</th>
+         <th> NAME & CODE </th>
+          <th> SUBJECT </th>
+        <th> COMPLIANCE </th>
+         <th> ACTIONS </th>
+         
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employees %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.initiated_by_id }} </td> 
+<td> {{ e.group_id }} </td>
+<td> {{ e.subject }} </td> 
+<td> {{ e.desctoption }} </td>
+<td> {{ e.post_applied_for }} </td> 
+<td> {{ e.phone }} </td>
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Patrolling {% endblock %}
+
+{% block content_title %}
+
+<div id="printId">
+
+
+
+<div style="float:right"><a href="javascript:void(0);" onclick="javascript:printDiv('printId')" class="btn btn-success pull-right"><i class="fa fa-print"></i> Print</a></div>
+
+Date: {{mobile_patrolling.date}}
+</br>
+</br>
+
+Patrolling Officer:{{mobile_patrolling.patrolling_person.firstname}} {{mobile_patrolling.patrolling_person.lastname}}
+({{mobile_patrolling.patrolling_person.employeno}})		
+	<table border="1">
+		<thead>
+			<tr>
+			<th>S.No</th>
+			<th>Patrolling Officer</th>
+			<th>Assignment Name</th>
+			<th>Supervisor</th> 
+			<th>Mobile</th>					   
+			<th>Date</th>
+			<th>1st call</th>
+			<th>2nd call</th>
+			<th>3rd call</th>
+			<th>4th call</th>
+			<th>5th call</th>
+			<th>6th call</th>
+			<th>7th call</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+								<tr>
+								<td>{{mobile_patrolling.id}}</td>
+								<td>{{mobile_patrolling.patrolling_person.firstname}} {{mobile_patrolling.patrolling_person.lastname}}
+({{mobile_patrolling.patrolling_person.employeno}})
+								
+								</td>
+								<td>{{mobile_patrolling.employeeid.firstname}} {{mobile_patrolling.employeeid.lastname}}
+({{mobile_patrolling.employeeid.employeno}})	</td>
+								<td>{{mobile_patrolling.clientid.client_name}}	</td>
+								<td>{{mobile_patrolling.mobile}}	</td>
+								<td>{{mobile_patrolling.date}}	</td>
+								<td> {{mobile_patrolling.time1}}<br/> {{mobile_patrolling.call_1}} </td>
+								<td> {{mobile_patrolling.time2}}<br/> {{mobile_patrolling.call_2}} </td>
+								<td> {{mobile_patrolling.time3}}<br/> {{mobile_patrolling.call_3}} </td>
+								<td> {{mobile_patrolling.time4}}<br/> {{mobile_patrolling.call_4}} </td>
+								<td> {{mobile_patrolling.time5}}<br/> {{mobile_patrolling.call_5}} </td>
+								<td> {{mobile_patrolling.time6}}<br/> {{mobile_patrolling.call_6}} </td>
+								<td> {{mobile_patrolling.time7}}<br/> {{mobile_patrolling.call_7}} </td>
+								
+							</tr>
+							
+		</tbody>
+	</table>
+	<p>Signature of Accounts Officer:-</p>
+	<p style="float:right">Signature of G.M.:-</p>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+        function printDiv(divID) {
+            //Get the HTML of div
+            var divElements = document.getElementById(divID).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+                "<html><head><title>Customer Feedback</title><style type='text/css'>.printhide { display:none; }</style></head><body><div style='width:20%;float:left;'><img width='200px' src='/static/images/k1.png' /></div><div style='width:58%;float:left; text-align:center;'><h3>K1 SECURITY SERVICES PVT. LTD.<br/>(AN ISO: 9001:2008 COMPANY)</h3><p style='text-align:center;'>Plot No.-268/269, Sarala Nagar, Cuttack Road, Bhubaneswar-751006, Orissa, India</p><span style='display:inline_block; padding:5px 10px; border:1px solid;font-weight:bold;'></span></div><div style='height:20px;clear:both;'></div>" + divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;
+
+          
+        }
+    </script>	
+
+
+{% endblock %}

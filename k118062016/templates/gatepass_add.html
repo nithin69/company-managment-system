@@ -1,0 +1,120 @@
+      {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} GatePass Employees Add {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/gatepass_employee/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your complaint has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="gatepass_form" method="post" action="."
+              enctype="multipart/form-data">
+                    {% csrf_token %}
+		    {{gatepass_form.errors}}
+
+
+  <legend>   Please fill-in the below form to submit your Gatepass</legend>
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-12 control-label" for="selectbasic">Gatepass Employee Add:</label>
+  <div class="col-md-12">
+					<table class="table table-bordered table-responsive">
+					<tr>
+						<td colspan="4">
+						<table class="table">
+						<tr>
+						<td>Emp Name</td>
+						
+						<td>Designation</td>
+						<td>Department</td>
+						<td>Gate No.</td>
+						<td>GatePass No.</td>
+						</tr>
+						<tr>
+						<td>
+							<select class="chosen-select" name="emp_name_id" id="emp_name_id" required="">
+								<option value="">Select Employee</option>
+	{% for e in emp %}
+
+ <option value="{{ e.id}}">  {{ e.firstname}} {{ e.lastname}}</option>
+
+
+       {% endfor %}							
+								
+							
+									  							</select>
+						</td>
+						
+							
+							<td><input type="text" name="designation" class="form-control"></td>
+							<td><input type="text" name="department" class="form-control"></td>
+							<td><input type="text" name="gateno" class="form-control"></td>						
+							<td><input type="text" name="gatepass_no" class="form-control"></td>
+						
+						</tr>
+						</table>
+						</td>
+					</tr>
+					<tr>
+					<td>Out Date</td>
+								<td>
+									<div class="col-md-6 no-padding">
+									<input type="text" name="out_date">
+									
+									</div>
+								</td>
+								<td>Out Time</td>
+								<td>
+									
+									<input class="timepicker" type="text" name="out_time">
+								</td>
+					
+							</tr>
+					<tr>
+						
+						<td>Purpose</td>
+						<td colspan="3"><input type="text" name="purpose" class="form-control"></td>
+					</tr>
+					
+					<tr>
+					<td>Special Instruction (if any):</td>
+						<td colspan="3">
+						
+						<textarea type="text" name="splinstruction" class="form-control"></textarea>
+						</td>
+					</tr>	
+					<tr>
+						<td colspan="4" align="center"><input type="submit" name="Update" value="Update" class="btn btn-success"></td>
+					</tr>
+					</table>
+				</form>
+                                              
+                                              
+                         
+
+
+        {% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

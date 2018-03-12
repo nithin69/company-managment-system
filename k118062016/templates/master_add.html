@@ -1,0 +1,54 @@
+     {% extends 'base2.html' %}
+
+    {% load static %}
+    {% block title %} Add Master {% endblock %}
+{% block body_block %}
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+
+
+
+                <div class="row clearfix">
+                        <div class="col-md-12 column">
+<a href="/master_type/" role="button" class="btn btn-warning">Back</a>                                      
+         
+
+
+    <br />
+
+
+    {% if done %}
+        <p> Your Form has been forwaded to the respective authorities. Thank You</p>
+
+
+        {% else %}
+      
+            <!-- Display each form here -->
+
+
+  
+<form class="form-horizontal" id="master_form" method="post" action="."
+              enctype="multipart/form-data">
+	{% csrf_token %}  
+	{{master_form.errors}}
+
+
+								<table class="table table-bordered table-responsive">
+									<tr>
+										<td>Masters Name</td>
+										<td><input type="text" name="master_name" id="master_name" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>Descrption</td>
+										<td><input type="text" name="master_desc" id="master_desc" class="form-control"></td>
+									</tr>
+									<tr>
+										<td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-success"></td>
+									</tr>
+								</table>
+												</form>
+{% endif %}
+                     
+                                </div>
+                        </div>
+            
+{% endblock %}

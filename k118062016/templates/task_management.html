@@ -1,0 +1,64 @@
+{% extends "base2.html" %}
+
+{% block title %} Task Management {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+<a href="/task_add/" role="button" class="btn btn-warning">Add</a>
+
+  <h3>  Task Management </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> ASSIGNED DATE & TIME </th>
+         <th> PRIORITY </th>
+          <th> TASK </th>
+        <th> DESCRIPTION </th>
+         <th> ASSIGNED BY </th>
+          <th> ASSIGNED TO  </th>
+		  <th> STATUS </th>
+          <th> ACTIONS </th>
+		  </tr>
+    </thead>
+    <tbody>
+        
+{% for t in task %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ t.assigned_on }} - {{ t.assigned_time }} </td> 
+<td> {{ t.priority }} </td>
+<td> {{ t.task }} </td> 
+<td> {{ t.task_summery }} </td>
+<td> {{ t.assigned_by }} </td>
+<td> {{ t.assigned_to_id }} </td> 
+<td> {{ t.status }} </td>
+<td> <a href="/task_delete/{{t.id}}/"><i class="fa fa-trash-o" title="Delete"></i></a>&nbsp;&nbsp;&nbsp;
+
+<a href="/task_view/{{t.id}}/"><i class="fa fa-eye" title="View"></i></a>
+
+</td>
+
+
+
+
+          </td> 
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

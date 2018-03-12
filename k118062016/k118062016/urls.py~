@@ -1,0 +1,33 @@
+from django.conf.urls import *
+from django.contrib import admin
+from django.conf import settings
+from myproject import views, models
+#from material.frontend import urls as frontend_urls
+import notifications.urls
+from ajax_select import urls as ajax_select_urls
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'k118062016.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    #url(r'', include(frontend_urls)),
+    #url(r'^grappelli/', include('grappelli.urls')),
+    #url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^tracking/', include('tracking.urls')),
+    url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    #url(r'^chat/', include('chatrooms.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('myproject.urls')),
+    #url(r'^biodata/$', views.my_view, name='my_view'),
+    #url(r'^advsearch/$', views.advsearch, name='advsearch'),
+    url(r'^ajax_select/', include(ajax_select_urls)),
+    url(r'^media/(?P<path>.*)/$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+        urlpatterns += patterns(
+                'django.views.static',
+                (r'media/(?P<path>.*)/',
+                'serve',
+                {'document_root': settings.MEDIA_ROOT}), )

@@ -1,0 +1,101 @@
+{% extends "base2.html" %}
+
+{% block title %} Employee Movement {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3> Employee Movement </h3>
+
+
+    <table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> CLIENT </th>
+         <th> W/O NO. </th>
+          <th> ORDER DATE & TIME </th>
+        <th> FROM DATE</th>
+		 <th> TO DATE</th>
+          </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employee_movement %}      
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.client_name}} </td>
+<td> {{ e.work_order_no }} </td>
+<td> {{ e.date_time}} </td> 
+<td> {{ e.date}} </td>
+<td> {{ e.todate }} </td> 
+
+
+ 
+<table class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> EMPLOYEE </th>
+        <th> DESIGNATION</th>
+         <th> STATUS</th>
+          <th> JOB STATUS</th>
+		  <th> FROM DATE</th>
+         <th> TO DATE </th>
+          <th>ACTIONS</th>
+          </tr>
+    </thead>
+    <tbody>
+        
+{% for e in client %}    
+
+
+
+<tr> 
+<td>{{ e.employeno }} {{ e.firstname }} {{ e.lastname }} </td> 
+<td> {{ e.designation }} </td> 
+<td> {{ e.emp_status }} </td>
+<td> {{ e.job_status }} </td> 
+<td> {{ e.from_date }} </td> 
+<td> {{ e.to_date}} </td>
+<td> <button data-toggle="modal" data-target="#issued7112" class="btn btn-small btn-danger" title="Issued Items"> <i class="fa fa-stop"></i> Stop </button>&nbsp;&nbsp;
+
+<a href="" onclick="return delete1();"><i title="Delete" class="fa fa-trash-o"></i></a>
+
+ </td>
+ 
+
+
+
+<td> <button data-toggle="modal" data-target="#editmem20" class="btn btn-small btn-info" title="Date"><i class="fa fa-pencil"></i> Edit</button>
+        &nbsp; &nbsp;
+		
+		<a href="#">
+          <i class="fa fa-trash-o"></i>
+        </a> 
+		
+		
+
+		
+
+
+		</td>
+
+
+          
+
+
+</tr> 
+</table>
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base2.html" %}
+
+{% block title %} manage_employee {% endblock %}
+
+{% block body_block %}
+<div class="hero-unit">
+
+
+  <h3>  Manage Employee </h3>
+
+
+    <table id="myTable" class="table table-hover table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th> S.NO </th>
+        <th> DATE OF JOINING </th>
+         <th> CODE </th>
+          <th> NAME </th>
+        <th> DEPARTMENT </th>
+         <th> LOCATION </th>
+          <th> DESIGNATION  </th>
+        <th> ISSUED ITEMS </th>
+         <th> ACTIONS </th>
+		 <th> STATUS </th>
+      </tr>
+    </thead>
+    <tbody>
+        
+{% for e in employee %}
+
+
+
+<tr> 
+<td> {{forloop.counter}} </td> 
+<td> {{ e.joining_date }} </td> 
+<td> {{ e.employeno }} </td>
+<td> {{ e.firstname }} {{ e.middlename }} {{ e.lastname }} </td> 
+<td> {{ e.department }} </td>
+<td> {{ e.location }} </td> 
+<td> {{ e.designation }} </td>
+
+<td> <a target="_blank" class="btn btn-primary btn-small" href=""><i class="fa fa-eye" title="Print Preview"></i> View</a></td>
+<td> <a href="#">  
+          <i class="fa fa-edit"></i>
+        </a>  
+        &nbsp; &nbsp;
+
+		<a href="/employee_delete/{{e.id}}/">
+          <i class="fa fa-trash-o"></i>
+        </a>  &nbsp; &nbsp;
+
+
+		<a href="/employee_view/{{e.id}}/">
+          <i class="fa fa-eye"></i>
+        </a>  &nbsp; &nbsp;
+		<a href="" target="_blank" title="Police Verification" class="btn btn-success btn-small">PV</a>
+
+
+		</td>
+<td> <button data-toggle="modal" data-target="#changepassword5448" class="btn btn-small btn-info" title="Change Password"><i class="fa fa-lock"></i></button>
+
+<button data-toggle="modal" data-target="#myModal5448" class="btn btn-small btn-primary" title="Active"> Active </button>
+ </td>
+
+          </td> 
+
+
+</tr> 
+
+
+{% endfor %}
+
+</table>
+
+
+
+</div>
+{% endblock %}

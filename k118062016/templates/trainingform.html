@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+ {% load static %}
+
+  
+{% block title %}Training Form{% endblock %}
+
+{% block content_title %}
+<div class="hero-unit">
+<form id="tfnewsearch" method="get" action="/trainingreport/">
+
+<select class="chosen-select" name="q" id="biodata_id" required="">
+								<option value="">Select Employees</option>
+	{% for e in training %}
+
+ <option value="{{ e.biodata_id_id}}">{{ e.biodata_id_id}}</option>
+
+
+       {% endfor %}							
+			
+					
+							
+</select>
+
+
+<input type="submit" value="search" class="tfbutton">
+
+</div>
+    
+{% endblock %}
